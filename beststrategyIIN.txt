@@ -1,0 +1,149 @@
+# Best strategy for each instance considering Scenario II - Normal Distribution:
+# File for "ManneWarmStart.txt"
+# Fernanda de Freitas Alves
+# ----------------------------------------------------------------------------------
+
+let beststrategy[1,1]:= 1;
+let beststrategy[1,14]:= 1;
+let beststrategy[1,15]:= 1;
+let beststrategy[1,20]:= 1;
+let beststrategy[1,34]:= 1;
+let beststrategy[1,45]:= 4;
+let beststrategy[1,53]:= 4;
+let beststrategy[1,58]:= 4;
+let beststrategy[1,61]:= 5;
+let beststrategy[1,64]:= 4;
+let beststrategy[1,65]:= 1;
+let beststrategy[1,66]:= 5;
+let beststrategy[1,80]:= 1;
+let beststrategy[1,81]:= 5;
+let beststrategy[1,90]:= 1;
+
+let beststrategy[2,1]:= 4;
+let beststrategy[2,2]:= 2;
+let beststrategy[2,4]:= 5;
+let beststrategy[2,6]:= 1;
+let beststrategy[2,7]:= 5;
+let beststrategy[2,11]:= 4;
+let beststrategy[2,14]:= 1;
+let beststrategy[2,15]:= 5;
+let beststrategy[2,16]:= 4;
+let beststrategy[2,20]:= 5;
+let beststrategy[2,22]:= 1;
+let beststrategy[2,25]:= 4;
+let beststrategy[2,28]:= 1;
+let beststrategy[2,30]:= 4;
+let beststrategy[2,31]:= 4;
+
+let beststrategy[3,2]:= 4;
+let beststrategy[3,3]:= 1;
+let beststrategy[3,4]:= 4;
+let beststrategy[3,5]:= 4;
+let beststrategy[3,6]:= 6;
+let beststrategy[3,7]:= 1;
+let beststrategy[3,8]:= 6;
+let beststrategy[3,9]:= 1;
+let beststrategy[3,13]:= 5;
+let beststrategy[3,14]:= 6;
+let beststrategy[3,16]:= 6;
+let beststrategy[3,17]:= 4;
+let beststrategy[3,18]:= 1;
+let beststrategy[3,19]:= 4;
+let beststrategy[3,20]:= 1;
+
+let beststrategy[4,1]:= 6;
+let beststrategy[4,3]:= 4;
+let beststrategy[4,4]:= 1;
+let beststrategy[4,6]:= 4;
+let beststrategy[4,7]:= 1;
+let beststrategy[4,8]:= 4;
+let beststrategy[4,9]:= 4;
+let beststrategy[4,11]:= 4;
+let beststrategy[4,12]:= 6;
+let beststrategy[4,15]:= 1;
+let beststrategy[4,16]:= 4;
+let beststrategy[4,17]:= 4;
+let beststrategy[4,18]:= 4;
+let beststrategy[4,19]:= 5;
+let beststrategy[4,20]:= 4;
+
+let beststrategy[5,1]:= 4;
+let beststrategy[5,2]:= 4;
+let beststrategy[5,3]:= 4;
+let beststrategy[5,4]:= 6;
+let beststrategy[5,5]:= 4;
+let beststrategy[5,6]:= 6;
+let beststrategy[5,7]:= 4;
+let beststrategy[5,8]:= 1;
+let beststrategy[5,9]:= 4;
+let beststrategy[5,10]:= 4;
+let beststrategy[5,11]:= 2;
+let beststrategy[5,12]:= 4;
+let beststrategy[5,13]:= 6;
+let beststrategy[5,16]:= 6;
+let beststrategy[5,17]:= 4;
+
+let beststrategy[6,1]:= 4;
+let beststrategy[6,2]:= 4;
+let beststrategy[6,3]:= 4;
+let beststrategy[6,4]:= 4;
+let beststrategy[6,5]:= 4;
+let beststrategy[6,6]:= 5;
+let beststrategy[6,7]:= 4;
+let beststrategy[6,8]:= 6;
+let beststrategy[6,9]:= 6;
+let beststrategy[6,10]:= 1;
+let beststrategy[6,11]:= 4;
+let beststrategy[6,12]:= 6;
+let beststrategy[6,13]:= 4;
+let beststrategy[6,14]:= 1;
+let beststrategy[6,15]:= 5;
+
+let beststrategy[7,1]:= 4;
+let beststrategy[7,2]:= 4;
+let beststrategy[7,4]:= 4;
+let beststrategy[7,5]:= 6;
+let beststrategy[7,6]:= 4;
+let beststrategy[7,7]:= 6;
+let beststrategy[7,8]:= 6;
+let beststrategy[7,9]:= 6;
+let beststrategy[7,10]:= 4;
+let beststrategy[7,11]:= 4;
+let beststrategy[7,12]:= 4;
+let beststrategy[7,13]:= 1;
+let beststrategy[7,14]:= 4;
+let beststrategy[7,15]:= 4;
+let beststrategy[7,16]:= 4;
+
+let beststrategy[8,1]:= 6;
+let beststrategy[8,2]:= 6;
+let beststrategy[8,3]:= 6;
+let beststrategy[8,4]:= 4;
+let beststrategy[8,5]:= 4;
+let beststrategy[8,6]:= 4;
+let beststrategy[8,7]:= 4;
+let beststrategy[8,8]:= 6;
+let beststrategy[8,9]:= 6;
+let beststrategy[8,10]:= 4;
+let beststrategy[8,11]:= 4;
+let beststrategy[8,12]:= 6;
+let beststrategy[8,13]:= 6;
+let beststrategy[8,14]:= 6;
+let beststrategy[8,15]:= 6;
+
+let beststrategy[9,1]:= 6;
+let beststrategy[9,2]:= 6;
+let beststrategy[9,3]:= 6;
+let beststrategy[9,4]:= 6;
+let beststrategy[9,5]:= 6;
+let beststrategy[9,6]:= 5;
+let beststrategy[9,7]:= 6;
+let beststrategy[9,8]:= 6;
+let beststrategy[9,9]:= 6;
+let beststrategy[9,10]:= 6;
+let beststrategy[9,11]:= 6;
+let beststrategy[9,12]:= 6;
+let beststrategy[9,13]:= 6;
+let beststrategy[9,14]:= 6;
+let beststrategy[9,15]:= 4;
+

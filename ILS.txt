@@ -1,0 +1,113 @@
+# ITERATED LOCAL SEARCH
+# ---------------------------------------------------------------------------------------------------
+
+for{i in 1..contador}{
+	for{j in 1..contador}{
+		let MKS_BL[i,j]:= 0;
+	}
+}
+
+# Initial sequence (s_0) randomly
+
+let Cjs:= Conj;
+for {i in 1..contador}{
+	let s_0[i] := member(ceil(Uniform(0, card(Conj))), Conj);
+	let Conj := Conj diff {s_0[i]};
+}
+
+# Local Search (s_0)
+
+let {i in 1..contador} pos[i]:= s_0[i]; 
+let novo_makespan:= sum{i in 1..contador-1} setup[pos[i],pos[i+1]] + sum{j in Cjs} (p[j]*q[j,tt]);
+
+commands Local_Search.txt;
+
+let MKS_0:= novo_makespan; 
+let {i in 1..contador} Seq[i]:= pos[i]; 
+
+if (contador > 2) then{
+	for{i in Cjs}{
+		let Cjs:= Cjs diff {i};
+	}
+	for{i in 1..contador}{
+		let Cjs:= Cjs union {pos[i]};
+	}
+	let CjsII:= Cjs;
+	
+	# Perturbation
+
+	let CONT:= 0;
+	let CONT2:= 0;
+	let ITER:= 0;
+
+	for{i in 1..contador}{
+		let POS:= POS union {i};
+	}
+
+	for {i in 1..contador}{
+		let AUX[i] := member(ceil(Uniform(0, card(Cjs))), Cjs);
+		let POSICAO[i] := member(ceil(Uniform(0, card(POS))), POS);
+		let Cjs := Cjs diff {AUX[i]};
+		let POS:= POS diff {POSICAO[i]};
+	}
+		
+	let Cjs:= CjsII;
+	let auxiliar:= 0;
+	
+	repeat{
+		let CONT:= auxiliar + 1;
+		let CONT2:= CONT2 + 1;
+		let ITER:= ITER + 1;
+		let aux:= AUX[CONT];
+		let posicao:= POSICAO[CONT2];
+
+		let b:= pos[posicao]; 
+		for{i in 1..contador}{
+			if (pos[i] == aux) then{
+				let aux2:= i;
+			}
+		}
+		let pos[posicao]:= aux;
+		let pos[aux2]:= b;
+			
+		let novo_makespan:= sum{i in 1..contador-1} setup[pos[i],pos[i+1]] + sum{j in Cjs} (p[j]*q[j,tt]);
+		
+		# Local Search for the new sequence
+		commands Local_Search.txt;		
+
+		let MKS_BL[CONT,CONT2]:= novo_makespan;
+		let {i in 1..contador} SEQ[i,CONT,CONT2]:= pos[i];
+	
+		if (CONT2 == contador) then{
+			let auxiliar:= auxiliar + 1;
+			for{i in 1..contador}{
+				let POS:= POS union {i};
+			}
+
+			let CONT2:= 0;
+
+			for {i in 1..contador}{
+				let POSICAO[i] := member(ceil(Uniform(0, card(POS))), POS);
+				let POS:= POS diff {POSICAO[i]};
+			}
+		}
+	} while(ITER < contador*contador);
+
+	for{i in 1..contador}{
+		for{j in 1..contador}{
+			if (MKS_BL[i,j] == min{k in 1..contador, kk in 1..contador: MKS_BL[k,kk] != 0} MKS_BL[k,kk]) then{
+				let aux3:= i;
+				let aux4:= j;
+			}	
+		}	
+	}
+	
+	if (MKS_BL[aux3,aux4] <= MKS_0) then{
+		let novo_makespan:= MKS_BL[aux3,aux4];
+		let {i in 1..contador} pos[i]:= SEQ[i,aux3,aux4]; 
+	} else{
+		let novo_makespan:= MKS_0;
+		let {i in 1..contador} pos[i]:= Seq[i];
+	}
+}
+

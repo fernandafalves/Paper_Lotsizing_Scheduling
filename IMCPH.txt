@@ -1,0 +1,282 @@
+# Integrated mixed integer linear programming Model with Continuous Planning Horizon (IMCPH)
+# Fernanda de Freitas Alves
+#############################################################################################
+
+option eexit -100000;
+option display_precision 6;
+option auxfiles rca;
+option solver cplexamp;
+option omit_zero_rows 1;
+option cplex_options 'return_mipgap 3 timelimit=900 clocktype=1 threads 1 integrality 3e-20';
+suffix absmipgap OUT;
+suffix relmipgap OUT;
+option relax_integrality 0;
+option presolve 0;
+
+param tf:= 4;
+param n;
+set J:= 1..n;
+set T:= 0..tf;
+set Inv:= 1..10;
+set C {Inv} default {};
+
+# Uniform Distribution - Scenario 1
+
+let C[1]:= {1,3,4,5,7,12,13,15,16,17,18,19,21,23,24};
+let C[2]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[3]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[4]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[5]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[6]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[7]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[8]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[9]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+
+
+param class;
+param val;
+param p{i in J};
+param H{i in J};
+param B{i in J};
+param setup{i in J, j in J};
+param Sm{j in J};
+param Makespan{h in 1..tf};
+param Tempo{h in 1..tf};
+param D{i in J, h in T};
+param M;
+param aux{h in 1..tf};
+param Cj {i in 1..10};
+param tt;
+let tt:= 0;
+param sumFO;
+param sumBackorder;
+let sumBackorder:= 0;
+let sumFO:= 0;
+param variacao;
+let variacao:= 0;
+param tempo{g in 0..100000};
+let tempo[0]:= 0;
+param tempoII{g in 0..100000};
+let tempoII[0]:= 0;
+param cont;
+
+# Parameters for capacity extension
+param Kanterior;
+param KANTERIOR;
+param FO;
+param cont2;
+let cont2:= 0;
+param gamma;
+param alfa:= 0.07;
+param K{t in 1..(tf+1)};
+let {t in 1..(tf+1)} K[t]:= 112;
+param FO1;
+param FO2;
+param capinicial;
+let capinicial:= 112;
+param AUX1{j in J, t in T};
+param AUX2{j in J, t in T};
+param AUX3{j in J, t in T};
+param AUX4{j in J, t in T};
+param AUX5{j in J};
+let gamma:= 0;
+
+let Cj[1]:= 4;
+let Cj[2]:= 6;
+let Cj[3]:= 8;
+let Cj[4]:= 10;
+let Cj[5]:= 12;
+let Cj[6]:= 15;
+let Cj[7]:= 20;
+let Cj[8]:= 50;
+let Cj[9]:= 100;
+
+var r{i in J}, >=0, integer;
+var I{j in J, t in T}, >=0, integer;
+var Ineg{j in J, t in T}, >=0, integer;
+var q{j in J, t in 1..tf}, >=0, integer;
+var w{j in J, t in 1..tf}, binary;
+var y{i in J, j in J:i<>j}, binary;
+
+minimize A: sum{j in J, h in T}(H[j]*I[j,h] + B[j]*Ineg[j,h]);
+
+s.t. rest1{j in J, h in tt..tf}: I[j,h] = I[j,h-1] + q[j,h] - D[j,h] + Ineg[j,h] - Ineg[j,h-1];
+
+s.t. rest2{h in (tt+1)..tf}: sum{j in 1..n-1}w[j,h]*Sm[j] + sum{j in J}q[j,h]*p[j] <= K[h];
+
+s.t. rest3{j in J, h in (tt)..tf}: (p[j]*q[j,h])/K[h] <= w[j,h];
+
+s.t. rest4{i in J,j in J, t in tt..tt: i<>j}: r[j] >= r[i] + setup[i,j]*w[i,t] + p[i]*q[i,t] - M*(1-y[i,j]);
+
+s.t. rest5{i in J,j in J: i<>j}: y[i,j] + y[j,i]=1;
+
+s.t. rest6{j in J, t in tt..tt}: r[j] +  p[j]*q[j,t] <= K[t]*w[j,t];
+
+s.t. rest7{j in J, h in (tt)..tf}: w[j,h] <= q[j,h];
+
+s.t. Ifix{i in J}: I[i,0] = 0;
+
+s.t. Inegfix{i in J}: Ineg[i,0] = 0;
+
+let val:= 1;
+repeat while val <= 9{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+	let class:=1;
+	repeat while class <= 1{
+		let n:= Cj[val];
+		for{v in C[val]}{
+			let variacao:= variacao + 1;
+			
+			for{i in 1..n}{
+				read H[i] < ("./DataIU/h"& class & n & v &".txt");
+				read B[i] < ("./DataIU/B"& class & n & v &".txt");
+				read p[i] < ("./DataIU/p"& class & n & v &".txt");
+				for{j in 1..n}{
+					read setup[i,j] < ("./DataIU/setup"& class & n & v &".txt");
+				}
+				for{h in 1..tf}{
+					read D[i,h] < ("./DataIU/D"& class & n & v &".txt");
+				}
+			}
+			
+			let {j in J}Sm[j]:= min{i in J: i!=j} setup[j,i]; 
+					
+			repeat{
+				let tt:= tt + 1; 
+				let M:= trunc(sum{j in J} p[j]*D[j,tt] + sum{j in J} max{i in J} (setup[i,j]),1);
+				let cont:= 0;
+				let Makespan[tt]:= 0;
+				let FO2:= 0; 
+				let gamma:= 0;
+				
+				repeat{
+					let FO1:= FO2;
+					let {j in J, t in 1..tf} AUX1[j,t]:= I[j,t];
+					let {j in J, t in 1..tf} AUX2[j,t]:= Ineg[j,t];
+					let {j in J, t in 1..tf} AUX3[j,t]:= w[j,t];
+					let {j in J, t in 1..tf} AUX4[j,t]:= q[j,t];
+					let {j in J} AUX5[j]:= r[j];
+			
+					if (tt < tf) then{ 
+						objective A;
+						restore rest1; restore rest2; restore rest3; restore rest4; restore rest5; restore rest6; restore rest7; restore Ifix; restore Inegfix;
+						solve;
+					} else{
+						objective A;
+						drop rest2; 
+						restore rest1; restore rest3; restore rest4; restore rest5; restore rest6; restore rest7; restore Ifix; restore Inegfix;
+						solve;		
+					}
+					
+					let FO:= sum{j in J, t in T} (H[j]*I[j,t] + B[j]*Ineg[j,t]);
+					let FO2:= FO;
+
+					if((FO2 - FO1) >= 0  && Makespan[tt] <= (K[tt] + 0.05) && gamma != 0) then{
+						let FO:= FO1;
+						let {j in J, t in 1..tf} I[j,t]:= AUX1[j,t];
+						let {j in J, t in 1..tf} Ineg[j,t]:= AUX2[j,t];
+						let {j in J, t in 1..tf} w[j,t]:= AUX3[j,t];
+						let {j in J, t in 1..tf} q[j,t]:= AUX4[j,t];
+						let {j in J} r[j]:= AUX5[j];
+						let K[tt+1]:= KANTERIOR;
+						let K[tt]:= Kanterior;
+						break;
+					}
+					 			
+					for {j in J}{
+						let Tempo[tt]:= r[j];
+						if (Tempo[tt] == max{i in J}r[i] && w[j,tt]==1) then{
+							let aux[tt]:= j;
+							let cont:= 1;
+						}
+					}
+									
+					if (cont == 0) then{
+						let Makespan[tt]:= 0;
+					} else{
+						let Makespan[tt]:=  r[aux[tt]] + p[aux[tt]]*q[aux[tt],tt];
+					}		
+
+					if (FO2 < FO1 && Makespan[tt] <= (K[tt] + 0.05) && gamma != 0) then{
+						break;
+					}
+									
+					let gamma:= 0;
+                    let cont2:= 0;
+
+					# Capacity extension
+					if (Makespan[tt] < K[tt]) then{
+						let gamma:= K[tt] - Makespan[tt];
+					
+						if (gamma > 0.05 && gamma <= (alfa*capinicial)) then{
+							if (tt < tf) then{
+								let Kanterior:= K[tt];
+								let KANTERIOR:= K[tt+1];
+								let K[tt+1]:= capinicial + gamma;
+								let K[tt]:= Kanterior - gamma;
+								let cont2:= 1; 						
+							} else{
+								break;
+							}
+						} else{
+							if (gamma > 0.05 && gamma > (alfa*capinicial)) then{
+								if (tt < tf) then{
+									let Kanterior:= K[tt];
+									let KANTERIOR:= K[tt+1];
+									let K[tt+1]:= capinicial + (alfa*capinicial); 
+									let K[tt]:= Kanterior - alfa*capinicial;
+									let cont2:= 1; 
+								} else{
+									break;
+								}
+							} else{
+								break;
+							}
+						}
+					}
+				} while (cont2 != 0);
+				
+				let sumFO:= sumFO + sum{j in J, t in tt..tt}(H[j]*I[j,t] + B[j]*Ineg[j,t]);	
+				let sumBackorder:= sumBackorder + sum{j in J, t in tt..tt}(B[j]*Ineg[j,t]);
+								
+				# Fix the rolling horizon variables
+				for{j in J}{
+					for{t in 1..tt}{
+						fix I[j,t]:= I[j,t];
+						fix Ineg[j,t]:= Ineg[j,t];
+						fix q[j,t]:= q[j,t];
+						fix w[j,t]:= w[j,t];
+					}
+				}
+			}while (tt < tf);	
+			
+			close ("./DataIU/h"& class & n & v &".txt");
+			close ("./DataIU/B"& class & n & v &".txt");
+			close ("./DataIU/D"& class & n & v &".txt");
+			close ("./DataIU/p"& class & n & v &".txt");
+			close ("./DataIU/setup"& class & n & v &".txt");		
+	
+			let tempo[variacao]:= _ampl_time + _total_solve_time - sum{i in 0..variacao-1} tempo[i];
+			let tempoII[variacao]:= _total_solve_time - sum{i in 0..variacao-1} tempoII[i];
+
+			printf "%4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f  \n", class, n, v, sumFO, sumBackorder, tempo[variacao], tempoII[variacao] >> ResultManneIU.txt;	
+						
+			for {t in 1..tf}{
+				printf "Makespan: " >> ResultManneIU.txt;
+				printf "%4.2f\n", Makespan[t] >> ResultManneIU.txt;
+			}
+			printf "\n" >> ResultManneIU.txt;
+			
+			unfix I; unfix Ineg; unfix q; unfix w;
+			restore rest2;	
+			
+			let tt:= 0; let sumFO:= 0; let sumBackorder:= 0; 
+			let {t in 1..(tf+1)} K[t]:= 112; let FO1:= 0; let FO2:= 0; let Kanterior:= 112; let FO:= 0;
+			reset data p, setup, D, M, Sm, w, I, Ineg, q, r, AUX1, AUX2, AUX3, AUX4, AUX5, Makespan;
+		}
+		let class:= class + 1;
+	}
+	let val:= val + 1;
+}
+
+
+

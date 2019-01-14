@@ -1,0 +1,2061 @@
+# Integrated mixed integer linear programming Model with Continuous Planning Horizon with the Warm-Start technique (IMCPH - WS)
+# Fernanda de Freitas Alves
+#################################################################################################################################
+
+option eexit -100000;
+option display_precision 6;
+option auxfiles rca;
+option solver cplexamp;
+option omit_zero_rows 1;
+option cplex_options 'return_mipgap 3 timelimit=900 clocktype=1 threads 1 mipstartvalue=1 integrality 3e-20';
+option presolve 0;
+option reset_initial_guesses 0;
+suffix absmipgap OUT;
+suffix relmipgap OUT;
+option relax_integrality 0;
+option randseed 1000;
+
+param tf:= 4;
+param n;
+set J:= 1..n;
+set T:= 0..tf;
+set Inv:= 1..10;
+set C {Inv} default {};
+
+set Conj ordered default {};    
+set L1 default {};              
+set L2 default {};              
+set Cjs ordered default {};     
+set ConjuntoI default {};
+set ConjII default {};          
+set Inutilizados default {};
+set CjsII ordered default {};   
+set CJSIIanterior ordered default {};   
+set POS ordered default {};     
+
+set S:= 1..1000;
+set II:= 1..n;
+set CjsI default {};
+
+set Conjunto {S} within II default {};          
+
+# For ISIII:
+set III:= 0..n;
+set CJSII {S} within II default {};             
+set CJS {S} within II default {};               
+set Posicao {S} within II default {};           
+set ConjuntoII {S} within III default {};       
+
+param counterI;
+param counter{l in 1..counterI+1};
+param SS{l in 1..counterI+1};
+let counterI:= 0;
+let counter[1]:= 0;
+param ll;
+param SOMA; 
+let SOMA:= 0;
+param khi{j in J, l in 1..counterI+1}; 
+
+# Uniform Distribution - Scenario 1
+
+let C[1]:= {1,3,4,5,7,12,13,15,16,17,18,19,21,23,24};
+let C[2]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[3]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[4]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[5]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[6]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[7]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[8]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[9]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+
+
+param p{i in J};
+param K{h in 1..tf+1};
+param H{i in J};
+param B{i in J};
+param setup{i in J, j in J};
+param Sm{j in J};
+param Makespan{h in 1..tf};
+param Tempo{h in 1..tf};
+param D{i in J, h in T};
+param M;
+param auxII{h in 1..tf};
+param Cj {i in 1..10};
+param tt;
+let tt:= 0;
+param sumFO;
+param sumBackorder;
+let sumBackorder:= 0;
+let sumFO:= 0;
+param variacao;
+let variacao:= 0;
+param tempo{g in 0..1000};
+let tempo[0]:= 0;
+param tempoII{g in 0..1000};
+let tempoII[0]:= 0;
+param cont2;
+param ITERtotal;
+param ITERTOTAL{h in 1..tf};
+param novo_makespan;
+
+param contador2;
+param pos2{c in 1..contador2};
+param Bmin{j in J};
+param makespananterior;
+let makespananterior:= 0;
+param Kanterior;
+param KANTERIOR;
+param auxI;
+param FO;
+param delta;
+param sequencia {i in 1..counter[auxI]};
+
+param cont4;
+let cont4:= 0;
+param contgamma;
+let contgamma:= 0;
+param varsetup;
+param gamma;
+param alfaI:= 0.07; 
+let {h in 1..(tf+1)} K[h]:= 112;
+param FO1;
+param FO2;
+param pi;
+param capinicial;
+let capinicial:= 112;
+param AUX1{j in J, t in T};
+param AUX2{j in J, t in T};
+param AUX3{j in J, t in T};
+param AUX4{j in J, t in T};
+param aux5; let aux5:= 0;
+param ext;
+let ext:= 0;
+param contII; let contII:= 0;
+param contIII; let contIII:= 0;
+param contIV; let contIV:= 0;
+param contador3;
+param cont3;
+
+param KK{l in S};
+param contador;
+param cont;
+param AUXILIAR{j in J, t in 1..tf};
+param AUXILIAR2{j in J, t in 1..tf};
+param pos{c in 1..contador2};
+param f default 1;
+param makespan;
+param NOVO_MAKESPAN{l in S};
+param MKS;
+let MKS:= 0;
+param somasetup{l in S};
+param b;
+param m;
+param u; let u:= 0;
+param total;
+let total:= 0;
+let contador:= 0;
+
+# Parameters for ILS
+param ITER;
+let ITER:= 0;
+param s_0{i in 1..contador};
+param aux; param posicao;
+param aux2;
+param MKS_0;
+param MKS_BL{i in 1..contador, j in 1..contador};
+param Seq{i in 1..contador};
+param AUX{i in 1..contador};
+param POSICAO{i in 1..contador};
+param CONT; param CONT2;
+param SEQ{i in 1..contador, j in 1..contador, k in 1..contador};
+param aux3; param aux4; param auxiliar;
+param auxiliar2;
+
+param DELTA;
+param p0; let p0:= 0;
+param p1; let p1:= 0;
+param p2; let p2:= 0;
+param quant;
+param Job;
+param Cap{t in 1..(tf+1)};
+
+let Cj[1]:= 4;
+let Cj[2]:= 6;
+let Cj[3]:= 8;
+let Cj[4]:= 10;
+let Cj[5]:= 12;
+let Cj[6]:= 15;
+let Cj[7]:= 20;
+let Cj[8]:= 50;
+let Cj[9]:= 100;
+
+param beststrategy {i in 1..10, j in C[i]};
+commands beststrategyIU.txt;
+
+param r_aux{i in J};
+param yy_aux{i in J, j in J:i<>j};
+
+var r{i in J}, >=0;
+var yy{i in J, j in J:i<>j}, binary;
+var I{j in J, t in T}, >=0, integer;
+var Ineg{j in J, t in T}, >=0, integer;
+var q{j in J, t in 1..tf}, >=0, integer;
+var w{j in J, t in 1..tf}, binary;
+
+var E{j in J, t in T}, >=0, integer;
+var Eneg{j in J, t in T}, >=0, integer;
+var x{j in J, t in 1..tf}, >=0, integer;
+var y{j in J, t in 1..tf}, binary;
+var x1{j in J, l in 1..counterI+1}, >=0, integer;
+var alfa{l in 1..counterI+1}, binary;
+
+var Z{i in 0..n, j in 0..n: i<>j}, binary;
+var seq{i in J, l in 1..counterI+1}, integer,>=1,<=n;
+
+# Manne formulation
+#------------------------------------------------------------------------------------------------------------------
+
+redeclare minimize Manne: sum{j in J, h in T}(H[j]*I[j,h] + B[j]*Ineg[j,h]);
+
+redeclare s.t. rest1{j in J, h in tt..tf}: I[j,h] = I[j,h-1] + q[j,h] - D[j,h] + Ineg[j,h] - Ineg[j,h-1];
+
+redeclare s.t. rest2{h in (tt+1)..tf}: sum{j in 1..n-1}w[j,h]*Sm[j] + sum{j in J}q[j,h]*p[j] <= K[h];
+
+redeclare s.t. rest3{j in J, h in (tt)..tf}: (p[j]*q[j,h])/K[h] <= w[j,h];
+
+redeclare s.t. rest4{i in J,j in J, t in tt..tt: i<>j}: r[j] >= r[i] + setup[i,j]*w[i,t] + p[i]*q[i,t] - M*(1-yy[i,j]);
+
+redeclare s.t. rest5{i in J,j in J: i<>j}: yy[i,j] + yy[j,i]=1;
+
+redeclare s.t. rest6{j in J, t in tt..tt}: r[j] +  p[j]*q[j,t] <= K[t]*w[j,t];
+
+redeclare s.t. rest7{j in J, h in (tt)..tf}: w[j,h] <= q[j,h];
+
+redeclare s.t. Ifix{i in J}: I[i,0] = 0;
+
+redeclare s.t. Inegfix{i in J}: Ineg[i,0] = 0;
+
+# Lot-sizing problem
+#------------------------------------------------------------------------------------------------------------------
+
+redeclare minimize A: sum{j in J, h in T} (H[j]*I[j,h] + B[j]*Ineg[j,h]);
+
+redeclare s.t. r1{j in J, h in tt..tf}: I[j,h] = I[j,h-1] + q[j,h] - D[j,h] + Ineg[j,h] - Ineg[j,h-1];
+
+redeclare s.t. r2{h in tt..tf}: sum{j in 1..n-1}w[j,h]*Sm[j] + sum{j in J}q[j,h]*p[j] <= K[h];
+
+redeclare s.t. r3{h in tt..tf, j in J}: (q[j,h]*p[j])/K[h] <= w[j,h];
+
+redeclare s.t. r4{h in tt..tf, j in J}: w[j,h] <= q[j,h];
+
+redeclare s.t. r5{i in J}: I[i,0] = 0;
+
+redeclare s.t. r6{i in J}: Ineg[i,0] = 0;
+
+
+# Lot-sizing with cuts
+#------------------------------------------------------------------------------------------------------------------
+
+redeclare minimize A1: sum{j in J, h in T} (H[j]*E[j,h] + B[j]*Eneg[j,h]);
+
+redeclare s.t. Rest1{j in J, h in tt..tf}: E[j,h] = E[j,h-1] + x[j,h] - D[j,h] + Eneg[j,h] - Eneg[j,h-1];
+
+redeclare s.t. Rest2{h in tt..tf}: sum{j in 1..n-1}y[j,h]*Sm[j] + sum{j in J}x[j,h]*p[j] <= K[h];
+
+redeclare s.t. Rest3{h in tt..tf, j in J}: (x[j,h]*p[j])/K[h] <= y[j,h];
+
+redeclare s.t. Rest4{h in tt..tf, j in J}: y[j,h] <= x[j,h];
+
+redeclare s.t. corte{h in tt..tf}: sum{j in 1..n-1}y[j,h]*Sm[j] + sum{j in J}x[j,h]*p[j] <= Cap[h];
+
+redeclare s.t. Ifix2{i in J}: E[i,0] = 0;
+
+redeclare s.t. Inegfix2{i in J}: Eneg[i,0] = 0;
+
+redeclare s.t. corteISII{l in 1..total, t in tt..tt}: sum{i in Conjunto[l]} y[i,t] <= (KK[l] - 1); # Corte ISII
+
+redeclare s.t. corteISIII{l in 1..total, t in tt..tt}: sum{j in Conjunto[l]}x[j,t]*p[j] + somasetup[l] <= K[t] + M*(KK[l] - sum{j in Conjunto[l]}y[j,t]); # Corte ISIII
+
+# MTZ formulation
+#------------------------------------------------------------------------------------------------------------------
+
+redeclare minimize A2: sum{i in CJSII[ll], j in CJSII[ll]: i<>j} (setup[i,j]*Z[i,j]);
+
+redeclare s.t. R1{j in CJSII[ll]}: sum{i in ConjuntoII[ll]: i<>j} Z[i,j] = 1;
+
+redeclare s.t. R2{i in CJSII[ll]}: sum{j in ConjuntoII[ll]: i<>j} Z[i,j] = 1;
+
+redeclare s.t. R3{i in CJSII[ll], j in CJSII[ll]: i<>j}: seq[i,ll] - seq[j,ll] + counter[ll]*Z[i,j] <= counter[ll] - 1;
+
+redeclare s.t. R4: sum{i in CJSII[ll]} Z[i,0] = 1;
+
+redeclare s.t. R5: sum{j in CJSII[ll]} Z[0,j] = 1;
+
+
+# Lot-sizing with cuts (ISIII)
+#------------------------------------------------------------------------------------------------------------------
+
+redeclare s.t. Rest1a{j in J}: E[j,tt] = E[j,tt-1] + sum{l in 1..counterI+1} x1[j,l] - D[j,tt] + Eneg[j,tt] - Eneg[j,tt-1];
+
+redeclare s.t. Rest1b{j in J, h in (tt+1)..tf: tt <> tf}: E[j,h] = E[j,h-1] + x[j,h] - D[j,h] + Eneg[j,h] - Eneg[j,h-1];
+
+redeclare s.t. corteISIVa{l in 1..counterI+1, h in tt..tt}: SS[l]*alfa[l] + sum{i in CJSII[l]}p[i]*x1[i,l] <= K[h];
+
+redeclare s.t. corteISIVb: sum{l in 1..counterI+1} alfa[l] = 1;
+
+redeclare s.t. Rest3a{l in 1..counterI+1, j in J}: (x1[j,l]*p[j])/K[tt] <= khi[j,l]*alfa[l];
+
+redeclare s.t. Rest4a{l in 1..counterI+1, j in J}: khi[j,l]*alfa[l] <= x1[j,l];
+
+
+for{val in 1..9}{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+	for{class in 1..1}{
+		let n:= Cj[val];
+
+		for{v in C[val]}{
+			let variacao:= variacao + 1;
+
+			for{i in 1..n}{
+				read H[i] < ("./DataIU/h"& class & n & v &".txt");
+				read B[i] < ("./DataIU/B"& class & n & v &".txt");
+				read p[i] < ("./DataIU/p"& class & n & v &".txt");
+				for{j in 1..n}{
+					read setup[i,j] < ("./DataIU/setup"& class & n & v &".txt");
+				}
+				for{h in 1..tf}{
+					read D[i,h] < ("./DataIU/D"& class & n & v &".txt");
+				}
+			}
+
+			let {j in J}Sm[j]:= min{i in J: i!=j} setup[j,i]; 
+			let {t in 1..(tf+1)} Cap[t]:= K[t];
+			
+			repeat{
+				let tt:= tt + 1;
+				let M:= trunc(sum{j in J} p[j]*D[j,tt] + sum{j in J} max{i in J} (setup[i,j]),1);
+				let novo_makespan:= 0;
+				let FO2:= 0; let gamma:= 0;
+				let cont2:= 0;
+				let auxI:= 0;
+				
+				if (beststrategy[val,v] = 1) then{
+					let {j in J} r_aux[j]:= 0;
+					repeat{
+						let FO1:= FO2;
+						let {j in J, t in 1..tf} AUX1[j,t]:= I[j,t];
+						let {j in J, t in 1..tf} AUX2[j,t]:= Ineg[j,t];
+						let {j in J, t in 1..tf} AUX3[j,t]:= w[j,t];
+						let {j in J, t in 1..tf} AUX4[j,t]:= q[j,t];
+						let {j in J} r_aux[j]:= r[j];
+						let {i in J, j in J: i != j} yy_aux[i,j]:= yy[i,j];
+	
+						for{j in J}{
+							for{t in tt..tf}{
+								unfix I[j,t]; unfix Ineg[j,t]; unfix w[j,t]; unfix q[j,t];
+							}
+						}
+
+						objective A;
+						drop corteISII; drop corteISIII; drop Rest4a;
+						drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+						drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+						drop R1; drop R2; drop R3; drop R4; drop R5;
+						drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+						restore r1; restore r2; restore r3; restore r4; restore r5; restore r6;
+						solve;
+						
+						if(solve_result = 'infeasible') then{
+							printf "ERRO: Infeasible!!!" >> ResultWSIU.txt;
+						}
+						
+						repeat{
+							let contador:= 0;
+
+							for{j in J}{
+								if(w[j,tt] == 1)then{
+									let Conj:= Conj union {j};
+									let contador:= contador + 1;
+								}
+							}
+							
+							let contador2:= contador;
+
+							# Scheduling with the Iterated Local Search
+							reset data MKS_BL, s_0, Seq, SEQ, AUX, POSICAO, pos;
+							commands ILS.txt;
+
+							# HSI
+							if (novo_makespan > (K[tt] + 0.05) && gamma == 0) then{
+								let Job:= pos[contador];
+
+								let quant:= q[Job,tt];
+								if (Ineg[Job,tt-1] > 0) then{
+									let p0:= min(Ineg[Job,tt-1],quant);
+									let quant:= quant - p0;
+								}
+								if (quant > 0 && D[Job,tt] - I[Job,tt-1] > 0) then{
+									let p1:= min(D[Job,tt] - I[Job,tt-1], quant);
+									let quant:= quant - p1;
+								}
+								if(quant > 0) then{
+									let p2:= quant;
+								}
+
+								let DELTA:= novo_makespan - K[tt]; 
+
+								if (q[Job,tt] > (DELTA/p[Job])) then{
+									if (ceil(DELTA/p[Job]) < p2) then{
+										let I[Job,tt]:= I[Job,tt] - ceil(DELTA/p[Job]);
+										let q[Job,tt]:= q[Job,tt] - ceil(DELTA/p[Job]);
+									} else{
+										let q[Job,tt]:= q[Job,tt] - ceil(DELTA/p[Job]);
+										for{t in tt..tf}{
+											let Ineg[Job,t]:= Ineg[Job,t] + ceil(DELTA/p[Job]);
+										}
+									}
+									let novo_makespan:= sum{i in 1..contador-1} setup[pos[i],pos[i+1]] + sum{j in Cjs} (p[j]*q[j,tt]);
+								} else{
+									for{t in tt..tf}{
+										let Ineg[Job,t]:= Ineg[Job,t] + q[Job,tt];
+									}
+									let w[Job,tt]:= 0;
+									let q[Job,tt]:= 0;
+								}
+							}else{
+								break;
+							}
+
+							reset data Conj, Cjs, CjsII;
+						} while (novo_makespan > (K[tt] + 0.05));
+
+						let FO:= sum{j in J, t in T} (H[j]*I[j,t] + B[j]*Ineg[j,t]);
+						let FO2:= FO;
+
+						if(((FO2 - FO1) >= 0 && gamma != 0) || ((FO2 - FO1) <= 0 && novo_makespan > K[tt])) then{
+							let FO:= FO1;
+							let {j in J, t in 1..tf} I[j,t]:= AUX1[j,t];
+							let {j in J, t in 1..tf} Ineg[j,t]:= AUX2[j,t];
+							let {j in J, t in 1..tf} w[j,t]:= AUX3[j,t];
+							let {j in J, t in 1..tf} q[j,t]:= AUX4[j,t];
+							let {i in J}r[i]:= r_aux[i];
+							let {i in J, j in J: i!=j} yy[i,j]:= yy_aux[i,j];
+							let K[tt+1]:= KANTERIOR;
+							let K[tt]:= Kanterior;
+							let novo_makespan:= makespananterior;
+							break;
+						}
+						if (FO2 < FO1 && novo_makespan <= (K[tt] + 0.05) && gamma != 0) then{
+							break;
+						}
+
+						let gamma:= 0;
+						let cont4:= 0;
+
+						# Capacity extension
+						if (novo_makespan < K[tt]) then{
+							let gamma:= K[tt] - novo_makespan;
+
+							if (gamma > 0.05 && gamma <= (alfaI*capinicial)) then{
+								if (tt < tf) then{
+									let Kanterior:= K[tt];
+									let KANTERIOR:= K[tt+1];
+									let K[tt+1]:= capinicial + gamma;
+									let K[tt]:= Kanterior - gamma;
+									let cont4:= 1; 
+									let makespananterior:= novo_makespan;
+								} else{
+									break;
+								}
+							} else{
+								if (gamma > 0.05 && gamma > (alfaI*capinicial)) then{
+									if (tt < tf) then{
+										let Kanterior:= K[tt];
+										let KANTERIOR:= K[tt+1];
+										let K[tt+1]:= capinicial + (alfaI*capinicial);
+										let K[tt]:= Kanterior - alfaI*capinicial;
+										let cont4:= 1; 
+										let makespananterior:= novo_makespan;
+									} else{
+										break;
+									}
+								} else{
+									break;
+								}
+							}
+						}
+
+					} while (cont4 != 0);
+				
+					let gamma:= 0;
+					reset data Inutilizados,yy,r;
+
+					reset data CjsI;
+					for{j in J}{
+						if (w[j,tt] == 1) then{
+							let CjsI:= CjsI union {j};
+						}
+					}
+
+					for{j in J}{
+						let Inutilizados:= Inutilizados union {j}; 
+					}
+					for {i in 1..contador2}{
+						let Inutilizados:= Inutilizados diff {pos[i]};
+					}
+
+					if (contador2 >= 2) then{
+						for{i in CjsI}{
+							for{j in Inutilizados: i <> j}{
+								let yy[i,j]:= 0; let yy[j,i]:= 1;
+							}
+						}
+
+						for{i in Inutilizados}{
+							for{j in Inutilizados: i <> j}{
+								let yy[i,j]:= 1; let yy[j,i]:= 0;
+							}
+						}
+
+						for{i in 1..contador2-1}{
+							for{j in 1..contador2-1: j >= i}{
+								let yy[pos[i],pos[j+1]]:= 1; let yy[pos[j+1],pos[i]]:= 0;
+							}
+						}
+					} else{
+						for{i in CjsI}{
+							for{j in Inutilizados: i <> j}{
+								let yy[i,j]:= 0; let yy[j,i]:= 1;
+							}
+						}
+
+						for{i in Inutilizados}{
+							for{j in Inutilizados: i <> j}{
+								let yy[i,j]:= 1; let yy[j,i]:= 0;
+							}
+						}
+					}
+
+					for {i in 1..contador2}{
+						if (i == 1) then{
+							let r[pos[i]]:= 0;
+						} else{
+							let r[pos[i]]:= r[pos[i-1]] + setup[pos[i-1],pos[i]] + p[pos[i-1]]*q[pos[i-1],tt];
+						}
+					}
+
+					if (tt == 4) then{
+						printf "HSI: " >> ResultWSIU.txt;
+					}
+				} else{
+					if (beststrategy[val,v] == 2) then{
+						let {j in J} r_aux[j]:= 0;
+						repeat{
+							let FO1:= FO2;
+							let {j in J, t in 1..tf} AUX1[j,t]:= I[j,t];
+							let {j in J, t in 1..tf} AUX2[j,t]:= Ineg[j,t];
+							let {j in J, t in 1..tf} AUX3[j,t]:= w[j,t];
+							let {j in J, t in 1..tf} AUX4[j,t]:= q[j,t];
+							let {j in J} r_aux[j]:= r[j];
+							let {i in J, j in J: i != j} yy_aux[i,j]:= yy[i,j];
+						
+							for{j in J}{
+								for{t in tt..tf}{
+									unfix I[j,t]; unfix Ineg[j,t]; unfix w[j,t]; unfix q[j,t];
+								}
+							}
+
+							objective A;
+							drop corteISII; drop corteISIII; drop Rest4a;
+							drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+							drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+							drop R1; drop R2; drop R3; drop R4; drop R5;
+							drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+							restore r1; restore r2; restore r3; restore r4; restore r5; restore r6;
+							solve;
+
+							if(solve_result = 'infeasible') then{
+								printf "ERRO: Infeasible!!!" >> ResultWSIU.txt;
+							}
+
+							let FO:= sum{j in J, h in T} (H[j]*I[j,h] + B[j]*Ineg[j,h]);
+							let FO2:= FO;
+							let aux5:= 0;
+
+							repeat{
+								let contador:= 0;
+
+								for{j in J}{
+									if(w[j,tt] == 1)then{
+										let Conj:= Conj union {j};
+										let CjsI:= CjsI union {j};
+										let contador:= contador + 1;
+									}
+								}
+								let contador2:= contador;
+
+								# Scheduling with the Iterated Local Search
+								reset data Cjs, CjsII, MKS_BL, s_0, Seq, SEQ, AUX, POSICAO, pos;
+								commands ILS.txt;
+
+								let {i in 1..contador2} pos2[i]:= pos[i]; 
+								let contII:= 1;
+								let cont3:= 0;
+								let contgamma:= 0;
+								let Conj:= CjsI;
+
+								repeat{
+									# HSIIa
+									if (novo_makespan > (K[tt] + 0.05) && gamma == 0) then{
+										let delta:= novo_makespan - K[tt]; 
+
+										let f:= 1;
+										repeat while (f <= contador){
+											for {j in Conj} {
+												if (B[j]*q[j,tt] = min {i in Conj} B[i]*q[i,tt]) then{ 
+													let Bmin[f]:= j;
+													let Conj:= Conj diff {j};
+													let f:= f + 1;
+												}
+											}
+										}
+
+										let ConjuntoI:= CjsI;
+
+										for {j in 1..contII}{
+											let auxI:= Bmin[contII];
+										}
+
+										if (auxI == pos[1]) then{
+											let varsetup:= setup[auxI,pos[2]];
+										} else{
+											if (auxI == pos[contador]) then{
+												let varsetup:= setup[pos[contador-1],auxI];
+											} else{
+												for {i in 1..contador}{
+													if (pos[i] == auxI) then{
+														let pi:= i;
+													}
+												}
+												let varsetup:= setup[pos[pi-1],auxI] + setup[auxI, pos[pi+1]] - setup[pos[pi-1],pos[pi+1]];
+											}
+										}
+
+										if ((p[auxI]*q[auxI,tt]+ varsetup) < delta) then{
+											let w[auxI,tt]:= 0;
+											for {t in tt..tf}{
+												let Ineg[auxI,t]:= Ineg[auxI,t] + q[auxI,tt];
+											}
+											let FO:= FO + B[auxI]*q[auxI,tt];
+											let FO2:= FO;
+											let q[auxI,tt]:= 0;
+											reset data Conjunto, Conj, Cjs, pos;
+											let cont3:= 1; 
+											let contador:= 0;
+											let contgamma:= 0;
+										}
+
+										if ((p[auxI]*q[auxI,tt] + varsetup) > delta) then{
+											if ((p[auxI]*q[auxI,tt] + varsetup - delta) >= ceil(0.30*(p[auxI]*q[auxI,tt])) + varsetup) then{ 
+												let q[auxI,tt]:= q[auxI,tt] - ceil(delta/p[auxI]);
+												for {t in tt..tf}{
+													let Ineg[auxI,t]:= Ineg[auxI,t] + ceil(delta/p[auxI]);
+												}
+												let FO:= FO + B[auxI]*ceil(delta/p[auxI]);
+												let FO2:= FO;
+												let novo_makespan:= sum{i in 1..contador-1} setup[pos[i],pos[i+1]] + sum{j in Cjs} (p[j]*q[j,tt]);
+
+												if (q[auxI,tt] == 0)then{
+													let w[auxI,tt]:= 0;
+													reset data Conjunto, Conj, Cjs, pos;
+													let cont3:= 1;
+													let contgamma:= 0;
+													let contador:= 0;
+												}else{
+													let contgamma:= 1;
+												}
+												break;
+											}else{
+												let w[auxI,tt]:= 0;
+												for {t in tt..tf}{
+													let Ineg[auxI,t]:= Ineg[auxI,t] + q[auxI,tt];
+												}
+												let FO:= FO + B[auxI]*q[auxI,tt];
+												let FO2:= FO;
+												let q[auxI,tt]:= 0;
+												reset data Conjunto, Conj, Cjs, pos;
+												let cont3:= 1;
+												let contador:= 0;
+												let contgamma:= 0;
+											}
+										}
+									}
+								} while (contgamma != 0);
+							} while (cont3 == 1);
+
+							let FO2:= FO;
+
+							if(((FO2 - FO1) >= 0 && gamma != 0) || ((FO2 - FO1) <= 0 && novo_makespan > K[tt])) then{
+								let FO:= FO1;
+								let {j in J, t in 1..tf} I[j,t]:= AUX1[j,t];
+								let {j in J, t in 1..tf} Ineg[j,t]:= AUX2[j,t];
+								let {j in J, t in 1..tf} w[j,t]:= AUX3[j,t];
+								let {j in J, t in 1..tf} q[j,t]:= AUX4[j,t];
+								let {i in J}r[i]:= r_aux[i];
+								let {i in J, j in J: i!=j} yy[i,j]:= yy_aux[i,j];
+								let K[tt+1]:= KANTERIOR;
+								let K[tt]:= Kanterior;
+								let novo_makespan:= makespananterior;
+								let aux5:= 1; 
+								break;
+							}
+
+							if (FO2 < FO1 && gamma != 0) then{
+								break;
+							}
+
+							let gamma:= 0;
+							let cont4:= 0;
+
+							# Capacity extension
+							if (novo_makespan < K[tt] + 0.05) then{
+								let gamma:= K[tt] - novo_makespan;
+
+								if (gamma > 0.05 && gamma <= (alfaI*capinicial)) then{
+									if (tt < tf) then{
+										let Kanterior:= K[tt];
+										let KANTERIOR:= K[tt+1];
+										let K[tt+1]:= capinicial + gamma;
+										let K[tt]:= Kanterior - gamma;
+										let cont4:= 1; 
+										let makespananterior:= novo_makespan;
+									} else{
+										break;
+									}
+								} else{
+									if (gamma > 0.05 && gamma > (alfaI*capinicial)) then{
+										if (tt < tf) then{
+											let Kanterior:= K[tt];
+											let KANTERIOR:= K[tt+1];
+											let K[tt+1]:= capinicial + (alfaI*capinicial);
+											let K[tt]:= Kanterior - alfaI*capinicial;
+											let cont4:= 1; 
+											let makespananterior:= novo_makespan;
+										} else{
+											break;
+										}
+									} else{
+										break;
+									}
+								}
+							}
+						} while (cont4 != 0);
+
+						let gamma:= 0;
+						reset data Inutilizados,yy,r;
+						reset data CjsI;
+						for{j in J}{
+							if (w[j,tt] == 1) then{
+								let CjsI:= CjsI union {j};
+							}
+						}
+
+						for{j in J}{
+							let Inutilizados:= Inutilizados union {j}; 
+						}
+						for {i in 1..contador2}{
+							let Inutilizados:= Inutilizados diff {pos[i]};
+						}
+
+						if (contador2 >= 2) then{
+							for{i in CjsI}{
+								for{j in Inutilizados: i <> j}{
+									let yy[i,j]:= 0; let yy[j,i]:= 1;
+								}
+							}
+
+							for{i in Inutilizados}{
+								for{j in Inutilizados: i <> j}{
+									let yy[i,j]:= 1; let yy[j,i]:= 0;
+								}
+							}
+							for{i in 1..contador2-1}{
+								for{j in 1..contador2-1: j >= i}{
+									let yy[pos[i],pos[j+1]]:= 1; let yy[pos[j+1],pos[i]]:= 0;
+								}
+							}
+						} else{
+							for{i in CjsI}{
+								for{j in Inutilizados: i <> j}{
+									let yy[i,j]:= 0; let yy[j,i]:= 1;
+								}
+							}
+
+							for{i in Inutilizados}{
+								for{j in Inutilizados: i <> j}{
+									let yy[i,j]:= 1; let yy[j,i]:= 0;
+								}
+							}
+						}
+
+						for {i in 1..contador2}{
+							if (i == 1) then{
+								let r[pos[i]]:= 0;
+							} else{
+								let r[pos[i]]:= r[pos[i-1]] + setup[pos[i-1],pos[i]] + p[pos[i-1]]*q[pos[i-1],tt];
+							}
+						}
+
+						if (tt == 4) then{
+							printf "HSIIa: " >> ResultWSIU.txt;
+						}
+					} else{
+						if (beststrategy[val,v] == 3) then{
+							let {j in J} r_aux[j]:= 0;
+							repeat{
+								let FO1:= FO2;
+								let {j in J, t in 1..tf} AUX1[j,t]:= I[j,t];
+								let {j in J, t in 1..tf} AUX2[j,t]:= Ineg[j,t];
+								let {j in J, t in 1..tf} AUX3[j,t]:= w[j,t];
+								let {j in J, t in 1..tf} AUX4[j,t]:= q[j,t];
+								let {j in J} r_aux[j]:= r[j];
+								let {i in J, j in J: i != j} yy_aux[i,j]:= yy[i,j];
+								
+								for{j in J}{
+									for{t in tt..tf}{
+										unfix I[j,t]; unfix Ineg[j,t]; unfix w[j,t]; unfix q[j,t];
+									}
+								}
+
+								objective A;
+								drop corteISII; drop corteISIII; drop Rest4a;
+								drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+								drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+								drop R1; drop R2; drop R3; drop R4; drop R5;
+								drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+								restore r1; restore r2; restore r3; restore r4; restore r5; restore r6;
+								solve;
+
+								if(solve_result = 'infeasible') then{
+									printf "ERRO: Infeasible!!!" >> ResultWSIU.txt;
+								}
+
+								let FO:= sum{j in J, h in T} (H[j]*I[j,h] + B[j]*Ineg[j,h]);
+								let FO2:= FO;
+								let aux5:= 0;
+
+								repeat{
+									let contador:= 0;
+
+									for{j in J}{
+										if(w[j,tt] == 1)then{
+											let Conj:= Conj union {j};
+											let contador:= contador + 1;
+										}
+									}
+									let contador2:= contador;
+
+									# Scheduling with the Iterated Local Search
+									reset data Cjs, CjsII, MKS_BL, s_0, Seq, SEQ, AUX, POSICAO, pos;
+									commands ILS.txt;
+
+									let {i in 1..contador2} pos2[i]:= pos[i]; 
+									let cont2:= 1;
+									let cont3:= 0;
+									let cont4:= 0;
+									let contgamma:= 0;
+									let Conj:= Cjs;
+
+									repeat{
+										# HSIIb
+										if (novo_makespan > (K[tt] + 0.05) && gamma == 0) then{
+											let delta:= novo_makespan - K[tt]; 
+											let contador3:= 0;
+
+											if (tt < tf) then{
+												for{j in J}{
+													if(w[j,tt+1] == 1 && w[j,tt] == 1)then{
+														let ConjII:= ConjII union {j};
+														let contador3:= contador3 + 1;
+													}
+												}
+											}
+
+											if (contador3 == 0 || tt == tf) then{ 
+												for{j in J}{
+													if(w[j,tt] == 1)then{
+														  let ConjII:= ConjII union {j};
+														  let contador3:= contador3 + 1;
+													}
+												}
+											}
+
+											let f:= 1;
+											repeat while (f <= contador3){
+												for {j in ConjII} {
+													if (B[j]*q[j,tt] = min {i in ConjII} B[i]*q[i,tt]) then{ 
+														let Bmin[f]:= j;
+														let ConjII:= ConjII diff {j};
+														let f:= f + 1;
+													}
+												}
+											}
+											let ConjuntoI:= CjsI;
+
+											let auxI:= Bmin[1];
+
+											if (auxI == pos[1]) then{
+												let varsetup:= setup[auxI,pos[2]];
+											} else{
+												if (auxI == pos[contador]) then{
+													let varsetup:= setup[pos[contador-1],auxI];
+												} else{
+													for {i in 1..contador}{
+														if (pos[i] == auxI) then{
+															let pi:= i;
+														}
+													}
+													let varsetup:= setup[pos[pi-1],auxI] + setup[auxI, pos[pi+1]] - setup[pos[pi-1],pos[pi+1]];
+												}
+											}
+
+											if ((p[auxI]*q[auxI,tt]+ varsetup) < delta) then{
+												let w[auxI,tt]:= 0;
+												for {t in tt..tf}{
+													let Ineg[auxI,t]:= Ineg[auxI,t] + q[auxI,tt];
+												}
+												let FO:= FO + B[auxI]*q[auxI,tt];
+												let FO2:= FO;
+												let q[auxI,tt]:= 0;
+												reset data Conjunto, Conj, Cjs, pos;
+												let cont3:= 1;
+												let contador:= 0;
+												let contgamma:= 0;
+											}
+
+											if ((p[auxI]*q[auxI,tt] + varsetup) > delta) then{
+												if ((p[auxI]*q[auxI,tt] + varsetup - delta) >= ceil(0.30*(p[auxI]*q[auxI,tt])) + varsetup) then{
+													let q[auxI,tt]:= q[auxI,tt] - ceil(delta/p[auxI]);
+													for {t in tt..tf}{
+														let Ineg[auxI,t]:= Ineg[auxI,t] + ceil(delta/p[auxI]);
+													}
+													let FO:= FO + B[auxI]*ceil(delta/p[auxI]);
+													let FO2:= FO;
+													let novo_makespan:= sum{i in 1..contador-1} setup[pos[i],pos[i+1]] + sum{j in Cjs} (p[j]*q[j,tt]);
+													if (q[auxI,tt] == 0)then{
+														let w[auxI,tt]:= 0;
+														reset data Conjunto, Conj, Cjs, pos;
+														let cont3:= 1;
+														let contgamma:= 0;
+														let contador:= 0;
+													}else{
+														let contgamma:= 1;
+													}
+													break;
+												}else{
+													let w[auxI,tt]:= 0;
+													for {t in tt..tf}{
+														let Ineg[auxI,t]:= Ineg[auxI,t] + q[auxI,tt];
+													}
+													let FO:= FO + B[auxI]*q[auxI,tt];
+													let FO2:= FO;
+													let q[auxI,tt]:= 0;
+													reset data Conjunto, Conj, Cjs, pos;
+													let cont3:= 1;
+													let contador:= 0;
+													let contgamma:= 0;
+												}
+											}
+										}
+									} while (contgamma != 0);
+								} while (cont3 == 1);
+
+								let FO2:= FO;
+
+								if(((FO2 - FO1) >= 0 && gamma != 0) || ((FO2 - FO1) <= 0 && novo_makespan > K[tt])) then{
+									let FO:= FO1;
+									let {j in J, t in 1..tf} I[j,t]:= AUX1[j,t];
+									let {j in J, t in 1..tf} Ineg[j,t]:= AUX2[j,t];
+									let {j in J, t in 1..tf} w[j,t]:= AUX3[j,t];
+									let {j in J, t in 1..tf} q[j,t]:= AUX4[j,t];
+									let {i in J}r[i]:= r_aux[i];
+									let {i in J, j in J: i!=j} yy[i,j]:= yy_aux[i,j];
+									let K[tt+1]:= KANTERIOR;
+									let K[tt]:= Kanterior;
+									let novo_makespan:= makespananterior;
+									let aux5:= 1; 
+									break;
+								}
+								if (FO2 < FO1 && novo_makespan <= (K[tt] + 0.05) && gamma != 0) then{
+									break;
+								}
+
+								let gamma:= 0;
+								let cont4:= 0;
+
+								# Capacity extension
+								if (novo_makespan < K[tt] + 0.05) then{
+									let gamma:= K[tt] - novo_makespan;
+
+									if (gamma > 0.05 && gamma <= (alfaI*capinicial)) then{
+										if (tt < tf) then{
+											let Kanterior:= K[tt];
+											let KANTERIOR:= K[tt+1];
+											let K[tt+1]:= capinicial + gamma;
+											let K[tt]:= Kanterior - gamma;
+											let cont4:= 1; 
+											let makespananterior:= novo_makespan;
+										} else{
+											break;
+										}
+									} else{
+										if (gamma > 0.05 && gamma > (alfaI*capinicial)) then{
+											if (tt < tf) then{
+												let Kanterior:= K[tt];
+												let KANTERIOR:= K[tt+1];
+												let K[tt+1]:= capinicial + (alfaI*capinicial);
+												let K[tt]:= Kanterior - alfaI*capinicial;
+												let cont4:= 1; 
+												let makespananterior:= novo_makespan;
+											} else{
+												break;
+											}
+										} else{
+											break;
+										}
+									}
+								}
+							} while (cont4 != 0);
+							reset data Inutilizados,yy,r;
+							reset data CjsI;
+							for{j in J}{
+								if (w[j,tt] == 1) then{
+									let CjsI:= CjsI union {j};
+								}
+							}
+
+							for{j in J}{
+								let Inutilizados:= Inutilizados union {j}; 
+							}
+							for {i in 1..contador2}{
+								let Inutilizados:= Inutilizados diff {pos[i]};
+							}
+
+							if (contador2 >= 2) then{
+								for{i in CjsI}{
+									for{j in Inutilizados: i <> j}{
+										let yy[i,j]:= 0; let yy[j,i]:= 1;
+									}
+								}
+
+								for{i in Inutilizados}{
+									for{j in Inutilizados: i <> j}{
+										let yy[i,j]:= 1; let yy[j,i]:= 0;
+									}
+								}
+
+								for{i in 1..contador2-1}{
+									for{j in 1..contador2-1: j >= i}{
+										let yy[pos[i],pos[j+1]]:= 1; let yy[pos[j+1],pos[i]]:= 0;
+									}
+								}
+							} else{
+								for{i in CjsI}{
+									for{j in Inutilizados: i <> j}{
+										let yy[i,j]:= 0; let yy[j,i]:= 1;
+									}
+								}
+
+								for{i in Inutilizados}{
+									for{j in Inutilizados: i <> j}{
+										let yy[i,j]:= 1; let yy[j,i]:= 0;
+									}
+								}
+							}
+
+							for {i in 1..contador2}{
+								if (i == 1) then{
+									let r[pos[i]]:= 0;
+								} else{
+									let r[pos[i]]:= r[pos[i-1]] + setup[pos[i-1],pos[i]] + p[pos[i-1]]*q[pos[i-1],tt];
+								}
+							}
+
+							if (tt == 4) then{
+								printf "HSIIb: " >> ResultWSIU.txt;
+							}
+						} else{
+							if (beststrategy[val,v] == 4) then{
+								let {j in J, t in 1..tf} AUXILIAR[j,t]:= 0;
+								let {j in J} r_aux[j]:= 0;								
+								repeat{
+									let FO1:= FO2;
+									for{j in J}{
+										for{t in tt..tf}{
+											unfix I[j,t]; unfix Ineg[j,t]; unfix w[j,t]; unfix q[j,t];
+										}
+									}
+
+									let {j in J, t in 1..tf} AUX1[j,t]:= I[j,t];
+									let {j in J, t in 1..tf} AUX2[j,t]:= Ineg[j,t];
+									let {j in J, t in 1..tf} AUX3[j,t]:= w[j,t];
+									let {j in J, t in 1..tf} AUX4[j,t]:= q[j,t];
+									let {j in J} r_aux[j]:= r[j];
+									let {i in J, j in J: i != j} yy_aux[i,j]:= yy[i,j];
+
+									objective A;
+									drop corteISII; drop corteISIII; drop Rest4a;
+									drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+									drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+									drop R1; drop R2; drop R3; drop R4; drop R5;
+									drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+									restore r1; restore r2; restore r3; restore r4; restore r5; restore r6;
+									solve;
+
+									let FO:= sum{j in J, t in T} (H[j]*I[j,t] + B[j]*Ineg[j,t]);
+
+									if(solve_result = 'infeasible') then{
+										printf "ERRO: Infeasible!!!" >> ResultWSIU.txt;
+									}
+
+									if (gamma == 0) then{
+										let total:= 0;
+									}
+									let cont:= 0;
+									let u:= 0;
+									let {j in J, t in 1..tf} AUXILIAR2[j,t]:= q[j,t];
+									let ITERtotal:= 0;
+
+									repeat{
+										let contador:= 0;
+										if (gamma == 0) then{
+											let total:= total + 1;
+										}
+
+										for{j in J}{
+											if(w[j,tt] == 1)then{
+											  let Conj:= Conj union {j};
+											  let contador:= contador + 1;
+											}
+										}
+
+										let contador2:= contador;
+
+										if(cont == 1) then{
+											let {j in J, t in 1..tf} q[j,t]:= AUXILIAR[j,t];
+										}
+
+										# Scheduling with the Iterated Local Search
+										reset data Cjs, MKS_BL, s_0, Seq, SEQ, AUX, POSICAO, pos;
+										commands ILS.txt;
+
+										let NOVO_MAKESPAN[total]:= novo_makespan;
+										let Conjunto[total]:= Cjs;
+										let cont:= 0;
+
+										reset data Inutilizados,yy,r;
+										for{j in J}{
+											let Inutilizados:= Inutilizados union {j};
+										}
+										for {i in 1..contador2}{
+											let Inutilizados:= Inutilizados diff {pos[i]};
+										}
+
+										if (contador2 >= 2) then{
+											for{i in Conjunto[total]}{
+												for{j in Inutilizados: i <> j}{
+													let yy[i,j]:= 0; let yy[j,i]:= 1;
+												}
+											}
+
+											for{i in Inutilizados}{
+												for{j in Inutilizados: i <> j}{
+													let yy[i,j]:= 0; let yy[j,i]:= 1;
+												}
+											}
+											
+											for{i in 1..contador2-1}{
+												for{j in 1..contador2-1: j >= i}{
+													let yy[pos[i],pos[j+1]]:= 1; let yy[pos[j+1],pos[i]]:= 0;
+												}
+											}
+										} else{
+											for{i in Conjunto[total]}{
+												for{j in Inutilizados: i <> j}{
+													let yy[i,j]:= 0; let yy[j,i]:= 1;
+												}
+											}
+
+											for{i in Inutilizados}{
+												for{j in Inutilizados: i <> j}{
+													let yy[i,j]:= 1; let yy[j,i]:= 0;
+												}
+											}
+										}
+										
+										for {i in 1..contador2}{
+											if (i == 1) then{
+												let r[pos[i]]:= 0;
+											} else{
+												let r[pos[i]]:= r[pos[i-1]] + setup[pos[i-1],pos[i]] + p[pos[i-1]]*q[pos[i-1],tt];
+											}
+										}
+
+										# ISI
+										if (NOVO_MAKESPAN[total] > (K[tt] + 0.05) && gamma == 0) then{
+											let ITERtotal:= ITERtotal + 1;
+
+											if (tt == 1) then{
+												unfix E; unfix Eneg; unfix x; unfix y;
+											}
+
+											let Cap[tt]:= Cap[tt] - 1;
+
+
+											objective A1; drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+											drop corteISII; restore corte; drop corteISIII; drop Rest4a;
+											drop R1; drop R2; drop R3; drop R4; drop R5; drop r1; drop r2; drop r3; drop r4; drop r5; drop r6;
+											drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+											restore Rest1; restore Rest2; restore Rest3; restore Rest4; restore Ifix2; restore Inegfix2;
+											solve;
+
+											let cont:= 1; 
+
+											if(solve_result = 'infeasible') then{
+												let cont:= 0;
+											}
+
+											let u:= 1; 
+											let {j in J, t in 1..tf} w[j,t]:= y[j,t];
+
+											let {j in J, t in 1..tf} AUXILIAR[j,t]:= x[j,t];
+											reset data Conj, q, x, y;
+										}
+										
+										restore r1; restore r2; restore r3; restore r4; restore Ifix; restore Inegfix;
+										if (NOVO_MAKESPAN[total] <= (K[tt] + 0.05)) then{
+											let cont:= 0;
+										}
+
+										if (cont == 1)then{
+											if (tt == 1) then{
+												for{j in J}{
+													for{t in 1..tt}{
+														fix E[j,t]:= E[j,t];
+														fix Eneg[j,t]:= Eneg[j,t];
+														fix x[j,t]:= AUXILIAR[j,t];
+														fix y[j,t]:= w[j,t];
+													}
+												}
+											} else{
+												for{j in J}{
+													for{t in 1..(tt-1)}{
+														fix E[j,t]:= E[j,t];
+														fix Eneg[j,t]:= Eneg[j,t];
+														fix x[j,t]:= AUXILIAR[j,t];
+														fix y[j,t]:= w[j,t];
+													}
+												}
+											}
+										}
+										reset data Conj;
+                                        }while (cont != 0);
+
+										if (u == 0) then{
+											let FO:= sum{j in J, t in T} (H[j]*I[j,t] + B[j]*Ineg[j,t]);
+										} else{
+											let FO:= sum{j in J, t in T} (H[j]*E[j,t] + B[j]*Eneg[j,t]);
+											let {j in J, t in 1..tf} I[j,t]:= E[j,t];
+											let {j in J, t in 1..tf} q[j,t]:= AUXILIAR[j,t];
+											let {j in J, t in 1..tf} Ineg[j,t]:= Eneg[j,t];
+										
+										}
+										let FO2:= FO;
+
+										if(((FO2 - FO1) >= 0 && gamma != 0) || ((FO2 - FO1) <= 0 && novo_makespan > K[tt])) then{
+											let FO:= FO1;
+											let {j in J, t in 1..tf} I[j,t]:= AUX1[j,t];
+											let {j in J, t in 1..tf} Ineg[j,t]:= AUX2[j,t];
+											let {j in J, t in 1..tf} w[j,t]:= AUX3[j,t];
+											let {j in J, t in 1..tf} q[j,t]:= AUX4[j,t];
+											let {i in J}r[i]:= r_aux[i];
+											let {i in J, j in J: i!=j} yy[i,j]:= yy_aux[i,j];											
+											let K[tt+1]:= KANTERIOR;
+											let K[tt]:= Kanterior;
+											let NOVO_MAKESPAN[total]:= makespananterior;
+											break;
+										}
+
+										if (FO2 < FO1 && gamma != 0) then{
+											break;
+										}
+
+										let gamma:= 0;
+										let cont2:= 0;
+
+										# Capacity extension
+										if (NOVO_MAKESPAN[total] < K[tt] + 0.05) then{
+											let gamma:= K[tt] - NOVO_MAKESPAN[total];
+
+											if (gamma > 0.05 && gamma <= (alfaI*capinicial)) then{
+												if (tt < tf) then{
+													let Kanterior:= K[tt];
+													let KANTERIOR:= K[tt+1];
+													let K[tt+1]:= capinicial + gamma;
+													let K[tt]:= Kanterior - gamma;
+													let cont2:= 1; 
+													let makespananterior:= NOVO_MAKESPAN[total];
+												} else{
+													break;
+												}
+											} else{
+												if (gamma > 0.05 && gamma > (alfaI*capinicial)) then{
+													if (tt < tf) then{
+														let Kanterior:= K[tt];
+														let KANTERIOR:= K[tt+1];
+														let K[tt+1]:= capinicial + (alfaI*capinicial);
+														let K[tt]:= Kanterior - alfaI*capinicial;
+														let cont2:= 1; 
+														let makespananterior:= NOVO_MAKESPAN[total];
+													} else{
+														break;
+													}
+												} else{
+													break;
+												}
+											}
+										}
+									} while (cont2 != 0);
+
+									if (tt == 4) then{
+										printf "ISI: " >> ResultWSIU.txt;
+									}
+								} else{
+									if (beststrategy[val,v] == 5) then{
+										let {j in J, t in 1..tf} AUXILIAR[j,t]:= 0;
+										let {j in J} r_aux[j]:= 0;
+										repeat{
+											let FO1:= FO2;
+											for{j in J}{
+												for{t in tt..tf}{
+													unfix I[j,t]; unfix Ineg[j,t]; unfix w[j,t]; unfix q[j,t];
+												}
+											}
+
+											let {j in J, t in 1..tf} AUX1[j,t]:= I[j,t];
+											let {j in J, t in 1..tf} AUX2[j,t]:= Ineg[j,t];
+											let {j in J, t in 1..tf} AUX3[j,t]:= w[j,t];
+											let {j in J, t in 1..tf} AUX4[j,t]:= q[j,t];
+											let {j in J} r_aux[j]:= r[j];
+											let {i in J, j in J: i != j} yy_aux[i,j]:= yy[i,j];
+
+											objective A;
+											drop corteISII; drop corteISIII; drop Rest4a;
+											drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+											drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+											drop R1; drop R2; drop R3; drop R4; drop R5;
+											drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+											restore r1; restore r2; restore r3; restore r4; restore r5; restore r6;
+											solve;
+
+											let FO:= sum{j in J, t in T} (H[j]*I[j,t] + B[j]*Ineg[j,t]);
+
+											if(solve_result = 'infeasible') then{
+												printf "ERRO: Infeasible!!!" >> ResultWSIU.txt;
+											}
+
+											if (gamma == 0) then{
+												let total:= 0;
+											}
+											let cont:= 0;
+											let contador2:= 0;
+											let u:= 0;
+											let {j in J, t in 1..tf} AUXILIAR2[j,t]:= q[j,t];
+											let ITERtotal:= 0;
+
+											repeat{
+												let contador:= 0;
+												if (gamma == 0) then{
+													let total:= total + 1;
+												}
+												let KK[total]:= 0;
+
+												for{j in J}{
+													if(w[j,tt] == 1)then{
+														let Conj:= Conj union {j};
+														let CJS[total]:= CJS[total] union {j};
+														let KK[total]:= KK[total] + 1;
+														let contador:= contador + 1;
+													}
+												}
+												let contador2:= contador;
+												let Conjunto[total]:= CJS[total];
+												reset data pos, CJS;
+
+												if(cont == 1) then{
+													let {j in J, t in 1..tf} q[j,t]:= AUXILIAR[j,t];
+												}
+
+												# Scheduling with the Iterated Local Search
+												reset data Cjs, CjsII, CJS, MKS_BL, s_0, Seq, SEQ, AUX, POSICAO, pos;
+												commands ILS.txt;
+
+												let NOVO_MAKESPAN[total]:= novo_makespan;
+												let CJS[total]:= Cjs;
+												let Conjunto[total]:= CJS[total];
+												let contador2:= KK[total];
+												let cont:= 0;
+
+												reset data Inutilizados,yy,r;
+												for{j in J}{
+													let Inutilizados:= Inutilizados union {j}; 
+												}
+												for {i in 1..contador2}{
+													let Inutilizados:= Inutilizados diff {pos[i]};
+												}
+
+												if (contador2 >= 2) then{
+													for{i in Conjunto[total]}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 0; let yy[j,i]:= 1;
+														}
+													}
+
+													for{i in Inutilizados}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 1; let yy[j,i]:= 0;
+														}
+													}
+
+													for{i in 1..contador2-1}{
+														for{j in 1..contador2-1: j >= i}{
+															let yy[pos[i],pos[j+1]]:= 1; let yy[pos[j+1],pos[i]]:= 0;
+														}
+													}
+												} else{
+													for{i in Conjunto[total]}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 0; let yy[j,i]:= 1;
+														}
+													}
+
+													for{i in Inutilizados}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 1; let yy[j,i]:= 0;
+														}
+													}
+												}
+
+												for {i in 1..contador2}{
+													if (i == 1) then{
+														let r[pos[i]]:= 0;
+													} else{
+														let r[pos[i]]:= r[pos[i-1]] + setup[pos[i-1],pos[i]] + p[pos[i-1]]*q[pos[i-1],tt];
+													}
+												}
+
+												# ISII
+												if (NOVO_MAKESPAN[total] > (K[tt] + 0.05) && gamma == 0) then{
+													let ITERtotal:= ITERtotal + 1;
+													for{j in J}{
+														for{t in tt..tf}{
+															unfix E[j,t];
+															unfix Eneg[j,t];
+															unfix x[j,t];
+															unfix y[j,t];
+														}
+													}
+
+													for {j in J}{
+														if (j not in Conjunto[total]) then{
+																fix y[j,tt]:= 0;
+														}
+													}
+
+													objective A1;
+													drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+													drop r1; drop r2; drop r3; drop r4; drop r5; drop r6; drop R1; drop R2; drop R3; drop R4; drop R5;
+													drop corteISIII; drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+													drop corte; drop Rest4a;
+													restore Rest1; restore Rest2; restore Rest3; restore Rest4; restore corteISII; restore Ifix2; restore Inegfix2;
+													solve;
+
+													let cont:= 1;
+
+													if(solve_result = 'infeasible') then{
+														let cont:= 0;
+													}
+
+													let u:= 1;
+													let {j in J, t in 1..tf} w[j,t]:= y[j,t];
+													let {j in J, t in 1..tf} AUXILIAR[j,t]:= x[j,t];
+													reset data Conj, CJS, q, x, y;
+												}
+
+												if (NOVO_MAKESPAN[total] <= (K[tt] + 0.05)) then{
+													let cont:= 0;
+												}
+
+												if (cont == 1)then{
+													if (tt == 1) then{
+														for{j in J}{
+															for{t in 1..tt}{
+																fix E[j,t]:= E[j,t];
+																fix Eneg[j,t]:= Eneg[j,t];
+																fix x[j,t]:= AUXILIAR[j,t];
+																fix y[j,t]:= w[j,t];
+															}
+														}
+													} else{
+														for{j in J}{
+															for{t in 1..(tt-1)}{
+																fix E[j,t]:= E[j,t];
+																fix Eneg[j,t]:= Eneg[j,t];
+																fix x[j,t]:= AUXILIAR[j,t];
+																fix y[j,t]:= w[j,t];
+															}
+														}
+													}
+												}
+												if (cont == 1) then{
+													reset data yy, r;
+												}
+											}while (cont != 0);
+
+											if (u == 0) then{
+												let FO:= sum{j in J, t in T} (H[j]*I[j,t] + B[j]*Ineg[j,t]);
+											} else{
+												let FO:= sum{j in J, t in T} (H[j]*E[j,t] + B[j]*Eneg[j,t]);
+												let {j in J, t in 1..tf} I[j,t]:= E[j,t];
+												let {j in J, t in 1..tf} q[j,t]:= AUXILIAR[j,t];
+												let {j in J, t in 1..tf} Ineg[j,t]:= Eneg[j,t];
+											}
+											let FO2:= FO;
+
+											if(((FO2 - FO1) >= 0 && gamma != 0) || ((FO2 - FO1) <= 0 && novo_makespan > K[tt])) then{
+												let FO:= FO1;
+												let {j in J, t in 1..tf} I[j,t]:= AUX1[j,t];
+												let {j in J, t in 1..tf} Ineg[j,t]:= AUX2[j,t];
+												let {j in J, t in 1..tf} w[j,t]:= AUX3[j,t];
+												let {j in J, t in 1..tf} q[j,t]:= AUX4[j,t];
+												let {i in J}r[i]:= r_aux[i];
+												let {i in J, j in J: i!=j} yy[i,j]:= yy_aux[i,j];
+												let K[tt+1]:= KANTERIOR;
+												let K[tt]:= Kanterior;
+												let NOVO_MAKESPAN[total]:= makespananterior;
+												break;
+											}
+
+											if (FO2 < FO1 && gamma != 0) then{
+												break;
+											}
+
+											let gamma:= 0;
+											let cont2:= 0;
+
+											# Capacity extension
+											if (NOVO_MAKESPAN[total] < K[tt] + 0.05) then{
+												let gamma:= K[tt] - NOVO_MAKESPAN[total];
+
+												if (gamma > 0.05 && gamma <= (alfaI*capinicial)) then{
+													if (tt < tf) then{
+														let Kanterior:= K[tt];
+														let KANTERIOR:= K[tt+1];
+														let K[tt+1]:= capinicial + gamma;
+														let K[tt]:= Kanterior - gamma;
+														let cont2:= 1; 
+														let makespananterior:= NOVO_MAKESPAN[total];
+													} else{
+														break;
+													}
+												} else{
+													if (gamma > 0.05 && gamma > (alfaI*capinicial)) then{
+														if (tt < tf) then{
+															let Kanterior:= K[tt];
+															let KANTERIOR:= K[tt+1];
+															let K[tt+1]:= capinicial + (alfaI*capinicial);
+															let K[tt]:= Kanterior - alfaI*capinicial;
+															let cont2:= 1; 
+															let makespananterior:= NOVO_MAKESPAN[total];
+														} else{
+															break;
+														}
+													} else{
+														break;
+													}
+												}
+											}
+										} while (cont2 != 0);
+
+										if (tt == 4) then{
+											printf "ISII: " >> ResultWSIU.txt;
+										}
+									} else{
+										if (beststrategy[val,v] == 6) then{
+											let {j in J} r_aux[j]:= 0;
+											repeat{
+												let FO1:= FO2;
+
+												let {j in J, t in 1..tf} AUX1[j,t]:= I[j,t];
+												let {j in J, t in 1..tf} AUX2[j,t]:= Ineg[j,t];
+												let {j in J, t in 1..tf} AUX3[j,t]:= w[j,t];
+												let {j in J, t in 1..tf} AUX4[j,t]:= q[j,t];
+												let {j in J} r_aux[j]:= r[j];
+												let {i in J, j in J: i != j} yy_aux[i,j]:= yy[i,j];
+
+												objective A;
+												drop corteISII; drop corteISIII; drop Rest4a;
+												drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+												drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+												drop R1; drop R2; drop R3; drop R4; drop R5;
+												drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+												restore r1; restore r2; restore r3; restore r4; restore r5; restore r6;
+												solve;
+					
+												let FO:= sum{j in J, t in T} (H[j]*I[j,t] + B[j]*Ineg[j,t]);
+
+												if(solve_result = 'infeasible') then{
+													printf "ERRO: Infeasible!!!" >> ResultWSIU.txt;
+												}
+
+												if (gamma == 0) then{
+													let total:= 0;
+												}
+												let cont:= 0;
+												let contador2:= 0;
+												let u:= 0;
+												let {j in J, t in 1..tf} AUXILIAR2[j,t]:= q[j,t];
+												let ITERtotal:= 0;
+
+												if (gamma == 0) then{
+													let total:= total + 1;
+												}
+												let KK[total]:= 0;
+												let ITERtotal:= 0;
+
+												for{j in J}{
+													if(w[j,tt] == 1)then{
+														let Conj:= Conj union {j};
+														let CJS[total]:= CJS[total] union {j};
+														let KK[total]:= KK[total] + 1;
+													}else{
+														let Conjunto[total]:= Conjunto[total] union {j};
+													}
+												}
+												let contador2:= KK[total];
+												let contador:= KK[total];
+
+												# Scheduling with the Iterated Local Search
+												reset data Cjs, CJS, CJSII, CjsII, MKS_BL, s_0, Seq, SEQ, AUX, POSICAO, pos;
+												commands ILS.txt;
+
+												let NOVO_MAKESPAN[total]:= novo_makespan;
+												let CJS[total]:= Cjs;
+
+												if (gamma == 0) then{
+													let CJSIIanterior:= CJS[total];
+												}
+
+												# ISIII
+												if (NOVO_MAKESPAN[total] > (K[tt] + 0.05) && gamma == 0) then{
+													let ITERtotal:= ITERtotal + 1;
+													let counterI:= 0;
+													let ll:= 1; 
+													let CJSII[ll]:= CJS[total]; 
+
+													for{j in CJSII[ll]}{
+														let counterI:= counterI + 1; 
+														let khi[j,ll]:= 1;
+													}
+													let counter[ll]:= counterI; 
+
+													if(counterI >= 2)then{
+														let ConjuntoII[ll]:= CJSII[ll] union {0};
+														objective A2;
+
+														drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+														drop corteISII; drop corteISIII; drop r1; drop r2; drop r3; drop r4; drop r5; drop r6;
+														drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+														drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+														restore R1; restore R2; restore R3; restore R4; restore R5; drop Rest4a;
+														solve;
+														let SS[ll]:= A2; 
+													} else{
+														let SS[ll]:= 0; 
+													}
+													let ll:= ll + 1; 
+
+													for{i in CJS[total]}{
+														let counter[ll]:= 0;
+
+														let CJSII[ll]:= CJS[total] diff {i};
+														let khi[i,ll]:= 0;
+
+														for{j in CJSII[ll]}{
+															let counter[ll]:= counter[ll] + 1;
+															let khi[j,ll]:= 1;
+														}
+
+														if(counter[ll] >= 2)then{
+															let ConjuntoII[ll]:= CJSII[ll] union {0};
+															drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a;
+															drop corteISII; drop corteISIII; drop r1; drop r2; drop r3; drop r4; drop r5; drop r6;
+															drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+															drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+															restore R1; restore R2; restore R3; restore R4; restore R5; drop Rest4a;
+															objective A2; solve;
+
+															let SS[ll]:= A2;
+														} else{
+															let SS[ll]:= 0;
+														}
+
+														if(ll < counterI+1) then{
+															let ll:= ll + 1;
+														}else{
+															break;
+														}
+													}
+
+													for{j in Conjunto[total]}{
+														fix y[j,tt]:= 0;
+														fix Ineg[j,tt];
+														fix I[j,tt];
+														let SOMA:= Ineg[j,tt] + I[j,tt];
+														let {l in 1..counterI+1} khi[j,l]:= 0;
+													}
+
+													for{j in CJS[total]}{
+														let y[j,tt]:= 1;
+													}
+
+													for{j in J}{
+														for{t in tt..tf}{
+															unfix E[j,t];
+															unfix Eneg[j,t];
+															unfix x[j,t];
+															unfix y[j,t];
+														}
+													}
+													unfix alfa; unfix x1;
+
+													if (tt < tf) then{
+														objective A1;
+														restore Rest1a; restore Rest1b; restore corteISIVa; restore corteISIVb; restore Rest3a;
+														drop corteISII; drop corteISIII; restore Rest4a;
+														drop Rest1; restore Rest2; restore Rest3; restore Rest4; drop corte; restore Ifix2; restore Inegfix2;
+														drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+														drop R1; drop R2; drop R3; drop R4; drop R5; drop r1; drop r2; drop r3; drop r4; drop r5; drop r6;
+														solve;
+													} else{
+														objective A1;
+														restore Rest1a; drop Rest1b; restore corteISIVa; restore corteISIVb; restore Rest3a;
+														drop corteISII; drop corteISIII; restore Rest4a;
+														drop Rest1; restore Rest2; restore Rest3; restore Rest4; drop corte; restore Ifix2; restore Inegfix2;
+														drop rest1; drop rest2; drop rest3; drop rest4; drop rest5; drop rest6; drop rest7; drop Ifix; drop Inegfix;
+														drop R1; drop R2; drop R3; drop R4; drop R5; drop r1; drop r2; drop r3; drop r4; drop r5; drop r6;
+														solve;
+													}
+
+													for{j in J}{
+														let x[j,tt]:= sum{l in 1..counterI+1} x1[j,l];
+														if (x[j,tt] != 0) then{
+															let y[j,tt]:= 1;
+														}
+													}
+
+													for{l in 1..counterI+1}{
+														if(alfa[l] == 1) then{
+															let MKS:= SS[l] + sum{j in CJSII[l]} (p[j]*x[j,tt]);
+															let auxI:= l;
+														}
+													}
+													let NOVO_MAKESPAN[total]:= MKS;
+													let Cjs:= CJSII[auxI];
+
+													if (gamma == 0) then{
+														let CJSIIanterior:= CJSII[auxI];
+													}
+
+													let f:= 1;
+													repeat while (f <= counter[auxI]){
+														for{i in CJSII[auxI]}{
+															if(seq[i,auxI] == min{j in CJSII[auxI]} seq[j,auxI]) then{
+																let Posicao[auxI]:= Posicao[auxI] union {i};
+																let CJSII[auxI]:= CJSII[auxI] diff {i};
+																let f:= f + 1;
+															}
+														}
+													}
+
+													let u:= 1; 
+												}
+
+												if (u == 0) then{
+													let FO:= sum{j in J, t in T} (H[j]*I[j,t] + B[j]*Ineg[j,t]);
+												} else{
+													let FO:= sum{j in J, t in T} (H[j]*E[j,t] + B[j]*Eneg[j,t]);
+													let {j in J, t in 1..tf} I[j,t]:= E[j,t];
+													let {j in J, t in 1..tf} Ineg[j,t]:= Eneg[j,t];
+													let {j in J, t in 1..tf} q[j,t]:= x[j,t];
+													let {j in J, t in 1..tf} w[j,t]:= y[j,t];
+												}
+
+												let FO2:= FO;
+
+												if(((FO2 - FO1) >= 0 && gamma != 0) || ((FO2 - FO1) <= 0 && novo_makespan > K[tt])) then{
+													let FO:= FO1;
+													let {j in J, t in 1..tf} I[j,t]:= AUX1[j,t];
+													let {j in J, t in 1..tf} Ineg[j,t]:= AUX2[j,t];
+													let {j in J, t in 1..tf} w[j,t]:= AUX3[j,t];
+													let {j in J, t in 1..tf} q[j,t]:= AUX4[j,t];
+													let {i in J}r[i]:= r_aux[i];
+													let {i in J, j in J: i!=j} yy[i,j]:= yy_aux[i,j];													
+													let K[tt+1]:= KANTERIOR;
+													let K[tt]:= Kanterior;
+													let NOVO_MAKESPAN[total]:= makespananterior;
+													break;
+												}
+
+												if (FO2 < FO1 && gamma != 0) then{
+													break;
+												}
+
+												let gamma:= 0;
+												let cont2:= 0;
+
+												# Capacity extension
+												if (NOVO_MAKESPAN[total] < K[tt] + 0.05) then{
+													let gamma:= K[tt] - NOVO_MAKESPAN[total];
+
+													if (gamma > 0.05 && gamma <= (alfaI*capinicial)) then{
+														if (tt < tf) then{
+															let Kanterior:= K[tt];
+															let KANTERIOR:= K[tt+1];
+															let K[tt+1]:= capinicial + gamma;
+															let K[tt]:= Kanterior - gamma;
+															let cont2:= 1; 
+															let makespananterior:= NOVO_MAKESPAN[total];
+														} else{
+															break;
+														}
+													} else{
+														if (gamma > 0.05 && gamma > (alfaI*capinicial)) then{
+															if (tt < tf) then{
+																let Kanterior:= K[tt];
+																let KANTERIOR:= K[tt+1];
+																let K[tt+1]:= capinicial + (alfaI*capinicial);
+																let K[tt]:= Kanterior - alfaI*capinicial;
+																let cont2:= 1; 
+																let makespananterior:= NOVO_MAKESPAN[total];
+															} else{
+																break;
+															}
+														} else{
+															break;
+														}
+													}
+												}
+												reset data Conj, Conjunto;
+											} while (cont2 != 0);
+											reset data Inutilizados,yy,r;
+												
+											if (FO2 >= FO1 && auxI != 0) then{
+												for{j in J}{
+													let Inutilizados:= Inutilizados union {j}; 
+												}
+
+												for {i in Posicao[auxI]}{
+													let Inutilizados:= Inutilizados diff {i};
+												}
+
+												let f:= 1;
+												for{i in Posicao[auxI]}{
+													let sequencia[f]:= i;
+													let f:= f+1;
+												}
+
+												if (counter[auxI] >= 2) then{
+													for{i in CJSIIanterior}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 0; let yy[j,i]:= 1;
+														}
+													}
+
+													for{i in Inutilizados}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 1; let yy[j,i]:= 0;
+														}
+													}
+
+													for{i in 1..counter[auxI]-1}{
+														for{j in 1..counter[auxI]-1: j >= i}{
+															let yy[sequencia[i],sequencia[j+1]]:= 1; let yy[sequencia[j+1],sequencia[i]]:= 0;
+														}
+													}
+												} else{
+													for{i in CJSIIanterior}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 0; let yy[j,i]:= 1;
+														}
+													}
+
+													for{i in Inutilizados}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 1; let yy[j,i]:= 0;
+														}
+													}
+												}
+
+												for {i in 1..counter[auxI]}{
+													if (i == 1) then{
+														let r[sequencia[i]]:= 0;
+													} else{
+														let r[sequencia[i]]:= r[sequencia[i-1]] + setup[sequencia[i-1],sequencia[i]] + p[sequencia[i-1]]*q[sequencia[i-1],tt];
+													}
+												}
+											}
+
+											if (FO2 < FO1 || (FO2 >= FO1 && auxI == 0)) then {
+												for{j in J}{
+													let Inutilizados:= Inutilizados union {j};
+												}
+												for {i in 1..contador2}{
+													let Inutilizados:= Inutilizados diff {pos[i]};
+												}
+
+												if (contador2 >= 2) then{
+													for{i in CJS[total]}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 0; let yy[j,i]:= 1;
+														}
+													}
+
+													for{i in Inutilizados}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 1; let yy[j,i]:= 0;
+														}
+													}
+
+													for{i in 1..contador2-1}{
+														for{j in 1..contador2-1: j >= i}{
+															let yy[pos[i],pos[j+1]]:= 1; let yy[pos[j+1],pos[i]]:= 0;
+														}
+													}
+												} else{
+													for{i in CJS[total]}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 0; let yy[j,i]:= 1;
+														}
+													}
+
+													for{i in Inutilizados}{
+														for{j in Inutilizados: i <> j}{
+															let yy[i,j]:= 1; let yy[j,i]:= 0;
+														}
+													}
+												}
+
+												for {i in 1..contador2}{
+													if (i == 1) then{
+														let r[pos[i]]:= 0;
+													} else{
+														let r[pos[i]]:= r[pos[i-1]] + setup[pos[i-1],pos[i]] + p[pos[i-1]]*q[pos[i-1],tt];
+													}
+												}
+											}
+
+											if (tt == 4) then{
+												printf "ISIII: " >> ResultWSIU.txt;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					for{j in J}{
+						for{t in tt..tf}{
+							unfix I[j,t]; unfix Ineg[j,t]; unfix q[j,t]; unfix w[j,t];
+						}
+					}
+					unfix r; unfix yy;
+
+					if (tt < tf) then{ 
+						drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a; drop Rest4a;
+						drop corteISII; drop corteISIII; drop R1; drop R2; drop R3; drop R4; drop R5;
+						drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+						objective Manne; restore rest1; restore rest2; restore rest3; restore rest4; restore rest5; restore rest6; restore rest7; restore Ifix; restore Inegfix;
+						drop r1; drop r2; drop r3; drop r4; drop r5; drop r6; solve;
+					} else{
+						drop Rest1a; drop Rest1b; drop corteISIVa; drop corteISIVb; drop Rest3a; drop Rest4a;
+						drop corteISII; drop corteISIII; drop R1; drop R2; drop R3; drop R4; drop R5;
+						drop Rest1; drop Rest2; drop Rest3; drop Rest4; drop corte; drop Ifix2; drop Inegfix2;
+						objective Manne; restore rest1; restore rest3; restore rest4; restore rest5; restore rest6; restore rest7; restore Ifix; restore Inegfix;
+						drop r1; drop r2; drop r3; drop r4; drop r5; drop r6; solve;
+					}
+
+					if(solve_result = 'infeasible') then{
+						printf "ERRO: Infeasible!!!" >> ResultWSIU.txt;
+					}
+
+					let sumFO:= sumFO + sum{j in J, t in tt..tt}(H[j]*I[j,t] + B[j]*Ineg[j,t]);
+					let sumBackorder:= sumBackorder + sum{j in J, t in tt..tt}(B[j]*Ineg[j,t]);
+
+					for {j in J}{
+						let Tempo[tt]:= r[j];
+						if (Tempo[tt] == max{i in J}r[i] && w[j,tt]==1) then{
+							let auxII[tt]:= j;
+							let cont2:= 1;
+						}
+					}
+					if (beststrategy[val,v] == 4 || beststrategy[val,v] == 5 || beststrategy[val,v] == 6) then{
+						let ITERTOTAL[tt]:= ITERtotal;
+					}
+
+					if (cont2 == 0) then{
+						let Makespan[tt]:= 0;
+					} else{
+						let  Makespan[tt]:=  r[auxII[tt]] + p[auxII[tt]]*q[auxII[tt],tt];
+					}
+
+					for{j in J}{
+						for{t in 1..tt}{
+							fix I[j,t];
+							fix Ineg[j,t];
+							fix q[j,t];
+							fix w[j,t];
+						}
+					}
+
+					for{j in J}{
+						for{t in 1..(tt)}{
+							fix E[j,t]:= I[j,t];
+							fix Eneg[j,t]:= Ineg[j,t];
+							fix x[j,t]:= q[j,t];
+							fix y[j,t]:= w[j,t];
+						}
+					}
+					reset data r, yy, CJS, ConjuntoI, Inutilizados, sequencia, Conj, Conjunto, CjsI, ConjuntoII, CJSII, Posicao, seq, Cjs, pos, pos2, AUXILIAR, novo_makespan, somasetup, L1, L2, ConjII, KK;
+				}while (tt < tf);
+
+				close ("./DataIU/h"& class & n & v &".txt");
+				close ("./DataIU/B"& class & n & v &".txt");
+				close ("./DataIU/D"& class & n & v &".txt");
+				close ("./DataIU/p"& class & n & v &".txt");
+				close ("./DataIU/setup"& class & n & v &".txt");
+
+				let tempo[variacao]:= _ampl_time + _total_solve_time - sum{i in 0..variacao-1} tempo[i];
+				let tempoII[variacao]:= _total_solve_time - sum{i in 0..variacao-1} tempoII[i];
+
+				printf "%4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f  \n", class, n, v, sumFO, sumBackorder, tempo[variacao], tempoII[variacao] >> ResultWSIU.txt;
+
+				reset data I, Ineg, r, w, y, q, Makespan, aux, Tempo, E, Eneg, x, AUXILIAR2, yy, AUX1, AUX2, AUX3, AUX4, aux5, Bmin, khi, SS, counter;
+				let tt:= 0; let sumFO:= 0; let sumBackorder:= 0; let {h in 1..(tf+1)} K[h]:= 112; let total:= 0;
+				let MKS:= 0; let FO1:= 0; let FO2:= 0; let gamma:= 0; let delta:= 0; let counterI:= 0;  let ll:= 0; let SOMA:= 0; let cont2:= 0; let FO:= 0;
+				let contII:= 0; let contIII:=0; let contIV:=0; let contgamma:=0; let contador:=0; let contador2:=0; let cont4:= 0; let varsetup:= 0;
+				let cont:=0; let makespan:=0; let makespananterior:=0; let contador3:= 0;
+				let ext:= 0; let Kanterior:= 0; let auxI:= 0;
+				unfix I; unfix Ineg; unfix q; unfix w; unfix E; unfix Eneg; unfix x; unfix y; unfix Z; unfix seq; unfix x1; unfix alfa;
+			}
+        }
+}

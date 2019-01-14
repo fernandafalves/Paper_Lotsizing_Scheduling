@@ -1,0 +1,278 @@
+# Instance Generation - Poisson Distribution - Scenario 2
+# Generate instances until it reaches 'contn' infeasibilities 
+# ---------------------------------------------------------------------------------------------------------------------------------------------
+
+option randseed 1000;
+
+param n;
+param v;
+
+option eexit -100000;
+option display_precision 6;
+option auxfiles rca;
+option solver cplexamp;
+option omit_zero_rows 1;
+option cplex_options 'return_mipgap 3 timelimit=100 clocktype=1 integrality 3e-20 mipstartvalue=0';
+suffix absmipgap OUT;
+suffix relmipgap OUT;
+option presolve 0;
+
+param tf:= 4;
+set J ordered:= 1..n;
+set T:=0..tf;
+set Conj ordered default {};       
+set Cjs ordered default {};        
+set CjsII ordered default {};      
+set POS ordered default {};        
+
+param class;
+param val;
+param Cj {i in 1..10};
+param contador;
+param p{i in J};
+param h{i in J};
+param B{i in J};
+param setup{i in J, j in J};
+param Sm{j in J};
+param Makespan;
+param Tempo{j in J};
+param D{i in J, t in 1..tf};
+param M;
+param pos{c in 1..contador};
+param f default 1;
+param makespan;
+param novo_makespan;
+param b;
+param m;
+param tempo{g in 0..500000};
+param variacao;
+let tempo[0]:= 0;
+let variacao:= 0;
+param tt;
+let tt:= 0;
+param sumFO;
+let sumFO:= 0;
+param tempoII{g in 0..500000};
+let tempoII[0]:= 0;
+param sumBackorder;
+let sumBackorder:= 0;
+param continv;
+let continv:= 0;
+param contn;
+let contn:= 0;
+param contador1;
+param medias;
+param mediap;
+
+# Parameters for ILS
+param ITER;
+let ITER:= 0;
+param s_0{i in 1..contador};
+param aux; param posicao;
+param aux2;
+param MKS_0;
+param MKS_BL{i in 1..contador, j in 1..contador};
+param Seq{i in 1..contador};
+param AUX{i in 1..contador};
+param POSICAO{i in 1..contador};
+param CONT; param CONT2;
+param SEQ{i in 1..contador, j in 1..contador, k in 1..contador};
+param aux3; param aux4; param auxiliar;
+param auxiliar2;
+param K{t in 1..(tf+1)};
+let {t in 1..(tf+1)}K[t]:= 112;
+
+let Cj[1]:= 4;
+let Cj[2]:= 6;
+let Cj[3]:= 8;
+let Cj[4]:= 10;
+let Cj[5]:= 12;
+let Cj[6]:= 15;
+let Cj[7]:= 20;
+let Cj[8]:= 50;
+let Cj[9]:= 100;
+
+var I{j in J, t in T}, >=0, integer;
+var Ineg{j in J, t in T}, >=0, integer;
+var q{j in J, t in 1..tf}, >=0, integer;
+var w{j in J, t in 1..tf}, binary;
+
+minimize A: sum{j in J, t in T} (h[j]*I[j,t] + B[j]*Ineg[j,t]);
+
+s.t. r1{j in J, t in tt..tf}: I[j,t] = I[j,t-1] + q[j,t] - D[j,t] + Ineg[j,t] - Ineg[j,t-1];
+
+s.t. r2{t in tt..tf}: sum{j in 1..n-1}w[j,t]*Sm[j] + sum{j in J}q[j,t]*p[j] <= K[t];
+
+s.t. r3{t in tt..tf, j in J}: (q[j,t]*p[j])/K[t] <= w[j,t];
+
+s.t. r4{t in tt..tf, j in J}: w[j,t] <= q[j,t];
+
+s.t. Ifix{i in J}: I[i,0] = 0;
+
+s.t. Inegfix{i in J}: Ineg[i,0] = 0;
+
+
+let val:= 1;
+
+repeat while val <= 9{
+	let class:=1;
+
+	repeat while class <= 1{
+		let n:= Cj[val];
+		let v:= 1;
+
+		repeat while contn < 15{
+			let medias:= 120;
+			let mediap:= 140;
+
+			if (v == 1) then{
+				printf "Data distribution: \n" >> ResultIIP.txt;
+				printf "n: " >> ResultIIP.txt;
+				printf "%4.1f \n", n >> ResultIIP.txt;
+				printf "Setup: " >> ResultIIP.txt;
+				printf "%4.1f \n", medias >> ResultIIP.txt;
+				printf "Processing time: " >> ResultIIP.txt;
+				printf "%4.1f \n", mediap >> ResultIIP.txt;
+				printf "\n" >> ResultIIP.txt;
+			}
+
+			let {i in J, j in J} setup[i,j]:= trunc(max(Poisson(medias)/n, 1),1);
+			let {i in J} p[i]:= trunc(max(Poisson(mediap)/n, 1),1);
+			let {i in J, t in 1..tf} D[i,t]:= ceil(max(3-Poisson(1),1));
+			let {i in J} h[i]:= ceil(max(Poisson(5),1)); 
+			let {i in J} B[i]:= ceil(max(Poisson(8),1)); 
+
+			# Triangular inequality
+			repeat{
+				let contador1:= 0;
+				for{i in 1..n}{
+					for{j in 1..n: j <> i}{
+						for{l in 1..n: l <> i && l <> j}{
+							if (setup[i,j] > setup[i,l] + setup[l,j]) then{
+								let setup[i,j]:= min(trunc(max(Poisson(medias)/n, 1),1), setup[i,l] + setup[l,j]);
+								let contador1:= 1;
+							}
+						}
+					}
+				}
+			} while(contador1 == 1);
+
+			for {j in J}{
+				for{i in J}{
+					if (setup[i,j] < 0 || p[j] < 0) then{
+						printf "Problem!!!" >> ResultIIP.txt;
+					}
+				}
+				for{t in 1..tf}{
+					if (D[j,t] < 0) then{
+						printf "Problem!!!" >> ResultIIP.txt;
+					}
+				}
+			}
+
+			for{i in J}{
+				printf "%d \n", h[i] >> ("./DataIIP/h" & class & n & v &".txt");
+				printf "%d \n", B[i] >> ("./DataIIP/B" & class & n & v &".txt");
+				printf "%f \n", p[i] >> ("./DataIIP/p" & class & n & v &".txt");
+
+				for{j in J}{
+					printf "%f \n", setup[i,j] >> ("./DataIIP/setup"& class & n & v &".txt");
+				}
+				for{t in 1..tf}{
+					printf "%d \n", D[i,t] >> ("./DataIIP/D"& class & n & v &".txt");
+				}
+			}
+
+			let variacao:= variacao + 1;
+
+			for{i in 1..n}{
+				read h[i] < ("./DataIIP/h"& class & n & v &".txt");
+				read B[i] < ("./DataIIP/B"& class & n & v &".txt");
+				read p[i] < ("./DataIIP/p"& class & n & v &".txt");
+
+				for{j in 1..n}{
+					read setup[i,j] < ("./DataIIP/setup"& class & n & v &".txt");
+				}
+
+				for{t in 1..tf}{
+					read D[i,t] < ("./DataIIP/D"& class & n & v &".txt");
+				}
+			}
+
+			let {j in J}Sm[j]:= min{i in J: i!=j} setup[j,i]; 
+
+			repeat{
+				let tt:= tt + 1;
+				let novo_makespan:= 0;
+
+				solve;
+
+				let contador:= 0;
+
+				for{j in J}{
+					if(w[j,tt] == 1)then{
+						let Conj:= Conj union {j};
+						let contador:= contador + 1;
+					}
+				}
+
+				# Scheduling with the Iterated Local Search
+				reset data MKS_BL, s_0, Seq, SEQ, AUX, POSICAO, pos;
+				commands ILS.txt;
+
+				let sumFO:= sumFO + sum{j in J, t in tt..tt}(h[j]*I[j,t] + B[j]*Ineg[j,t]);
+				let sumBackorder:= sumBackorder + sum{j in J, t in tt..tt}(B[j]*Ineg[j,t]);
+
+				# Fix the rolling horizon variables
+				for{j in J}{
+					for{t in 1..tt}{
+						fix I[j,t]:= I[j,t];
+						fix Ineg[j,t]:= Ineg[j,t];
+						fix q[j,t]:= q[j,t];
+						fix w[j,t]:= w[j,t];
+					}
+				}
+
+				printf "Makespan: " >> ResultIIP.txt;
+				printf "%4.2f ", novo_makespan >> ResultIIP.txt;
+				printf "\n" >> ResultIIP.txt;
+
+				if (novo_makespan > K[tt] + 0.05) then{
+					let continv:= continv + 1;
+				}
+				reset data Conj, Cjs, pos, MKS_BL, s_0, Seq, SEQ, AUX, POSICAO;
+			}while (tt < tf);
+
+			close ("./DataIIP/h"& class & n & v &".txt");
+			close ("./DataIIP/B"& class & n & v &".txt");
+			close ("./DataIIP/D"& class & n & v &".txt");
+			close ("./DataIIP/p"& class & n & v &".txt");
+			close ("./DataIIP/setup"& class & n & v &".txt");
+
+			if (continv >= 1) then{
+				let contn:= contn + 1;
+				printf "Infeasibilities: " >> ResultIIP.txt;
+				printf "%4.2f ", contn >> ResultIIP.txt;
+				printf "\n" >> ResultIIP.txt;
+			}
+
+			let continv:= 0;
+
+			let tempo[variacao]:= _ampl_time + _total_solve_time - sum{i in 0..variacao-1} tempo[i];
+			let tempoII[variacao]:= _total_solve_time - sum{i in 0..variacao-1} tempoII[i];
+
+			printf "%4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f \n", n, v, sumFO, sumBackorder, tempo[variacao], tempoII[variacao] >> ResultIIP.txt;
+			printf "\n" >> ResultIIP.txt;
+
+			unfix I; unfix Ineg; unfix q; unfix w;
+
+			let tt:= 0; let sumFO:= 0; let sumBackorder:= 0; let novo_makespan:= 0;
+			reset data p, setup, D, M, Sm, w, pos, b, m, I, Ineg, q;
+			let v:= v + 1;
+		}
+		let contn:= 0;
+		let class:= class + 1;
+	}
+	let val:= val + 1;
+}
+

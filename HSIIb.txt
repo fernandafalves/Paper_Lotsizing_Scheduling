@@ -1,0 +1,417 @@
+# Hierarchical Strategy IIb (HSIIb)
+# Fernanda de Freitas Alves
+############################################################################################################################################################
+
+option eexit -100000;
+option display_precision 6;
+option auxfiles rca;
+option solver cplexamp;
+option omit_zero_rows 1;
+option cplex_options 'return_mipgap 3 timelimit=30 clocktype=1 threads 1 integrality 3e-20 seed=1000';
+suffix absmipgap OUT;
+suffix relmipgap OUT;
+option presolve 0;
+option randseed 1000;
+
+param n;
+param tf:= 4;
+set J ordered:= 1..n;
+set T:= 0..tf;
+set Conj ordered default {};       
+set Cjs ordered default {};        
+set CjsII ordered default {};      
+set POS ordered default {};        
+set Conjunto default {};
+set ConjII default {}; 
+set Inv:= 1..10;
+set C {Inv} default {};
+
+# Uniform Distribution - Scenario 1
+
+let C[1]:= {1,3,4,5,7,12,13,15,16,17,18,19,21,23,24};
+let C[2]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[3]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[4]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[5]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[6]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[7]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[8]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+let C[9]:= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+
+param class;
+param val;
+param Cj {i in 1..10};
+param contador; param contador2; param contador3;
+param p{i in J};
+param K{h in 1..(tf+1)};
+param H{i in J};
+param B{i in J};
+param setup{i in J, j in J};
+param Sm{j in J};
+param Makespan;
+param Tempo{j in J};
+param D{i in J, h in T};
+param M;
+param pos{c in 1..contador};
+param pos2{c in 1..contador2};
+param f default 1;
+param makespan;
+param novo_makespan;
+param b;
+param m;
+param tempo{g in 0..100000};
+param variacao;
+let tempo[0]:= 0;
+let variacao:= 0;
+param Bmin{j in J};
+param makespananterior;
+let makespananterior:= 0;
+param Kanterior;
+param KANTERIOR;
+param auxI;
+param FO;
+param delta;
+param cont;
+let cont:= 0;
+param cont3;
+param cont4;
+let cont4:= 0;
+param contgamma;
+let contgamma:= 0;
+param varsetup;
+param pi;
+param gamma;
+param alfa:= 0.07;
+let {h in 1..(tf+1)} K[h]:= 112;
+param FO1;
+param FO2;
+let novo_makespan:=0;
+param capinicial;
+let capinicial:= 112;
+param tt;
+let tt:= 0;
+param sumFO;
+let sumFO:= 0;
+param AUX1{j in J, t in T};
+param AUX2{j in J, t in T};
+param AUX3{j in J, t in T};
+param AUX4{j in J, t in T};
+param aux5; let aux5:= 0;
+param tempoII{g in 0..100000};
+let tempoII[0]:= 0;
+param sumBackorder;
+let sumBackorder:= 0;
+
+# Parameters for ILS
+param ITER;
+let ITER:= 0;
+param s_0{i in 1..contador};
+param aux; param posicao;
+param aux2;
+param MKS_0;
+param MKS_BL{i in 1..contador, j in 1..contador};
+param Seq{i in 1..contador};
+param AUX{i in 1..contador};
+param POSICAO{i in 1..contador};
+param CONT; param CONT2;
+param SEQ{i in 1..contador, j in 1..contador, k in 1..contador};
+param aux3; param aux4; param auxiliar;
+param auxiliar2;
+
+let Cj[1]:= 4;
+let Cj[2]:= 6;
+let Cj[3]:= 8;
+let Cj[4]:= 10;
+let Cj[5]:= 12;
+let Cj[6]:= 15;
+let Cj[7]:= 20;
+let Cj[8]:= 50;
+let Cj[9]:= 100;
+
+var I{j in J, t in T}, >=0, integer;
+var Ineg{j in J, t in T}, >=0, integer;
+var q{j in J, t in 1..tf}, >=0, integer;
+var w{j in J, t in 1..tf}, binary;
+
+minimize A: sum{j in J, h in T} (H[j]*I[j,h] + B[j]*Ineg[j,h]);
+
+s.t. r1{j in J, h in tt..tf}: I[j,h] = I[j,h-1] + q[j,h] - D[j,h] + Ineg[j,h] - Ineg[j,h-1];
+
+s.t. r2{h in tt..tf}: sum{j in 1..n-1}w[j,h]*Sm[j] + sum{j in J}q[j,h]*p[j] <= K[h];
+
+s.t. r3{h in tt..tf, j in J}: (q[j,h]*p[j])/K[h] <= w[j,h];
+
+s.t. r4{h in tt..tf, j in J}: w[j,h] <= q[j,h];
+
+s.t. Ifix{i in J}: I[i,0] = 0;
+
+s.t. Inegfix{i in J}: Ineg[i,0] = 0;
+
+let val:= 1;
+repeat while val <= 9{                                                                                                                                                  
+	let class:= 1;
+    repeat while class <= 1{
+		let n:= Cj[val];
+
+		for{v in C[val]}{
+			let variacao:= variacao + 1;
+			
+			for{i in 1..n}{
+				read H[i] < ("./DataIU/h"& class & n & v &".txt");
+				read B[i] < ("./DataIU/B"& class & n & v &".txt");
+				read p[i] < ("./DataIU/p"& class & n & v &".txt");
+
+				for{j in 1..n}{
+					read setup[i,j] < ("./DataIU/setup"& class & n & v &".txt");
+				}
+
+				for{h in 1..tf}{
+					read D[i,h] < ("./DataIU/D"& class & n & v &".txt");
+				}
+			}
+
+			let {j in J}Sm[j]:= min{i in J: i!=j} setup[j,i];
+					
+			repeat{
+				let tt:= tt + 1;
+				let novo_makespan:= 0;
+				let FO2:= 0; 
+				let gamma:= 0;
+
+				repeat{
+					let FO1:= FO2;
+					let {j in J, t in 1..tf} AUX1[j,t]:= I[j,t];
+					let {j in J, t in 1..tf} AUX2[j,t]:= Ineg[j,t];
+					let {j in J, t in 1..tf} AUX3[j,t]:= w[j,t];
+					let {j in J, t in 1..tf} AUX4[j,t]:= q[j,t];
+
+					solve;
+
+					let FO:= sum{j in J, t in T} (H[j]*I[j,t] + B[j]*Ineg[j,t]);
+
+					repeat{
+						let contador:= 0;
+
+						for{j in J}{
+							if(w[j,tt] == 1)then{
+								let Conj:= Conj union {j};
+								let contador:= contador + 1;
+							}
+						}
+						let contador2:= contador;
+
+						# Scheduling with the Iterated Local Search
+						reset data MKS_BL, s_0, Seq, SEQ, AUX, POSICAO, pos;
+						commands ILS.txt;
+							
+						let {i in 1..contador2} pos2[i]:= pos[i];
+						
+						let cont3:= 0;
+						let cont4:= 0;
+						let contgamma:= 0;
+						let Conj:= Cjs;
+
+						repeat{
+							# If the sequence is infeasible and the capacity extension has not yet been used
+							if (novo_makespan > (K[tt] + 0.05) && gamma == 0) then{
+								let delta:= novo_makespan - K[tt];
+								let contador3:= 0;
+
+								if (tt < tf) then{
+									for{j in J}{
+										if(w[j,tt+1] == 1 && w[j,tt] == 1)then{
+											let ConjII:= ConjII union {j};
+											let contador3:= contador3 + 1;
+										}
+									}
+								}
+
+								if (contador3 == 0 || tt == tf) then{
+									for{j in J}{
+										if(w[j,tt] == 1)then{
+											let ConjII:= ConjII union {j};
+											let contador3:= contador3 + 1;
+										}
+									}
+								}
+
+								# Lowest backorder cost
+								let f:= 1;
+								repeat while (f <= contador3){
+									for {j in ConjII} {
+										if (B[j]*q[j,tt] = min {i in ConjII} B[i]*q[i,tt]) then{
+											let Bmin[f]:= j;
+											let ConjII:= ConjII diff {j};
+											let f:= f + 1;
+										}
+									}
+								}
+								let Conjunto:= Cjs;
+								let auxI:= Bmin[1];
+
+								if (auxI == pos[1]) then{
+									let varsetup:= setup[auxI,pos[2]];
+								} else{
+									if (auxI == pos[contador]) then{
+										let varsetup:= setup[pos[contador-1],auxI];
+									} else{
+										for {i in 1..contador}{
+											if (pos[i] == auxI) then{
+												let pi:= i;
+											}
+										}
+										let varsetup:= setup[pos[pi-1],auxI] + setup[auxI, pos[pi+1]] - setup[pos[pi-1],pos[pi+1]];
+									}
+								}
+
+								if ((p[auxI]*q[auxI,tt]+ varsetup) < delta) then{
+									let w[auxI,tt]:= 0;
+									for {t in tt..tf}{
+										let Ineg[auxI,t]:= Ineg[auxI,t] + q[auxI,tt];
+									}
+									let FO:= FO + B[auxI]*q[auxI,tt];
+									let FO2:= FO;
+									let q[auxI,tt]:= 0;
+									reset data Conjunto, Conj, Cjs, pos;
+									let cont3:= 1;
+									let contador:= 0;
+									let contgamma:= 0;
+								}
+
+								if ((p[auxI]*q[auxI,tt] + varsetup) > delta) then{
+									if ((p[auxI]*q[auxI,tt] + varsetup - delta) >= ceil(0.30*(p[auxI]*q[auxI,tt])) + varsetup) then{
+										let q[auxI,tt]:= q[auxI,tt] - ceil(delta/p[auxI]);
+										for {t in tt..tf}{
+											let Ineg[auxI,t]:= Ineg[auxI,t] + ceil(delta/p[auxI]);
+										}
+										let FO:= FO + B[auxI]*ceil(delta/p[auxI]);
+										let FO2:= FO;
+										let novo_makespan:= sum{i in 1..contador-1} setup[pos[i],pos[i+1]] + sum{j in Cjs} (p[j]*q[j,tt]);
+										if (q[auxI,tt] == 0)then{
+											let w[auxI,tt]:= 0;
+											reset data Conjunto, Conj, Cjs, pos;
+											let cont3:= 1;
+											let contgamma:= 0;
+											let contador:= 0;
+										}else{
+											let contgamma:= 1;
+										}
+										break;
+									}else{
+										let w[auxI,tt]:= 0;
+										for {t in tt..tf}{
+											let Ineg[auxI,t]:= Ineg[auxI,t] + q[auxI,tt];
+										}
+										let FO:= FO + B[auxI]*q[auxI,tt];
+										let FO2:= FO;
+										let q[auxI,tt]:= 0;
+										reset data Conjunto, Conj, Cjs, pos;
+										let cont3:= 1;
+										let contador:= 0;
+										let contgamma:= 0;
+									}
+								}
+							}
+						} while (contgamma != 0);
+						reset data Conj, Cjs;
+					} while (cont3 == 1);
+                                                        
+					let FO2:= FO;
+
+					if(((FO2 - FO1) >= 0 && gamma != 0) || ((FO2 - FO1) <= 0 && novo_makespan > K[tt])) then{
+						let FO:= FO1;
+						let {j in J, t in 1..tf} I[j,t]:= AUX1[j,t];
+						let {j in J, t in 1..tf} Ineg[j,t]:= AUX2[j,t];
+						let {j in J, t in 1..tf} w[j,t]:= AUX3[j,t];
+						let {j in J, t in 1..tf} q[j,t]:= AUX4[j,t];
+						let K[tt+1]:= KANTERIOR;
+						let K[tt]:= Kanterior;
+						let novo_makespan:= makespananterior;
+						let aux5:= 1;
+						break;
+					}
+					if (FO2 < FO1 && novo_makespan <= (K[tt] + 0.05) && gamma != 0) then{
+						break;
+					}
+
+					let gamma:= 0;
+					let cont4:= 0;
+
+					# Capacity Extension
+					if (novo_makespan < K[tt] + 0.05) then{
+						let gamma:= K[tt] - novo_makespan;
+
+						if (gamma > 0.05 && gamma <= (alfa*capinicial)) then{
+							if (tt < tf) then{
+								let Kanterior:= K[tt];
+								let KANTERIOR:= K[tt+1];
+								let K[tt+1]:= capinicial + gamma;
+								let K[tt]:= Kanterior - gamma;
+								let cont4:= 1;
+								let makespananterior:= novo_makespan;
+							} else{
+								break;
+							}
+						} else{
+							if (gamma > 0.05 && gamma > (alfa*capinicial)) then{
+								if (tt < tf) then{
+									let Kanterior:= K[tt];
+									let KANTERIOR:= K[tt+1];
+									let K[tt+1]:= capinicial + (alfa*capinicial);
+									let K[tt]:= Kanterior - alfa*capinicial;
+									let cont4:= 1;
+									let makespananterior:= novo_makespan;
+								} else{
+									break;
+								}
+							} else{
+								break;
+							}
+						}
+					}
+				} while (cont4 != 0);
+
+				let sumFO:= sumFO + sum{j in J, t in tt..tt}(H[j]*I[j,t] + B[j]*Ineg[j,t]);
+				let sumBackorder:= sumBackorder + sum{j in J, t in tt..tt}(B[j]*Ineg[j,t]);
+
+				# Fix the rolling horizon variables
+				for{j in J}{
+					for{t in 1..tt}{
+						fix I[j,t]:= I[j,t];
+						fix Ineg[j,t]:= Ineg[j,t];
+						fix q[j,t]:= q[j,t];
+						fix w[j,t]:= w[j,t];
+					}
+				}
+
+				printf "Makespan: " >> ResultHSIIbIU.txt;
+				printf "%4.2f\n", novo_makespan >> ResultHSIIbIU.txt;
+				
+				let gamma:= 0;
+				reset data Conj, Conjunto, Cjs;
+			}while (tt < tf);
+			
+			close ("./DataIU/h"& class & n & v &".txt");
+			close ("./DataIU/B"& class & n & v &".txt");
+			close ("./DataIU/D"& class & n & v &".txt");
+			close ("./DataIU/p"& class & n & v &".txt");
+			close ("./DataIU/setup"& class & n & v &".txt");
+
+			let tempo[variacao]:= _ampl_time + _total_solve_time - sum{i in 0..variacao-1} tempo[i];
+			let tempoII[variacao]:= _total_solve_time - sum{i in 0..variacao-1} tempoII[i];
+
+			printf "%4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f  \n", class, n, v, sumFO, sumBackorder, tempo[variacao], tempoII[variacao] >> ResultHSIIbIU.txt;
+			printf "\n" >> ResultHSIIbIU.txt;
+
+			unfix I; unfix Ineg; unfix q; unfix w;
+			let tt:= 0; let sumFO:= 0;
+
+			let tt:= 0; let sumFO:= 0; let sumBackorder:= 0; let novo_makespan:= 0; let makespananterior:=0;
+			let {t in 1..(tf+1)} K[t]:= 112; let FO1:= 0; let FO2:= 0; let Kanterior:= 112; let FO:= 0;
+			reset data p, setup, D, Sm, w, pos, b, m, I, Ineg, q, AUX1, AUX2, AUX3, AUX4;
+		}
+		let class:= class + 1;
+	}
+	let val:= val + 1;
+}
+
