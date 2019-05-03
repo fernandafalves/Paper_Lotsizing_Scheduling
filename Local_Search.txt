@@ -17,8 +17,7 @@ repeat{
 						}
 						let pos[i]:= b;
 					}
-				}
-				if (i = contador) then{
+				} else{
 					if (setup[pos[i],pos[j]] < setup[pos[j],pos[j+1]]) then{
 						let b:= pos[j];
 						let m:= j;
@@ -30,35 +29,11 @@ repeat{
 					}
 				}
 			}
-		}
-		
-		if (j > 1 and j < contador) then{
-			for {i in 1..contador: i != j}{
-				if (i==1) then{
-					if (setup[pos[j],pos[i]] + setup[pos[j-1],pos[j+1]] < setup[pos[j-1],pos[j]] + setup[pos[j],pos[j+1]]) then{
-						let b:= pos[j];
-						let m:= j;
-						for {z in 1..j-i}{
-							let pos[m]:= pos[m-1];
-							let m:= m-1;
-						}
-						let pos[i]:= b;
-					}
-				}
-				if (i>1 and i<contador) then{
-					if (j<i) then{
-						if (setup[pos[j-1],pos[j+1]] + setup[pos[i],pos[j]] + setup[pos[j],pos[i+1]] < setup[pos[j-1],pos[j]] + setup[pos[j],pos[j+1]] + setup[pos[i],pos[i+1]]) then{
-							let b:= pos[j];
-							let m:= j;
-							for {z in 1..i-j}{
-								let pos[m]:= pos[m+1];
-								let m:= m+1;
-							}
-							let pos[i]:= b;
-						}
-					}
-					if (j>i) then{
-						if (setup[pos[i-1],pos[j]] + setup[pos[j],pos[i]] + setup[pos[j-1],pos[j+1]] < setup[pos[i-1],pos[i]] + setup[pos[j-1],pos[j]] + setup[pos[j],pos[j+1]]) then{
+		} else{	
+			if (j > 1 and j < contador) then{
+				for {i in 1..contador: i != j}{
+					if (i==1) then{
+						if (setup[pos[j],pos[i]] + setup[pos[j-1],pos[j+1]] < setup[pos[j-1],pos[j]] + setup[pos[j],pos[j+1]]) then{
 							let b:= pos[j];
 							let m:= j;
 							for {z in 1..j-i}{
@@ -67,47 +42,73 @@ repeat{
 							}
 							let pos[i]:= b;
 						}
-					}
-				}
-				if (i==contador) then{
-					if (setup[pos[j-1],pos[j+1]] + setup[pos[i],pos[j]] < setup[pos[j-1],pos[j]] + setup[pos[j],pos[j+1]]) then{
-						let b:= pos[j];
-						let m:= j;
-						for {z in 1..i-j}{
-							let pos[m]:= pos[m+1];
-							let m:= m+1;
+					} else{
+						if (i>1 and i<contador) then{
+							if (j<i) then{
+								if (setup[pos[j-1],pos[j+1]] + setup[pos[i],pos[j]] + setup[pos[j],pos[i+1]] < setup[pos[j-1],pos[j]] + setup[pos[j],pos[j+1]] + setup[pos[i],pos[i+1]]) then{
+									let b:= pos[j];
+									let m:= j;
+									for {z in 1..i-j}{
+										let pos[m]:= pos[m+1];
+										let m:= m+1;
+									}
+									let pos[i]:= b;
+								}
+							}
+							if (j>i) then{
+								if (setup[pos[i-1],pos[j]] + setup[pos[j],pos[i]] + setup[pos[j-1],pos[j+1]] < setup[pos[i-1],pos[i]] + setup[pos[j-1],pos[j]] + setup[pos[j],pos[j+1]]) then{
+									let b:= pos[j];
+									let m:= j;
+									for {z in 1..j-i}{
+										let pos[m]:= pos[m-1];
+										let m:= m-1;
+									}
+									let pos[i]:= b;
+								}
+							}
+						} else{
+							if (i==contador) then{
+								if (setup[pos[j-1],pos[j+1]] + setup[pos[i],pos[j]] < setup[pos[j-1],pos[j]] + setup[pos[j],pos[j+1]]) then{
+									let b:= pos[j];
+									let m:= j;
+									for {z in 1..i-j}{
+										let pos[m]:= pos[m+1];
+										let m:= m+1;
+									}
+									let pos[i]:= b;
+								}
+							}
 						}
-						let pos[i]:= b;
+					}		
+				}
+			} else{
+				if (j==contador) then{
+					for {i in 1..contador: i!=j}{
+						if (i==1) then{
+							if (setup[pos[j],pos[i]] < setup[pos[j-1],pos[j]]) then{
+								let b:= pos[j];
+								let m:= j;
+								for {z in 1..j-i}{
+									let pos[m]:= pos[m-1];
+									let m:= m-1;
+								}
+								let pos[i]:= b;
+							}
+						} else{
+							if (setup[pos[i-1],pos[j]] + setup[pos[j],pos[i]] < setup[pos[i-1],pos[i]] + setup[pos[j-1],pos[j]]) then{
+								let b:= pos[j];
+								let m:= j;
+								for {z in 1..j-i}{
+									let pos[m]:= pos[m-1];
+									let m:= m-1;
+								}
+								let pos[i]:= b;
+							}
+						}
 					}
 				}
 			}
-		}
-		if (j==contador) then{
-			for {i in 1..contador: i!=j}{
-				if (i==1) then{
-					if (setup[pos[j],pos[i]] < setup[pos[j-1],pos[j]]) then{
-						let b:= pos[j];
-						let m:= j;
-						for {z in 1..j-i}{
-							let pos[m]:= pos[m-1];
-							let m:= m-1;
-						}
-						let pos[i]:= b;
-					}
-				}
-				if(i>1) then{
-					if (setup[pos[i-1],pos[j]] + setup[pos[j],pos[i]] < setup[pos[i-1],pos[i]] + setup[pos[j-1],pos[j]]) then{
-						let b:= pos[j];
-						let m:= j;
-						for {z in 1..j-i}{
-							let pos[m]:= pos[m-1];
-							let m:= m-1;
-						}
-						let pos[i]:= b;
-					}
-				}
-			}
-		}
+		}		
 	}
 	let novo_makespan:= sum{i in 1..contador-1} setup[pos[i],pos[i+1]] + sum{j in Cjs} (p[j]*q[j,tt]);
 } while (novo_makespan < makespan);
