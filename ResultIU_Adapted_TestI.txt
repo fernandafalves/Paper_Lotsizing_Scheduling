@@ -1,0 +1,1440 @@
+Makespan/Capacity: 613.00, 607.00 
+Infeasible!Makespan/Capacity: 626.00, 624.50 
+Infeasible!Makespan/Capacity: 624.00, 619.50 
+Infeasible!Makespan/Capacity: 605.00, 601.50 
+Infeasible!Makespan/Capacity: 630.00, 627.00 
+Infeasible!15.00, 5.00, 0.60, 0.00, 28063.00, 28059.00, 37.59, 36.52  
+
+Makespan/Capacity: 620.00, 618.00 
+Infeasible!Makespan/Capacity: 625.00, 618.00 
+Infeasible!Makespan/Capacity: 609.00, 608.00 
+Infeasible!Makespan/Capacity: 652.00, 646.50 
+Infeasible!Makespan/Capacity: 618.00, 614.50 
+Infeasible!15.00, 5.00, 0.60, 1.00, 27499.00, 27490.00, 33.81, 32.80  
+
+Makespan/Capacity: 619.00, 614.50 
+Infeasible!Makespan/Capacity: 611.00, 609.50 
+Infeasible!Makespan/Capacity: 585.00, 582.00 
+Infeasible!Makespan/Capacity: 585.00, 583.00 
+Infeasible!Makespan/Capacity: 616.00, 610.50 
+Infeasible!15.00, 5.00, 0.60, 2.00, 26848.00, 26842.00, 10.64, 9.65  
+
+Makespan/Capacity: 597.00, 597.00 
+Makespan/Capacity: 619.00, 615.50 
+Infeasible!Makespan/Capacity: 627.00, 626.50 
+Infeasible!Makespan/Capacity: 635.00, 632.00 
+Infeasible!Makespan/Capacity: 619.00, 619.00 
+15.00, 5.00, 0.60, 3.00, 28544.00, 28544.00, 27.84, 26.75  
+
+Makespan/Capacity: 638.00, 637.00 
+Infeasible!Makespan/Capacity: 620.00, 616.50 
+Infeasible!Makespan/Capacity: 619.00, 616.50 
+Infeasible!Makespan/Capacity: 640.00, 636.50 
+Infeasible!Makespan/Capacity: 621.00, 619.00 
+Infeasible!15.00, 5.00, 0.60, 4.00, 28237.00, 28237.00, 5.95, 4.85  
+
+Makespan/Capacity: 624.00, 622.00 
+Infeasible!Makespan/Capacity: 599.00, 599.50 
+Makespan/Capacity: 653.00, 650.50 
+Infeasible!Makespan/Capacity: 623.00, 619.00 
+Infeasible!Makespan/Capacity: 609.00, 606.50 
+Infeasible!15.00, 5.00, 0.60, 5.00, 28027.00, 28021.00, 17.91, 16.90  
+
+Makespan/Capacity: 664.00, 663.00 
+Infeasible!Makespan/Capacity: 585.00, 584.50 
+Infeasible!Makespan/Capacity: 640.00, 638.00 
+Infeasible!Makespan/Capacity: 620.00, 619.50 
+Infeasible!Makespan/Capacity: 618.00, 615.50 
+Infeasible!15.00, 5.00, 0.60, 6.00, 28549.00, 28507.00, 14.02, 12.94  
+
+Makespan/Capacity: 608.00, 604.50 
+Infeasible!Makespan/Capacity: 653.00, 651.50 
+Infeasible!Makespan/Capacity: 640.00, 634.00 
+Infeasible!Makespan/Capacity: 632.00, 629.00 
+Infeasible!Makespan/Capacity: 596.00, 594.00 
+Infeasible!15.00, 5.00, 0.60, 7.00, 28994.00, 28976.00, 5.88, 4.92  
+
+Makespan/Capacity: 601.00, 596.50 
+Infeasible!Makespan/Capacity: 618.00, 615.50 
+Infeasible!Makespan/Capacity: 609.00, 601.50 
+Infeasible!Makespan/Capacity: 609.00, 604.00 
+Infeasible!Makespan/Capacity: 607.00, 599.00 
+Infeasible!15.00, 5.00, 0.60, 8.00, 27310.00, 27302.00, 10.99, 10.05  
+
+Makespan/Capacity: 597.00, 596.50 
+Infeasible!Makespan/Capacity: 640.00, 639.50 
+Infeasible!Makespan/Capacity: 623.00, 619.50 
+Infeasible!Makespan/Capacity: 641.00, 639.50 
+Infeasible!Makespan/Capacity: 638.00, 636.50 
+Infeasible!15.00, 5.00, 0.60, 9.00, 27865.00, 27859.00, 12.84, 11.73  
+
+Makespan/Capacity: 458.00, 455.50 
+Infeasible!Makespan/Capacity: 471.00, 468.50 
+Infeasible!Makespan/Capacity: 467.00, 464.50 
+Infeasible!Makespan/Capacity: 453.00, 451.00 
+Infeasible!Makespan/Capacity: 473.00, 470.50 
+Infeasible!15.00, 5.00, 0.80, 0.00, 53217.00, 53182.00, 11.17, 10.88  
+
+Makespan/Capacity: 468.00, 463.50 
+Infeasible!Makespan/Capacity: 467.00, 463.50 
+Infeasible!Makespan/Capacity: 462.00, 456.00 
+Infeasible!Makespan/Capacity: 488.00, 484.50 
+Infeasible!Makespan/Capacity: 464.00, 461.00 
+Infeasible!15.00, 5.00, 0.80, 1.00, 51316.00, 51295.00, 16.60, 16.22  
+
+Makespan/Capacity: 464.00, 461.00 
+Infeasible!Makespan/Capacity: 458.00, 457.00 
+Infeasible!Makespan/Capacity: 440.00, 436.50 
+Infeasible!Makespan/Capacity: 439.00, 437.00 
+Infeasible!Makespan/Capacity: 462.00, 458.00 
+Infeasible!15.00, 5.00, 0.80, 2.00, 51825.00, 51825.00, 8.84, 8.55  
+
+Makespan/Capacity: 453.00, 448.00 
+Infeasible!Makespan/Capacity: 465.00, 461.50 
+Infeasible!Makespan/Capacity: 477.00, 469.50 
+Infeasible!Makespan/Capacity: 475.00, 474.00 
+Infeasible!Makespan/Capacity: 467.00, 464.00 
+Infeasible!15.00, 5.00, 0.80, 3.00, 52340.00, 52336.00, 8.34, 8.04  
+
+Makespan/Capacity: 479.00, 478.00 
+Infeasible!Makespan/Capacity: 466.00, 462.00 
+Infeasible!Makespan/Capacity: 463.00, 462.00 
+Infeasible!Makespan/Capacity: 478.00, 477.00 
+Infeasible!Makespan/Capacity: 465.00, 464.00 
+Infeasible!15.00, 5.00, 0.80, 4.00, 52069.00, 52067.00, 9.39, 9.13  
+
+Makespan/Capacity: 468.00, 466.50 
+Infeasible!Makespan/Capacity: 453.00, 449.50 
+Infeasible!Makespan/Capacity: 490.00, 488.00 
+Infeasible!Makespan/Capacity: 464.00, 464.00 
+Makespan/Capacity: 458.00, 454.50 
+Infeasible!15.00, 5.00, 0.80, 5.00, 52865.00, 52851.00, 7.84, 7.56  
+
+Makespan/Capacity: 498.00, 497.00 
+Infeasible!Makespan/Capacity: 439.00, 438.50 
+Infeasible!Makespan/Capacity: 481.00, 478.50 
+Infeasible!Makespan/Capacity: 468.00, 464.50 
+Infeasible!Makespan/Capacity: 466.00, 461.50 
+Infeasible!15.00, 5.00, 0.80, 6.00, 53114.00, 53114.00, 15.11, 14.73  
+
+Makespan/Capacity: 457.00, 453.50 
+Infeasible!Makespan/Capacity: 489.00, 488.50 
+Infeasible!Makespan/Capacity: 480.00, 475.50 
+Infeasible!Makespan/Capacity: 471.00, 471.50 
+Makespan/Capacity: 448.00, 445.50 
+Infeasible!15.00, 5.00, 0.80, 7.00, 52918.00, 52890.00, 5.53, 5.14  
+
+Makespan/Capacity: 451.00, 447.00 
+Infeasible!Makespan/Capacity: 467.00, 461.50 
+Infeasible!Makespan/Capacity: 453.00, 451.00 
+Infeasible!Makespan/Capacity: 457.00, 453.00 
+Infeasible!Makespan/Capacity: 456.00, 449.00 
+Infeasible!15.00, 5.00, 0.80, 8.00, 50893.00, 50893.00, 14.77, 14.38  
+
+Makespan/Capacity: 450.00, 447.00 
+Infeasible!Makespan/Capacity: 480.00, 479.50 
+Infeasible!Makespan/Capacity: 469.00, 464.50 
+Infeasible!Makespan/Capacity: 480.00, 479.50 
+Infeasible!Makespan/Capacity: 479.00, 477.00 
+Infeasible!15.00, 5.00, 0.80, 9.00, 51858.00, 51858.00, 28.93, 28.58  
+
+Makespan/Capacity: 1030.00, 1028.00 
+Infeasible!Makespan/Capacity: 1071.00, 1069.00 
+Infeasible!Makespan/Capacity: 1026.00, 1024.50 
+Infeasible!Makespan/Capacity: 1056.00, 1054.50 
+Infeasible!Makespan/Capacity: 1026.00, 1029.50 
+25.00, 5.00, 0.60, 0.00, 48328.00, 48328.00, 15.33, 7.89  
+
+Makespan/Capacity: 1011.00, 1008.00 
+Infeasible!Makespan/Capacity: 1017.00, 1015.50 
+Infeasible!Makespan/Capacity: 1028.00, 1025.50 
+Infeasible!Makespan/Capacity: 1012.00, 1004.00 
+Infeasible!Makespan/Capacity: 1036.00, 1034.50 
+Infeasible!25.00, 5.00, 0.60, 1.00, 45727.00, 45703.00, 37.97, 31.59  
+
+Makespan/Capacity: 1050.00, 1048.00 
+Infeasible!Makespan/Capacity: 1031.00, 1029.50 
+Infeasible!Makespan/Capacity: 1054.00, 1048.00 
+Infeasible!Makespan/Capacity: 999.00, 997.00 
+Infeasible!Makespan/Capacity: 1025.00, 1022.00 
+Infeasible!25.00, 5.00, 0.60, 2.00, 48224.00, 48214.00, 38.33, 31.79  
+
+Makespan/Capacity: 1029.00, 1026.50 
+Infeasible!Makespan/Capacity: 1072.00, 1067.00 
+Infeasible!Makespan/Capacity: 1065.00, 1059.00 
+Infeasible!Makespan/Capacity: 1068.00, 1064.50 
+Infeasible!Makespan/Capacity: 1049.00, 1044.00 
+Infeasible!25.00, 5.00, 0.60, 3.00, 47786.00, 47786.00, 38.31, 28.92  
+
+Makespan/Capacity: 951.00, 951.50 
+Makespan/Capacity: 980.00, 976.50 
+Infeasible!Makespan/Capacity: 1077.00, 1073.00 
+Infeasible!Makespan/Capacity: 974.00, 968.00 
+Infeasible!Makespan/Capacity: 1052.00, 1048.00 
+Infeasible!25.00, 5.00, 0.60, 4.00, 44861.00, 44831.00, 37.89, 31.26  
+
+Makespan/Capacity: 1050.00, 1047.00 
+Infeasible!Makespan/Capacity: 1065.00, 1059.50 
+Infeasible!Makespan/Capacity: 999.00, 995.50 
+Infeasible!Makespan/Capacity: 1018.00, 1014.50 
+Infeasible!Makespan/Capacity: 1029.00, 1024.50 
+Infeasible!25.00, 5.00, 0.60, 5.00, 46114.00, 46107.00, 50.63, 44.32  
+
+Makespan/Capacity: 1024.00, 1020.50 
+Infeasible!Makespan/Capacity: 1041.00, 1040.50 
+Infeasible!Makespan/Capacity: 1048.00, 1044.00 
+Infeasible!Makespan/Capacity: 1036.00, 1033.00 
+Infeasible!Makespan/Capacity: 1025.00, 1022.00 
+Infeasible!25.00, 5.00, 0.60, 6.00, 47227.00, 47189.00, 38.85, 31.24  
+
+Makespan/Capacity: 1055.00, 1049.50 
+Infeasible!Makespan/Capacity: 1043.00, 1039.00 
+Infeasible!Makespan/Capacity: 1012.00, 1005.50 
+Infeasible!Makespan/Capacity: 1032.00, 1027.00 
+Infeasible!Makespan/Capacity: 1002.00, 996.50 
+Infeasible!25.00, 5.00, 0.60, 7.00, 46534.00, 46484.00, 37.90, 30.87  
+
+Makespan/Capacity: 1033.00, 1029.50 
+Infeasible!Makespan/Capacity: 1029.00, 1024.00 
+Infeasible!Makespan/Capacity: 1031.00, 1026.50 
+Infeasible!Makespan/Capacity: 1020.00, 1013.00 
+Infeasible!Makespan/Capacity: 1048.00, 1044.00 
+Infeasible!25.00, 5.00, 0.60, 8.00, 47444.00, 47444.00, 45.66, 37.56  
+
+Makespan/Capacity: 1049.00, 1044.50 
+Infeasible!Makespan/Capacity: 1020.00, 1018.00 
+Infeasible!Makespan/Capacity: 1025.00, 1020.50 
+Infeasible!Makespan/Capacity: 1081.00, 1078.00 
+Infeasible!Makespan/Capacity: 1039.00, 1034.50 
+Infeasible!25.00, 5.00, 0.60, 9.00, 47540.00, 47518.00, 38.49, 31.68  
+
+Makespan/Capacity: 774.00, 771.00 
+Infeasible!Makespan/Capacity: 802.00, 801.50 
+Infeasible!Makespan/Capacity: 770.00, 768.50 
+Infeasible!Makespan/Capacity: 793.00, 791.00 
+Infeasible!Makespan/Capacity: 774.00, 772.00 
+Infeasible!25.00, 5.00, 0.80, 0.00, 87218.00, 87218.00, 4.40, 2.08  
+
+Makespan/Capacity: 759.00, 756.00 
+Infeasible!Makespan/Capacity: 765.00, 761.50 
+Infeasible!Makespan/Capacity: 773.00, 769.00 
+Infeasible!Makespan/Capacity: 759.00, 753.00 
+Infeasible!Makespan/Capacity: 775.00, 776.00 
+25.00, 5.00, 0.80, 1.00, 86247.00, 86247.00, 33.54, 31.26  
+
+Makespan/Capacity: 790.00, 786.00 
+Infeasible!Makespan/Capacity: 768.00, 772.00 
+Makespan/Capacity: 791.00, 786.00 
+Infeasible!Makespan/Capacity: 752.00, 748.00 
+Infeasible!Makespan/Capacity: 766.00, 766.50 
+25.00, 5.00, 0.80, 2.00, 89694.00, 89679.00, 32.88, 31.28  
+
+Makespan/Capacity: 775.00, 769.50 
+Infeasible!Makespan/Capacity: 805.00, 800.50 
+Infeasible!Makespan/Capacity: 798.00, 794.00 
+Infeasible!Makespan/Capacity: 798.00, 798.50 
+Makespan/Capacity: 787.00, 783.00 
+Infeasible!25.00, 5.00, 0.80, 3.00, 88362.00, 88354.00, 33.46, 31.28  
+
+Makespan/Capacity: 716.00, 713.50 
+Infeasible!Makespan/Capacity: 736.00, 732.00 
+Infeasible!Makespan/Capacity: 811.00, 804.50 
+Infeasible!Makespan/Capacity: 732.00, 726.00 
+Infeasible!Makespan/Capacity: 792.00, 786.00 
+Infeasible!25.00, 5.00, 0.80, 4.00, 84387.00, 84387.00, 33.47, 31.40  
+
+Makespan/Capacity: 787.00, 785.50 
+Infeasible!Makespan/Capacity: 799.00, 794.50 
+Infeasible!Makespan/Capacity: 749.00, 746.50 
+Infeasible!Makespan/Capacity: 767.00, 761.00 
+Infeasible!Makespan/Capacity: 776.00, 768.50 
+Infeasible!25.00, 5.00, 0.80, 5.00, 88377.00, 88373.00, 36.57, 34.06  
+
+Makespan/Capacity: 770.00, 765.50 
+Infeasible!Makespan/Capacity: 781.00, 780.50 
+Infeasible!Makespan/Capacity: 790.00, 783.00 
+Infeasible!Makespan/Capacity: 778.00, 774.50 
+Infeasible!Makespan/Capacity: 770.00, 766.50 
+Infeasible!25.00, 5.00, 0.80, 6.00, 89066.00, 89060.00, 33.60, 31.67  
+
+Makespan/Capacity: 793.00, 787.00 
+Infeasible!Makespan/Capacity: 780.00, 779.00 
+Infeasible!Makespan/Capacity: 759.00, 754.00 
+Infeasible!Makespan/Capacity: 774.00, 770.50 
+Infeasible!Makespan/Capacity: 752.00, 747.00 
+Infeasible!25.00, 5.00, 0.80, 7.00, 87094.00, 87064.00, 32.97, 30.99  
+
+Makespan/Capacity: 775.00, 772.00 
+Infeasible!Makespan/Capacity: 774.00, 768.00 
+Infeasible!Makespan/Capacity: 773.00, 769.50 
+Infeasible!Makespan/Capacity: 762.00, 759.50 
+Infeasible!Makespan/Capacity: 786.00, 783.00 
+Infeasible!25.00, 5.00, 0.80, 8.00, 87763.00, 87763.00, 34.52, 32.07  
+
+Makespan/Capacity: 789.00, 783.50 
+Infeasible!Makespan/Capacity: 765.00, 763.50 
+Infeasible!Makespan/Capacity: 769.00, 765.50 
+Infeasible!Makespan/Capacity: 815.00, 808.50 
+Infeasible!Makespan/Capacity: 781.00, 776.00 
+Infeasible!25.00, 5.00, 0.80, 9.00, 88255.00, 88255.00, 37.44, 35.22  
+
+Makespan/Capacity: 611.00, 607.00 
+Infeasible!Makespan/Capacity: 628.00, 624.50 
+Infeasible!Makespan/Capacity: 621.00, 619.50 
+Infeasible!Makespan/Capacity: 603.00, 601.50 
+Infeasible!Makespan/Capacity: 631.00, 627.00 
+Infeasible!Makespan/Capacity: 633.00, 629.50 
+Infeasible!Makespan/Capacity: 657.00, 651.50 
+Infeasible!Makespan/Capacity: 627.00, 623.00 
+Infeasible!Makespan/Capacity: 643.00, 639.50 
+Infeasible!Makespan/Capacity: 606.00, 602.00 
+Infeasible!15.00, 10.00, 0.60, 0.00, 98060.00, 97756.00, 109.79, 108.82  
+
+Makespan/Capacity: 620.00, 618.00 
+Infeasible!Makespan/Capacity: 626.00, 618.00 
+Infeasible!Makespan/Capacity: 610.00, 608.00 
+Infeasible!Makespan/Capacity: 649.00, 646.50 
+Infeasible!Makespan/Capacity: 618.00, 614.50 
+Infeasible!Makespan/Capacity: 610.00, 604.50 
+Infeasible!Makespan/Capacity: 610.00, 607.00 
+Infeasible!Makespan/Capacity: 584.00, 579.50 
+Infeasible!Makespan/Capacity: 584.00, 582.00 
+Infeasible!Makespan/Capacity: 614.00, 611.50 
+Infeasible!15.00, 10.00, 0.60, 1.00, 98577.00, 98377.00, 47.88, 46.87  
+
+Makespan/Capacity: 618.00, 614.50 
+Infeasible!Makespan/Capacity: 612.00, 609.50 
+Infeasible!Makespan/Capacity: 585.00, 582.00 
+Infeasible!Makespan/Capacity: 587.00, 583.00 
+Infeasible!Makespan/Capacity: 616.00, 610.50 
+Infeasible!Makespan/Capacity: 607.00, 604.50 
+Infeasible!Makespan/Capacity: 650.00, 644.00 
+Infeasible!Makespan/Capacity: 631.00, 627.00 
+Infeasible!Makespan/Capacity: 642.00, 635.50 
+Infeasible!Makespan/Capacity: 623.00, 618.00 
+Infeasible!15.00, 10.00, 0.60, 2.00, 96096.00, 95684.00, 134.99, 134.13  
+
+Makespan/Capacity: 599.00, 597.00 
+Infeasible!Makespan/Capacity: 617.00, 615.50 
+Infeasible!Makespan/Capacity: 631.00, 626.50 
+Infeasible!Makespan/Capacity: 635.00, 632.00 
+Infeasible!Makespan/Capacity: 621.00, 619.00 
+Infeasible!Makespan/Capacity: 599.00, 595.50 
+Infeasible!Makespan/Capacity: 585.00, 582.00 
+Infeasible!Makespan/Capacity: 603.00, 600.50 
+Infeasible!Makespan/Capacity: 669.00, 666.50 
+Infeasible!Makespan/Capacity: 650.00, 649.00 
+Infeasible!15.00, 10.00, 0.60, 3.00, 98646.00, 98370.00, 78.94, 78.11  
+
+Makespan/Capacity: 640.00, 637.00 
+Infeasible!Makespan/Capacity: 620.00, 616.50 
+Infeasible!Makespan/Capacity: 617.00, 616.50 
+Infeasible!Makespan/Capacity: 637.00, 636.50 
+Infeasible!Makespan/Capacity: 623.00, 619.00 
+Infeasible!Makespan/Capacity: 652.00, 650.50 
+Infeasible!Makespan/Capacity: 675.00, 673.00 
+Infeasible!Makespan/Capacity: 626.00, 621.50 
+Infeasible!Makespan/Capacity: 609.00, 608.00 
+Infeasible!Makespan/Capacity: 592.00, 588.00 
+Infeasible!15.00, 10.00, 0.60, 4.00, 97988.00, 97637.00, 129.42, 128.71  
+
+Makespan/Capacity: 627.00, 622.00 
+Infeasible!Makespan/Capacity: 602.00, 599.50 
+Infeasible!Makespan/Capacity: 655.00, 650.50 
+Infeasible!Makespan/Capacity: 621.00, 619.00 
+Infeasible!Makespan/Capacity: 610.00, 606.50 
+Infeasible!Makespan/Capacity: 641.00, 637.00 
+Infeasible!Makespan/Capacity: 577.00, 580.50 
+Makespan/Capacity: 618.00, 621.50 
+Makespan/Capacity: 656.00, 653.00 
+Infeasible!Makespan/Capacity: 624.00, 619.50 
+Infeasible!15.00, 10.00, 0.60, 5.00, 101196.00, 100810.00, 64.94, 64.13  
+
+Makespan/Capacity: 663.00, 663.00 
+Makespan/Capacity: 585.00, 584.50 
+Infeasible!Makespan/Capacity: 639.00, 638.00 
+Infeasible!Makespan/Capacity: 621.00, 619.50 
+Infeasible!Makespan/Capacity: 616.00, 615.50 
+Infeasible!Makespan/Capacity: 624.00, 618.00 
+Infeasible!Makespan/Capacity: 625.00, 622.00 
+Infeasible!Makespan/Capacity: 629.00, 624.00 
+Infeasible!Makespan/Capacity: 604.00, 599.00 
+Infeasible!Makespan/Capacity: 591.00, 588.00 
+Infeasible!15.00, 10.00, 0.60, 6.00, 97071.00, 96821.00, 112.72, 111.82  
+
+Makespan/Capacity: 608.00, 604.50 
+Infeasible!Makespan/Capacity: 652.00, 651.50 
+Infeasible!Makespan/Capacity: 638.00, 634.00 
+Infeasible!Makespan/Capacity: 630.00, 629.00 
+Infeasible!Makespan/Capacity: 599.00, 594.00 
+Infeasible!Makespan/Capacity: 595.00, 594.00 
+Infeasible!Makespan/Capacity: 638.00, 629.50 
+Infeasible!Makespan/Capacity: 621.00, 618.00 
+Infeasible!Makespan/Capacity: 618.00, 614.00 
+Infeasible!Makespan/Capacity: 632.00, 627.00 
+Infeasible!15.00, 10.00, 0.60, 7.00, 96520.00, 96060.00, 115.73, 114.95  
+
+Makespan/Capacity: 602.00, 596.50 
+Infeasible!Makespan/Capacity: 618.00, 615.50 
+Infeasible!Makespan/Capacity: 609.00, 601.50 
+Infeasible!Makespan/Capacity: 607.00, 604.00 
+Infeasible!Makespan/Capacity: 600.00, 599.00 
+Infeasible!Makespan/Capacity: 619.00, 617.00 
+Infeasible!Makespan/Capacity: 620.00, 618.00 
+Infeasible!Makespan/Capacity: 627.00, 623.00 
+Infeasible!Makespan/Capacity: 607.00, 604.50 
+Infeasible!Makespan/Capacity: 615.00, 611.50 
+Infeasible!15.00, 10.00, 0.60, 8.00, 97170.00, 96940.00, 81.41, 80.66  
+
+Makespan/Capacity: 596.00, 596.50 
+Makespan/Capacity: 641.00, 639.50 
+Infeasible!Makespan/Capacity: 620.00, 619.50 
+Infeasible!Makespan/Capacity: 641.00, 639.50 
+Infeasible!Makespan/Capacity: 637.00, 636.50 
+Infeasible!Makespan/Capacity: 632.00, 629.50 
+Infeasible!Makespan/Capacity: 596.00, 593.00 
+Infeasible!Makespan/Capacity: 614.00, 611.50 
+Infeasible!Makespan/Capacity: 612.00, 608.00 
+Infeasible!Makespan/Capacity: 613.00, 611.50 
+Infeasible!15.00, 10.00, 0.60, 9.00, 98988.00, 98540.00, 142.03, 141.29  
+
+Makespan/Capacity: 459.00, 455.50 
+Infeasible!Makespan/Capacity: 473.00, 468.50 
+Infeasible!Makespan/Capacity: 466.00, 464.50 
+Infeasible!Makespan/Capacity: 454.00, 451.00 
+Infeasible!Makespan/Capacity: 473.00, 470.50 
+Infeasible!Makespan/Capacity: 474.00, 472.00 
+Infeasible!Makespan/Capacity: 490.00, 488.50 
+Infeasible!Makespan/Capacity: 471.00, 467.00 
+Infeasible!Makespan/Capacity: 481.00, 479.50 
+Infeasible!Makespan/Capacity: 454.00, 451.50 
+Infeasible!15.00, 10.00, 0.80, 0.00, 184716.00, 184692.00, 84.25, 83.92  
+
+Makespan/Capacity: 467.00, 463.50 
+Infeasible!Makespan/Capacity: 469.00, 463.50 
+Infeasible!Makespan/Capacity: 457.00, 456.00 
+Infeasible!Makespan/Capacity: 487.00, 484.50 
+Infeasible!Makespan/Capacity: 462.00, 461.00 
+Infeasible!Makespan/Capacity: 458.00, 453.50 
+Infeasible!Makespan/Capacity: 456.00, 455.50 
+Infeasible!Makespan/Capacity: 437.00, 434.50 
+Infeasible!Makespan/Capacity: 437.00, 436.50 
+Infeasible!Makespan/Capacity: 461.00, 458.50 
+Infeasible!15.00, 10.00, 0.80, 1.00, 184701.00, 184661.00, 82.04, 81.66  
+
+Makespan/Capacity: 464.00, 461.00 
+Infeasible!Makespan/Capacity: 459.00, 457.00 
+Infeasible!Makespan/Capacity: 442.00, 436.50 
+Infeasible!Makespan/Capacity: 439.00, 437.00 
+Infeasible!Makespan/Capacity: 461.00, 458.00 
+Infeasible!Makespan/Capacity: 455.00, 453.50 
+Infeasible!Makespan/Capacity: 487.00, 483.00 
+Infeasible!Makespan/Capacity: 473.00, 470.50 
+Infeasible!Makespan/Capacity: 481.00, 476.50 
+Infeasible!Makespan/Capacity: 466.00, 463.50 
+Infeasible!15.00, 10.00, 0.80, 2.00, 184057.00, 183986.00, 70.93, 70.58  
+
+Makespan/Capacity: 453.00, 448.00 
+Infeasible!Makespan/Capacity: 463.00, 461.50 
+Infeasible!Makespan/Capacity: 470.00, 469.50 
+Infeasible!Makespan/Capacity: 474.00, 474.00 
+Makespan/Capacity: 459.00, 464.00 
+Makespan/Capacity: 445.00, 446.50 
+Makespan/Capacity: 434.00, 436.50 
+Makespan/Capacity: 454.00, 450.50 
+Infeasible!Makespan/Capacity: 498.00, 499.50 
+Makespan/Capacity: 481.00, 486.50 
+15.00, 10.00, 0.80, 3.00, 193009.00, 192887.00, 105.60, 105.36  
+
+Makespan/Capacity: 481.00, 478.00 
+Infeasible!Makespan/Capacity: 464.00, 462.00 
+Infeasible!Makespan/Capacity: 464.00, 462.00 
+Infeasible!Makespan/Capacity: 478.00, 477.00 
+Infeasible!Makespan/Capacity: 466.00, 464.00 
+Infeasible!Makespan/Capacity: 489.00, 488.00 
+Infeasible!Makespan/Capacity: 506.00, 504.50 
+Infeasible!Makespan/Capacity: 468.00, 466.00 
+Infeasible!Makespan/Capacity: 459.00, 456.00 
+Infeasible!Makespan/Capacity: 444.00, 441.00 
+Infeasible!15.00, 10.00, 0.80, 4.00, 190983.00, 190969.00, 52.82, 52.46  
+
+Makespan/Capacity: 470.00, 466.50 
+Infeasible!Makespan/Capacity: 449.00, 449.50 
+Makespan/Capacity: 492.00, 488.00 
+Infeasible!Makespan/Capacity: 466.00, 464.00 
+Infeasible!Makespan/Capacity: 457.00, 454.50 
+Infeasible!Makespan/Capacity: 483.00, 478.00 
+Infeasible!Makespan/Capacity: 437.00, 435.50 
+Infeasible!Makespan/Capacity: 470.00, 466.00 
+Infeasible!Makespan/Capacity: 492.00, 489.50 
+Infeasible!Makespan/Capacity: 467.00, 464.50 
+Infeasible!15.00, 10.00, 0.80, 5.00, 185988.00, 185956.00, 70.58, 70.26  
+
+Makespan/Capacity: 500.00, 497.00 
+Infeasible!Makespan/Capacity: 438.00, 438.50 
+Makespan/Capacity: 479.00, 478.50 
+Infeasible!Makespan/Capacity: 467.00, 464.50 
+Infeasible!Makespan/Capacity: 466.00, 461.50 
+Infeasible!Makespan/Capacity: 463.00, 463.50 
+Makespan/Capacity: 467.00, 466.50 
+Infeasible!Makespan/Capacity: 468.00, 468.00 
+Makespan/Capacity: 451.00, 449.00 
+Infeasible!Makespan/Capacity: 443.00, 441.00 
+Infeasible!15.00, 10.00, 0.80, 6.00, 193926.00, 193812.00, 109.40, 109.04  
+
+Makespan/Capacity: 458.00, 453.50 
+Infeasible!Makespan/Capacity: 489.00, 488.50 
+Infeasible!Makespan/Capacity: 481.00, 475.50 
+Infeasible!Makespan/Capacity: 474.00, 471.50 
+Infeasible!Makespan/Capacity: 447.00, 445.50 
+Infeasible!Makespan/Capacity: 446.00, 445.50 
+Infeasible!Makespan/Capacity: 477.00, 472.00 
+Infeasible!Makespan/Capacity: 466.00, 463.50 
+Infeasible!Makespan/Capacity: 461.00, 460.50 
+Infeasible!Makespan/Capacity: 471.00, 470.50 
+Infeasible!15.00, 10.00, 0.80, 7.00, 188913.00, 188913.00, 121.52, 121.15  
+
+Makespan/Capacity: 449.00, 447.00 
+Infeasible!Makespan/Capacity: 465.00, 461.50 
+Infeasible!Makespan/Capacity: 454.00, 451.00 
+Infeasible!Makespan/Capacity: 456.00, 453.00 
+Infeasible!Makespan/Capacity: 445.00, 449.00 
+Makespan/Capacity: 466.00, 463.00 
+Infeasible!Makespan/Capacity: 470.00, 463.50 
+Infeasible!Makespan/Capacity: 462.00, 467.00 
+Makespan/Capacity: 453.00, 453.50 
+Makespan/Capacity: 456.00, 458.50 
+15.00, 10.00, 0.80, 8.00, 182167.00, 182141.00, 44.66, 44.34  
+
+Makespan/Capacity: 451.00, 447.00 
+Infeasible!Makespan/Capacity: 481.00, 479.50 
+Infeasible!Makespan/Capacity: 469.00, 464.50 
+Infeasible!Makespan/Capacity: 482.00, 479.50 
+Infeasible!Makespan/Capacity: 481.00, 477.00 
+Infeasible!Makespan/Capacity: 474.00, 472.00 
+Infeasible!Makespan/Capacity: 446.00, 444.50 
+Infeasible!Makespan/Capacity: 461.00, 458.50 
+Infeasible!Makespan/Capacity: 461.00, 456.00 
+Infeasible!Makespan/Capacity: 462.00, 458.50 
+Infeasible!15.00, 10.00, 0.80, 9.00, 191322.00, 190934.00, 99.66, 99.41  
+
+Makespan/Capacity: 1033.00, 1028.00 
+Infeasible!Makespan/Capacity: 1071.00, 1069.00 
+Infeasible!Makespan/Capacity: 1028.00, 1024.50 
+Infeasible!Makespan/Capacity: 1055.00, 1054.50 
+Infeasible!Makespan/Capacity: 1031.00, 1029.50 
+Infeasible!Makespan/Capacity: 1045.00, 1042.00 
+Infeasible!Makespan/Capacity: 999.00, 997.00 
+Infeasible!Makespan/Capacity: 1052.00, 1048.00 
+Infeasible!Makespan/Capacity: 1037.00, 1034.00 
+Infeasible!Makespan/Capacity: 1016.00, 1012.00 
+Infeasible!25.00, 10.00, 0.60, 0.00, 168645.00, 168218.00, 161.18, 156.92  
+
+Makespan/Capacity: 1011.00, 1008.00 
+Infeasible!Makespan/Capacity: 1016.00, 1015.50 
+Infeasible!Makespan/Capacity: 1028.00, 1025.50 
+Infeasible!Makespan/Capacity: 1008.00, 1004.00 
+Infeasible!Makespan/Capacity: 1036.00, 1034.50 
+Infeasible!Makespan/Capacity: 1007.00, 1003.00 
+Infeasible!Makespan/Capacity: 1032.00, 1032.00 
+Makespan/Capacity: 1020.00, 1016.50 
+Infeasible!Makespan/Capacity: 1051.00, 1049.00 
+Infeasible!Makespan/Capacity: 1035.00, 1034.50 
+Infeasible!25.00, 10.00, 0.60, 1.00, 161903.00, 161548.00, 163.28, 155.98  
+
+Makespan/Capacity: 1049.00, 1048.00 
+Infeasible!Makespan/Capacity: 1031.00, 1029.50 
+Infeasible!Makespan/Capacity: 1051.00, 1048.00 
+Infeasible!Makespan/Capacity: 999.00, 997.00 
+Infeasible!Makespan/Capacity: 1026.00, 1022.00 
+Infeasible!Makespan/Capacity: 1060.00, 1056.50 
+Infeasible!Makespan/Capacity: 1038.00, 1032.00 
+Infeasible!Makespan/Capacity: 1017.00, 1015.50 
+Infeasible!Makespan/Capacity: 1059.00, 1059.00 
+Makespan/Capacity: 1018.00, 1014.50 
+Infeasible!25.00, 10.00, 0.60, 2.00, 164829.00, 164507.00, 141.40, 135.33  
+
+Makespan/Capacity: 1029.00, 1026.50 
+Infeasible!Makespan/Capacity: 1071.00, 1067.00 
+Infeasible!Makespan/Capacity: 1062.00, 1059.00 
+Infeasible!Makespan/Capacity: 1067.00, 1064.50 
+Infeasible!Makespan/Capacity: 1048.00, 1044.00 
+Infeasible!Makespan/Capacity: 1058.00, 1054.50 
+Infeasible!Makespan/Capacity: 1029.00, 1024.50 
+Infeasible!Makespan/Capacity: 1048.00, 1044.00 
+Infeasible!Makespan/Capacity: 1049.00, 1044.00 
+Infeasible!Makespan/Capacity: 1042.00, 1039.00 
+Infeasible!25.00, 10.00, 0.60, 3.00, 164894.00, 164450.00, 134.43, 129.91  
+
+Makespan/Capacity: 953.00, 951.50 
+Infeasible!Makespan/Capacity: 984.00, 976.50 
+Infeasible!Makespan/Capacity: 1076.00, 1073.00 
+Infeasible!Makespan/Capacity: 974.00, 968.00 
+Infeasible!Makespan/Capacity: 1049.00, 1048.00 
+Infeasible!Makespan/Capacity: 1036.00, 1033.00 
+Infeasible!Makespan/Capacity: 986.00, 981.50 
+Infeasible!Makespan/Capacity: 1063.00, 1059.00 
+Infeasible!Makespan/Capacity: 1014.00, 1014.50 
+Makespan/Capacity: 996.00, 994.50 
+Infeasible!25.00, 10.00, 0.60, 4.00, 159171.00, 158933.00, 103.33, 97.94  
+
+Makespan/Capacity: 1049.00, 1047.00 
+Infeasible!Makespan/Capacity: 1064.00, 1059.50 
+Infeasible!Makespan/Capacity: 997.00, 995.50 
+Infeasible!Makespan/Capacity: 1016.00, 1014.50 
+Infeasible!Makespan/Capacity: 1026.00, 1024.50 
+Infeasible!Makespan/Capacity: 1056.00, 1052.00 
+Infeasible!Makespan/Capacity: 1078.00, 1074.00 
+Infeasible!Makespan/Capacity: 1033.00, 1030.50 
+Infeasible!Makespan/Capacity: 1021.00, 1019.50 
+Infeasible!Makespan/Capacity: 1038.00, 1034.00 
+Infeasible!25.00, 10.00, 0.60, 5.00, 161999.00, 161599.00, 129.87, 124.63  
+
+Makespan/Capacity: 1023.00, 1020.50 
+Infeasible!Makespan/Capacity: 1043.00, 1040.50 
+Infeasible!Makespan/Capacity: 1050.00, 1044.00 
+Infeasible!Makespan/Capacity: 1037.00, 1033.00 
+Infeasible!Makespan/Capacity: 1025.00, 1022.00 
+Infeasible!Makespan/Capacity: 1029.00, 1025.50 
+Infeasible!Makespan/Capacity: 1038.00, 1034.50 
+Infeasible!Makespan/Capacity: 1071.00, 1064.00 
+Infeasible!Makespan/Capacity: 1032.00, 1027.00 
+Infeasible!Makespan/Capacity: 1027.00, 1020.50 
+Infeasible!25.00, 10.00, 0.60, 6.00, 164178.00, 163732.00, 136.98, 132.47  
+
+Makespan/Capacity: 1055.00, 1049.50 
+Infeasible!Makespan/Capacity: 1041.00, 1039.00 
+Infeasible!Makespan/Capacity: 1011.00, 1005.50 
+Infeasible!Makespan/Capacity: 1031.00, 1027.00 
+Infeasible!Makespan/Capacity: 1001.00, 996.50 
+Infeasible!Makespan/Capacity: 1013.00, 1010.50 
+Infeasible!Makespan/Capacity: 1036.00, 1031.50 
+Infeasible!Makespan/Capacity: 996.00, 993.00 
+Infeasible!Makespan/Capacity: 1001.00, 994.00 
+Infeasible!Makespan/Capacity: 992.00, 989.00 
+Infeasible!25.00, 10.00, 0.60, 7.00, 162493.00, 162141.00, 137.92, 131.85  
+
+Makespan/Capacity: 1031.00, 1029.50 
+Infeasible!Makespan/Capacity: 1030.00, 1024.00 
+Infeasible!Makespan/Capacity: 1028.00, 1026.50 
+Infeasible!Makespan/Capacity: 1014.00, 1013.00 
+Infeasible!Makespan/Capacity: 1045.00, 1044.00 
+Infeasible!Makespan/Capacity: 1050.00, 1046.50 
+Infeasible!Makespan/Capacity: 1010.00, 1005.50 
+Infeasible!Makespan/Capacity: 1037.00, 1033.00 
+Infeasible!Makespan/Capacity: 983.00, 978.00 
+Infeasible!Makespan/Capacity: 1006.00, 1005.50 
+Infeasible!25.00, 10.00, 0.60, 8.00, 161900.00, 161434.00, 140.02, 134.79  
+
+Makespan/Capacity: 1049.00, 1044.50 
+Infeasible!Makespan/Capacity: 1022.00, 1018.00 
+Infeasible!Makespan/Capacity: 1024.00, 1020.50 
+Infeasible!Makespan/Capacity: 1081.00, 1078.00 
+Infeasible!Makespan/Capacity: 1039.00, 1034.50 
+Infeasible!Makespan/Capacity: 1018.00, 1016.50 
+Infeasible!Makespan/Capacity: 1005.00, 1000.50 
+Infeasible!Makespan/Capacity: 998.00, 995.50 
+Infeasible!Makespan/Capacity: 997.00, 994.00 
+Infeasible!Makespan/Capacity: 1027.00, 1022.00 
+Infeasible!25.00, 10.00, 0.60, 9.00, 159736.00, 159265.00, 141.61, 137.25  
+
+Makespan/Capacity: 774.00, 771.00 
+Infeasible!Makespan/Capacity: 803.00, 801.50 
+Infeasible!Makespan/Capacity: 770.00, 768.50 
+Infeasible!Makespan/Capacity: 794.00, 791.00 
+Infeasible!Makespan/Capacity: 773.00, 772.00 
+Infeasible!Makespan/Capacity: 783.00, 781.50 
+Infeasible!Makespan/Capacity: 751.00, 748.00 
+Infeasible!Makespan/Capacity: 790.00, 786.00 
+Infeasible!Makespan/Capacity: 778.00, 775.50 
+Infeasible!Makespan/Capacity: 762.00, 759.00 
+Infeasible!25.00, 10.00, 0.80, 0.00, 323817.00, 323521.00, 152.92, 151.53  
+
+Makespan/Capacity: 759.00, 756.00 
+Infeasible!Makespan/Capacity: 763.00, 761.50 
+Infeasible!Makespan/Capacity: 773.00, 769.00 
+Infeasible!Makespan/Capacity: 754.00, 753.00 
+Infeasible!Makespan/Capacity: 778.00, 776.00 
+Infeasible!Makespan/Capacity: 756.00, 752.00 
+Infeasible!Makespan/Capacity: 775.00, 774.00 
+Infeasible!Makespan/Capacity: 768.00, 762.00 
+Infeasible!Makespan/Capacity: 787.00, 786.50 
+Infeasible!Makespan/Capacity: 778.00, 776.00 
+Infeasible!25.00, 10.00, 0.80, 1.00, 304552.00, 304484.00, 89.08, 87.10  
+
+Makespan/Capacity: 790.00, 786.00 
+Infeasible!Makespan/Capacity: 776.00, 772.00 
+Infeasible!Makespan/Capacity: 790.00, 786.00 
+Infeasible!Makespan/Capacity: 746.00, 748.00 
+Makespan/Capacity: 770.00, 766.50 
+Infeasible!Makespan/Capacity: 796.00, 792.00 
+Infeasible!Makespan/Capacity: 777.00, 774.00 
+Infeasible!Makespan/Capacity: 758.00, 761.50 
+Makespan/Capacity: 793.00, 794.00 
+Makespan/Capacity: 763.00, 761.00 
+Infeasible!25.00, 10.00, 0.80, 2.00, 314754.00, 314712.00, 151.09, 149.34  
+
+Makespan/Capacity: 776.00, 769.50 
+Infeasible!Makespan/Capacity: 805.00, 800.50 
+Infeasible!Makespan/Capacity: 798.00, 794.00 
+Infeasible!Makespan/Capacity: 800.00, 798.50 
+Infeasible!Makespan/Capacity: 782.00, 783.00 
+Makespan/Capacity: 791.00, 791.00 
+Makespan/Capacity: 772.00, 768.50 
+Infeasible!Makespan/Capacity: 781.00, 783.00 
+Makespan/Capacity: 787.00, 783.00 
+Infeasible!Makespan/Capacity: 783.00, 779.00 
+Infeasible!25.00, 10.00, 0.80, 3.00, 312988.00, 312932.00, 152.86, 150.71  
+
+Makespan/Capacity: 717.00, 713.50 
+Infeasible!Makespan/Capacity: 736.00, 732.00 
+Infeasible!Makespan/Capacity: 808.00, 804.50 
+Infeasible!Makespan/Capacity: 727.00, 726.00 
+Infeasible!Makespan/Capacity: 789.00, 786.00 
+Infeasible!Makespan/Capacity: 778.00, 774.50 
+Infeasible!Makespan/Capacity: 739.00, 736.00 
+Infeasible!Makespan/Capacity: 796.00, 794.00 
+Infeasible!Makespan/Capacity: 764.00, 761.00 
+Infeasible!Makespan/Capacity: 749.00, 746.00 
+Infeasible!25.00, 10.00, 0.80, 4.00, 303626.00, 303450.00, 70.96, 69.47  
+
+Makespan/Capacity: 787.00, 785.50 
+Infeasible!Makespan/Capacity: 800.00, 794.50 
+Infeasible!Makespan/Capacity: 749.00, 746.50 
+Infeasible!Makespan/Capacity: 764.00, 761.00 
+Infeasible!Makespan/Capacity: 770.00, 768.50 
+Infeasible!Makespan/Capacity: 795.00, 789.00 
+Infeasible!Makespan/Capacity: 807.00, 805.50 
+Infeasible!Makespan/Capacity: 780.00, 773.00 
+Infeasible!Makespan/Capacity: 766.00, 764.50 
+Infeasible!Makespan/Capacity: 778.00, 775.50 
+Infeasible!25.00, 10.00, 0.80, 5.00, 310608.00, 310548.00, 104.03, 102.05  
+
+Makespan/Capacity: 769.00, 765.50 
+Infeasible!Makespan/Capacity: 783.00, 780.50 
+Infeasible!Makespan/Capacity: 786.00, 783.00 
+Infeasible!Makespan/Capacity: 777.00, 774.50 
+Infeasible!Makespan/Capacity: 770.00, 766.50 
+Infeasible!Makespan/Capacity: 773.00, 769.00 
+Infeasible!Makespan/Capacity: 783.00, 776.00 
+Infeasible!Makespan/Capacity: 795.00, 798.00 
+Makespan/Capacity: 769.00, 770.50 
+Makespan/Capacity: 763.00, 765.50 
+25.00, 10.00, 0.80, 6.00, 310794.00, 310617.00, 68.77, 66.75  
+
+Makespan/Capacity: 793.00, 787.00 
+Infeasible!Makespan/Capacity: 783.00, 779.00 
+Infeasible!Makespan/Capacity: 761.00, 754.00 
+Infeasible!Makespan/Capacity: 777.00, 770.50 
+Infeasible!Makespan/Capacity: 750.00, 747.00 
+Infeasible!Makespan/Capacity: 765.00, 758.00 
+Infeasible!Makespan/Capacity: 776.00, 773.50 
+Infeasible!Makespan/Capacity: 751.00, 744.50 
+Infeasible!Makespan/Capacity: 751.00, 745.50 
+Infeasible!Makespan/Capacity: 745.00, 741.50 
+Infeasible!25.00, 10.00, 0.80, 7.00, 307718.00, 307636.00, 158.65, 156.62  
+
+Makespan/Capacity: 776.00, 772.00 
+Infeasible!Makespan/Capacity: 774.00, 768.00 
+Infeasible!Makespan/Capacity: 773.00, 769.50 
+Infeasible!Makespan/Capacity: 761.00, 759.50 
+Infeasible!Makespan/Capacity: 787.00, 783.00 
+Infeasible!Makespan/Capacity: 789.00, 784.50 
+Infeasible!Makespan/Capacity: 752.00, 754.00 
+Makespan/Capacity: 778.00, 774.50 
+Infeasible!Makespan/Capacity: 739.00, 733.50 
+Infeasible!Makespan/Capacity: 755.00, 754.00 
+Infeasible!25.00, 10.00, 0.80, 8.00, 306942.00, 306942.00, 119.10, 116.79  
+
+Makespan/Capacity: 788.00, 783.50 
+Infeasible!Makespan/Capacity: 767.00, 763.50 
+Infeasible!Makespan/Capacity: 769.00, 765.50 
+Infeasible!Makespan/Capacity: 807.00, 808.50 
+Makespan/Capacity: 779.00, 776.00 
+Infeasible!Makespan/Capacity: 765.00, 762.00 
+Infeasible!Makespan/Capacity: 755.00, 750.50 
+Infeasible!Makespan/Capacity: 750.00, 746.50 
+Infeasible!Makespan/Capacity: 751.00, 745.50 
+Infeasible!Makespan/Capacity: 769.00, 766.50 
+Infeasible!25.00, 10.00, 0.80, 9.00, 315446.00, 315160.00, 126.58, 125.09  
+
+Makespan/Capacity: 611.00, 607.00 
+Infeasible!Makespan/Capacity: 631.00, 624.50 
+Infeasible!Makespan/Capacity: 620.00, 619.50 
+Infeasible!Makespan/Capacity: 606.00, 601.50 
+Infeasible!Makespan/Capacity: 633.00, 627.00 
+Infeasible!Makespan/Capacity: 633.00, 629.50 
+Infeasible!Makespan/Capacity: 657.00, 651.50 
+Infeasible!Makespan/Capacity: 626.00, 623.00 
+Infeasible!Makespan/Capacity: 643.00, 639.50 
+Infeasible!Makespan/Capacity: 605.00, 602.00 
+Infeasible!Makespan/Capacity: 579.00, 575.50 
+Infeasible!Makespan/Capacity: 658.00, 655.50 
+Infeasible!Makespan/Capacity: 621.00, 616.50 
+Infeasible!Makespan/Capacity: 627.00, 623.00 
+Infeasible!Makespan/Capacity: 630.00, 627.00 
+Infeasible!15.00, 15.00, 0.60, 0.00, 206494.00, 205367.00, 255.46, 254.81  
+
+Makespan/Capacity: 620.00, 618.00 
+Infeasible!Makespan/Capacity: 621.00, 618.00 
+Infeasible!Makespan/Capacity: 611.00, 608.00 
+Infeasible!Makespan/Capacity: 648.00, 646.50 
+Infeasible!Makespan/Capacity: 618.00, 614.50 
+Infeasible!Makespan/Capacity: 606.00, 604.50 
+Infeasible!Makespan/Capacity: 607.00, 607.00 
+Makespan/Capacity: 583.00, 579.50 
+Infeasible!Makespan/Capacity: 586.00, 582.00 
+Infeasible!Makespan/Capacity: 611.00, 611.50 
+Makespan/Capacity: 621.00, 617.00 
+Infeasible!Makespan/Capacity: 612.00, 611.50 
+Infeasible!Makespan/Capacity: 613.00, 609.50 
+Infeasible!Makespan/Capacity: 672.00, 670.50 
+Infeasible!Makespan/Capacity: 643.00, 637.00 
+Infeasible!15.00, 15.00, 0.60, 1.00, 207118.00, 206438.00, 193.06, 192.21  
+
+Makespan/Capacity: 618.00, 614.50 
+Infeasible!Makespan/Capacity: 611.00, 609.50 
+Infeasible!Makespan/Capacity: 586.00, 582.00 
+Infeasible!Makespan/Capacity: 584.00, 583.00 
+Infeasible!Makespan/Capacity: 614.00, 610.50 
+Infeasible!Makespan/Capacity: 606.00, 604.50 
+Infeasible!Makespan/Capacity: 644.00, 644.00 
+Makespan/Capacity: 629.00, 627.00 
+Infeasible!Makespan/Capacity: 639.00, 635.50 
+Infeasible!Makespan/Capacity: 620.00, 618.00 
+Infeasible!Makespan/Capacity: 653.00, 651.50 
+Infeasible!Makespan/Capacity: 623.00, 619.00 
+Infeasible!Makespan/Capacity: 589.00, 587.00 
+Infeasible!Makespan/Capacity: 634.00, 631.50 
+Infeasible!Makespan/Capacity: 636.00, 634.50 
+Infeasible!15.00, 15.00, 0.60, 2.00, 203686.00, 202764.00, 256.90, 256.00  
+
+Makespan/Capacity: 601.00, 597.00 
+Infeasible!Makespan/Capacity: 620.00, 615.50 
+Infeasible!Makespan/Capacity: 628.00, 626.50 
+Infeasible!Makespan/Capacity: 638.00, 632.00 
+Infeasible!Makespan/Capacity: 620.00, 619.00 
+Infeasible!Makespan/Capacity: 596.00, 595.50 
+Infeasible!Makespan/Capacity: 584.00, 582.00 
+Infeasible!Makespan/Capacity: 603.00, 600.50 
+Infeasible!Makespan/Capacity: 667.00, 666.50 
+Infeasible!Makespan/Capacity: 650.00, 649.00 
+Infeasible!Makespan/Capacity: 622.00, 615.50 
+Infeasible!Makespan/Capacity: 616.00, 614.00 
+Infeasible!Makespan/Capacity: 629.00, 624.00 
+Infeasible!Makespan/Capacity: 582.00, 579.50 
+Infeasible!Makespan/Capacity: 599.00, 597.00 
+Infeasible!15.00, 15.00, 0.60, 3.00, 205635.00, 204670.00, 250.54, 249.92  
+
+Makespan/Capacity: 639.00, 637.00 
+Infeasible!Makespan/Capacity: 617.00, 616.50 
+Infeasible!Makespan/Capacity: 620.00, 616.50 
+Infeasible!Makespan/Capacity: 638.00, 636.50 
+Infeasible!Makespan/Capacity: 622.00, 619.00 
+Infeasible!Makespan/Capacity: 651.00, 650.50 
+Infeasible!Makespan/Capacity: 677.00, 673.00 
+Infeasible!Makespan/Capacity: 624.00, 621.50 
+Infeasible!Makespan/Capacity: 606.00, 608.00 
+Makespan/Capacity: 589.00, 588.00 
+Infeasible!Makespan/Capacity: 589.00, 582.00 
+Infeasible!Makespan/Capacity: 597.00, 595.50 
+Infeasible!Makespan/Capacity: 635.00, 634.00 
+Infeasible!Makespan/Capacity: 645.00, 642.00 
+Infeasible!Makespan/Capacity: 645.00, 645.50 
+15.00, 15.00, 0.60, 4.00, 205066.00, 203921.00, 235.03, 234.40  
+
+Makespan/Capacity: 624.00, 622.00 
+Infeasible!Makespan/Capacity: 601.00, 599.50 
+Infeasible!Makespan/Capacity: 655.00, 650.50 
+Infeasible!Makespan/Capacity: 621.00, 619.00 
+Infeasible!Makespan/Capacity: 608.00, 606.50 
+Infeasible!Makespan/Capacity: 639.00, 637.00 
+Infeasible!Makespan/Capacity: 585.00, 580.50 
+Infeasible!Makespan/Capacity: 622.00, 621.50 
+Infeasible!Makespan/Capacity: 657.00, 653.00 
+Infeasible!Makespan/Capacity: 622.00, 619.50 
+Infeasible!Makespan/Capacity: 617.00, 614.50 
+Infeasible!Makespan/Capacity: 658.00, 654.50 
+Infeasible!Makespan/Capacity: 594.00, 594.50 
+Makespan/Capacity: 618.00, 615.50 
+Infeasible!Makespan/Capacity: 615.00, 614.50 
+Infeasible!15.00, 15.00, 0.60, 5.00, 212395.00, 211174.00, 266.85, 266.31  
+
+Makespan/Capacity: 664.00, 663.00 
+Infeasible!Makespan/Capacity: 587.00, 584.50 
+Infeasible!Makespan/Capacity: 638.00, 638.00 
+Makespan/Capacity: 623.00, 619.50 
+Infeasible!Makespan/Capacity: 617.00, 615.50 
+Infeasible!Makespan/Capacity: 621.00, 618.00 
+Infeasible!Makespan/Capacity: 623.00, 622.00 
+Infeasible!Makespan/Capacity: 627.00, 624.00 
+Infeasible!Makespan/Capacity: 601.00, 599.00 
+Infeasible!Makespan/Capacity: 590.00, 588.00 
+Infeasible!Makespan/Capacity: 639.00, 637.00 
+Infeasible!Makespan/Capacity: 623.00, 620.50 
+Infeasible!Makespan/Capacity: 619.00, 618.00 
+Infeasible!Makespan/Capacity: 646.00, 641.50 
+Infeasible!Makespan/Capacity: 626.00, 625.50 
+Infeasible!15.00, 15.00, 0.60, 6.00, 203990.00, 203042.00, 270.50, 269.84  
+
+Makespan/Capacity: 608.00, 604.50 
+Infeasible!Makespan/Capacity: 653.00, 651.50 
+Infeasible!Makespan/Capacity: 640.00, 634.00 
+Infeasible!Makespan/Capacity: 631.00, 629.00 
+Infeasible!Makespan/Capacity: 596.00, 594.00 
+Infeasible!Makespan/Capacity: 596.00, 594.00 
+Infeasible!Makespan/Capacity: 636.00, 629.50 
+Infeasible!Makespan/Capacity: 618.00, 618.00 
+Makespan/Capacity: 615.00, 614.00 
+Infeasible!Makespan/Capacity: 627.00, 627.00 
+Makespan/Capacity: 641.00, 638.00 
+Infeasible!Makespan/Capacity: 624.00, 624.50 
+Makespan/Capacity: 618.00, 617.00 
+Infeasible!Makespan/Capacity: 636.00, 632.00 
+Infeasible!Makespan/Capacity: 613.00, 611.50 
+Infeasible!15.00, 15.00, 0.60, 7.00, 206039.00, 205392.00, 270.46, 269.60  
+
+Makespan/Capacity: 604.00, 596.50 
+Infeasible!Makespan/Capacity: 618.00, 615.50 
+Infeasible!Makespan/Capacity: 605.00, 601.50 
+Infeasible!Makespan/Capacity: 609.00, 604.00 
+Infeasible!Makespan/Capacity: 601.00, 599.00 
+Infeasible!Makespan/Capacity: 619.00, 617.00 
+Infeasible!Makespan/Capacity: 619.00, 618.00 
+Infeasible!Makespan/Capacity: 630.00, 623.00 
+Infeasible!Makespan/Capacity: 602.00, 604.50 
+Makespan/Capacity: 614.00, 611.50 
+Infeasible!Makespan/Capacity: 601.00, 594.00 
+Infeasible!Makespan/Capacity: 595.00, 594.50 
+Infeasible!Makespan/Capacity: 613.00, 619.00 
+Makespan/Capacity: 604.00, 607.00 
+Makespan/Capacity: 617.00, 614.50 
+Infeasible!15.00, 15.00, 0.60, 8.00, 206506.00, 205579.00, 246.84, 246.24  
+
+Makespan/Capacity: 597.00, 596.50 
+Infeasible!Makespan/Capacity: 642.00, 639.50 
+Infeasible!Makespan/Capacity: 623.00, 619.50 
+Infeasible!Makespan/Capacity: 642.00, 639.50 
+Infeasible!Makespan/Capacity: 638.00, 636.50 
+Infeasible!Makespan/Capacity: 632.00, 629.50 
+Infeasible!Makespan/Capacity: 596.00, 593.00 
+Infeasible!Makespan/Capacity: 614.00, 611.50 
+Infeasible!Makespan/Capacity: 611.00, 608.00 
+Infeasible!Makespan/Capacity: 615.00, 611.50 
+Infeasible!Makespan/Capacity: 633.00, 629.00 
+Infeasible!Makespan/Capacity: 634.00, 636.50 
+Makespan/Capacity: 653.00, 648.00 
+Infeasible!Makespan/Capacity: 597.00, 593.00 
+Infeasible!Makespan/Capacity: 603.00, 606.50 
+15.00, 15.00, 0.60, 9.00, 208250.00, 207566.00, 169.56, 168.68  
+
+Makespan/Capacity: 462.00, 455.50 
+Infeasible!Makespan/Capacity: 473.00, 468.50 
+Infeasible!Makespan/Capacity: 468.00, 464.50 
+Infeasible!Makespan/Capacity: 448.00, 451.00 
+Makespan/Capacity: 474.00, 470.50 
+Infeasible!Makespan/Capacity: 475.00, 472.00 
+Infeasible!Makespan/Capacity: 491.00, 488.50 
+Infeasible!Makespan/Capacity: 471.00, 467.00 
+Infeasible!Makespan/Capacity: 482.00, 479.50 
+Infeasible!Makespan/Capacity: 455.00, 451.50 
+Infeasible!Makespan/Capacity: 435.00, 431.50 
+Infeasible!Makespan/Capacity: 493.00, 491.50 
+Infeasible!Makespan/Capacity: 466.00, 462.00 
+Infeasible!Makespan/Capacity: 466.00, 467.00 
+Makespan/Capacity: 476.00, 470.50 
+Infeasible!15.00, 15.00, 0.80, 0.00, 409694.00, 409173.00, 210.70, 210.42  
+
+Makespan/Capacity: 467.00, 463.50 
+Infeasible!Makespan/Capacity: 468.00, 463.50 
+Infeasible!Makespan/Capacity: 457.00, 456.00 
+Infeasible!Makespan/Capacity: 487.00, 484.50 
+Infeasible!Makespan/Capacity: 468.00, 461.00 
+Infeasible!Makespan/Capacity: 454.00, 453.50 
+Infeasible!Makespan/Capacity: 450.00, 455.50 
+Makespan/Capacity: 439.00, 434.50 
+Infeasible!Makespan/Capacity: 438.00, 436.50 
+Infeasible!Makespan/Capacity: 462.00, 458.50 
+Infeasible!Makespan/Capacity: 468.00, 463.00 
+Infeasible!Makespan/Capacity: 453.00, 458.50 
+Makespan/Capacity: 454.00, 457.00 
+Makespan/Capacity: 508.00, 503.00 
+Infeasible!Makespan/Capacity: 483.00, 478.00 
+Infeasible!15.00, 15.00, 0.80, 1.00, 389628.00, 389357.00, 222.80, 222.47  
+
+Makespan/Capacity: 462.00, 461.00 
+Infeasible!Makespan/Capacity: 461.00, 457.00 
+Infeasible!Makespan/Capacity: 437.00, 436.50 
+Infeasible!Makespan/Capacity: 438.00, 437.00 
+Infeasible!Makespan/Capacity: 458.00, 458.00 
+Makespan/Capacity: 458.00, 453.50 
+Infeasible!Makespan/Capacity: 482.00, 483.00 
+Makespan/Capacity: 471.00, 470.50 
+Infeasible!Makespan/Capacity: 481.00, 476.50 
+Infeasible!Makespan/Capacity: 463.00, 463.50 
+Makespan/Capacity: 489.00, 488.50 
+Infeasible!Makespan/Capacity: 466.00, 464.00 
+Infeasible!Makespan/Capacity: 443.00, 440.50 
+Infeasible!Makespan/Capacity: 477.00, 473.50 
+Infeasible!Makespan/Capacity: 477.00, 476.00 
+Infeasible!15.00, 15.00, 0.80, 2.00, 404474.00, 403466.00, 227.67, 227.40  
+
+Makespan/Capacity: 449.00, 448.00 
+Infeasible!Makespan/Capacity: 464.00, 461.50 
+Infeasible!Makespan/Capacity: 472.00, 469.50 
+Infeasible!Makespan/Capacity: 477.00, 474.00 
+Infeasible!Makespan/Capacity: 466.00, 464.00 
+Infeasible!Makespan/Capacity: 449.00, 446.50 
+Infeasible!Makespan/Capacity: 441.00, 436.50 
+Infeasible!Makespan/Capacity: 452.00, 450.50 
+Infeasible!Makespan/Capacity: 501.00, 499.50 
+Infeasible!Makespan/Capacity: 488.00, 486.50 
+Infeasible!Makespan/Capacity: 463.00, 461.50 
+Infeasible!Makespan/Capacity: 463.00, 460.50 
+Infeasible!Makespan/Capacity: 471.00, 468.00 
+Infeasible!Makespan/Capacity: 437.00, 434.50 
+Infeasible!Makespan/Capacity: 453.00, 448.00 
+Infeasible!15.00, 15.00, 0.80, 3.00, 395847.00, 395406.00, 218.74, 218.43  
+
+Makespan/Capacity: 483.00, 478.00 
+Infeasible!Makespan/Capacity: 464.00, 462.00 
+Infeasible!Makespan/Capacity: 465.00, 462.00 
+Infeasible!Makespan/Capacity: 482.00, 477.00 
+Infeasible!Makespan/Capacity: 460.00, 464.00 
+Makespan/Capacity: 483.00, 488.00 
+Makespan/Capacity: 503.00, 504.50 
+Makespan/Capacity: 466.00, 466.00 
+Makespan/Capacity: 453.00, 456.00 
+Makespan/Capacity: 442.00, 441.00 
+Infeasible!Makespan/Capacity: 432.00, 436.50 
+Makespan/Capacity: 444.00, 446.50 
+Makespan/Capacity: 469.00, 475.50 
+Makespan/Capacity: 479.00, 481.50 
+Makespan/Capacity: 486.00, 484.00 
+Infeasible!15.00, 15.00, 0.80, 4.00, 411019.00, 410382.00, 253.17, 252.89  
+
+Makespan/Capacity: 469.00, 466.50 
+Infeasible!Makespan/Capacity: 453.00, 449.50 
+Infeasible!Makespan/Capacity: 492.00, 488.00 
+Infeasible!Makespan/Capacity: 467.00, 464.00 
+Infeasible!Makespan/Capacity: 458.00, 454.50 
+Infeasible!Makespan/Capacity: 479.00, 478.00 
+Infeasible!Makespan/Capacity: 438.00, 435.50 
+Infeasible!Makespan/Capacity: 468.00, 466.00 
+Infeasible!Makespan/Capacity: 494.00, 489.50 
+Infeasible!Makespan/Capacity: 464.00, 464.50 
+Makespan/Capacity: 461.00, 461.00 
+Makespan/Capacity: 493.00, 491.00 
+Infeasible!Makespan/Capacity: 450.00, 446.00 
+Infeasible!Makespan/Capacity: 463.00, 461.50 
+Infeasible!Makespan/Capacity: 463.00, 461.00 
+Infeasible!15.00, 15.00, 0.80, 5.00, 413767.00, 413163.00, 240.57, 240.32  
+
+Makespan/Capacity: 502.00, 497.00 
+Infeasible!Makespan/Capacity: 440.00, 438.50 
+Infeasible!Makespan/Capacity: 481.00, 478.50 
+Infeasible!Makespan/Capacity: 464.00, 464.50 
+Makespan/Capacity: 462.00, 461.50 
+Infeasible!Makespan/Capacity: 464.00, 463.50 
+Infeasible!Makespan/Capacity: 465.00, 466.50 
+Makespan/Capacity: 469.00, 468.00 
+Infeasible!Makespan/Capacity: 451.00, 449.00 
+Infeasible!Makespan/Capacity: 444.00, 441.00 
+Infeasible!Makespan/Capacity: 476.00, 478.00 
+Makespan/Capacity: 466.00, 465.50 
+Infeasible!Makespan/Capacity: 463.00, 463.50 
+Makespan/Capacity: 482.00, 481.00 
+Infeasible!Makespan/Capacity: 471.00, 469.00 
+Infeasible!15.00, 15.00, 0.80, 6.00, 404139.00, 403901.00, 252.02, 251.70  
+
+Makespan/Capacity: 456.00, 453.50 
+Infeasible!Makespan/Capacity: 488.00, 488.50 
+Makespan/Capacity: 481.00, 475.50 
+Infeasible!Makespan/Capacity: 476.00, 471.50 
+Infeasible!Makespan/Capacity: 446.00, 445.50 
+Infeasible!Makespan/Capacity: 447.00, 445.50 
+Infeasible!Makespan/Capacity: 475.00, 472.00 
+Infeasible!Makespan/Capacity: 468.00, 463.50 
+Infeasible!Makespan/Capacity: 461.00, 460.50 
+Infeasible!Makespan/Capacity: 472.00, 470.50 
+Infeasible!Makespan/Capacity: 480.00, 478.50 
+Infeasible!Makespan/Capacity: 472.00, 468.50 
+Infeasible!Makespan/Capacity: 463.00, 463.00 
+Makespan/Capacity: 475.00, 474.00 
+Infeasible!Makespan/Capacity: 461.00, 458.50 
+Infeasible!15.00, 15.00, 0.80, 7.00, 401373.00, 400896.00, 238.33, 238.05  
+
+Makespan/Capacity: 450.00, 447.00 
+Infeasible!Makespan/Capacity: 465.00, 461.50 
+Infeasible!Makespan/Capacity: 452.00, 451.00 
+Infeasible!Makespan/Capacity: 449.00, 453.00 
+Makespan/Capacity: 451.00, 449.00 
+Infeasible!Makespan/Capacity: 465.00, 463.00 
+Infeasible!Makespan/Capacity: 467.00, 463.50 
+Infeasible!Makespan/Capacity: 470.00, 467.00 
+Infeasible!Makespan/Capacity: 455.00, 453.50 
+Infeasible!Makespan/Capacity: 461.00, 458.50 
+Infeasible!Makespan/Capacity: 440.00, 445.50 
+Makespan/Capacity: 451.00, 446.00 
+Infeasible!Makespan/Capacity: 466.00, 464.00 
+Infeasible!Makespan/Capacity: 461.00, 455.50 
+Infeasible!Makespan/Capacity: 462.00, 461.00 
+Infeasible!15.00, 15.00, 0.80, 8.00, 410194.00, 409747.00, 232.89, 232.66  
+
+Makespan/Capacity: 448.00, 447.00 
+Infeasible!Makespan/Capacity: 480.00, 479.50 
+Infeasible!Makespan/Capacity: 465.00, 464.50 
+Infeasible!Makespan/Capacity: 481.00, 479.50 
+Infeasible!Makespan/Capacity: 479.00, 477.00 
+Infeasible!Makespan/Capacity: 475.00, 472.00 
+Infeasible!Makespan/Capacity: 446.00, 444.50 
+Infeasible!Makespan/Capacity: 464.00, 458.50 
+Infeasible!Makespan/Capacity: 458.00, 456.00 
+Infeasible!Makespan/Capacity: 461.00, 458.50 
+Infeasible!Makespan/Capacity: 472.00, 471.50 
+Infeasible!Makespan/Capacity: 478.00, 477.00 
+Infeasible!Makespan/Capacity: 490.00, 486.00 
+Infeasible!Makespan/Capacity: 446.00, 444.50 
+Infeasible!Makespan/Capacity: 458.00, 454.50 
+Infeasible!15.00, 15.00, 0.80, 9.00, 408394.00, 407772.00, 196.13, 195.86  
+
+Makespan/Capacity: 1033.00, 1028.00 
+Infeasible!Makespan/Capacity: 1071.00, 1069.00 
+Infeasible!Makespan/Capacity: 1026.00, 1024.50 
+Infeasible!Makespan/Capacity: 1058.00, 1054.50 
+Infeasible!Makespan/Capacity: 1032.00, 1029.50 
+Infeasible!Makespan/Capacity: 1046.00, 1042.00 
+Infeasible!Makespan/Capacity: 999.00, 997.00 
+Infeasible!Makespan/Capacity: 1052.00, 1048.00 
+Infeasible!Makespan/Capacity: 1037.00, 1034.00 
+Infeasible!Makespan/Capacity: 1015.00, 1012.00 
+Infeasible!Makespan/Capacity: 1052.00, 1051.50 
+Infeasible!Makespan/Capacity: 1039.00, 1034.50 
+Infeasible!Makespan/Capacity: 1045.00, 1044.50 
+Infeasible!Makespan/Capacity: 1021.00, 1016.50 
+Infeasible!Makespan/Capacity: 1051.00, 1050.50 
+Infeasible!25.00, 15.00, 0.60, 0.00, 349210.00, 347792.00, 207.60, 204.09  
+
+Makespan/Capacity: 1015.00, 1008.00 
+Infeasible!Makespan/Capacity: 1017.00, 1015.50 
+Infeasible!Makespan/Capacity: 1027.00, 1025.50 
+Infeasible!Makespan/Capacity: 1010.00, 1004.00 
+Infeasible!Makespan/Capacity: 1037.00, 1034.50 
+Infeasible!Makespan/Capacity: 1008.00, 1003.00 
+Infeasible!Makespan/Capacity: 1038.00, 1032.00 
+Infeasible!Makespan/Capacity: 1016.00, 1016.50 
+Makespan/Capacity: 1053.00, 1049.00 
+Infeasible!Makespan/Capacity: 1038.00, 1034.50 
+Infeasible!Makespan/Capacity: 1037.00, 1034.00 
+Infeasible!Makespan/Capacity: 1057.00, 1054.00 
+Infeasible!Makespan/Capacity: 1018.00, 1012.00 
+Infeasible!Makespan/Capacity: 1073.00, 1069.00 
+Infeasible!Makespan/Capacity: 1046.00, 1043.00 
+Infeasible!25.00, 15.00, 0.60, 1.00, 343889.00, 342475.00, 291.62, 287.04  
+
+Makespan/Capacity: 1054.00, 1048.00 
+Infeasible!Makespan/Capacity: 1034.00, 1029.50 
+Infeasible!Makespan/Capacity: 1053.00, 1048.00 
+Infeasible!Makespan/Capacity: 1003.00, 997.00 
+Infeasible!Makespan/Capacity: 1024.00, 1022.00 
+Infeasible!Makespan/Capacity: 1061.00, 1056.50 
+Infeasible!Makespan/Capacity: 1036.00, 1032.00 
+Infeasible!Makespan/Capacity: 1017.00, 1015.50 
+Infeasible!Makespan/Capacity: 1063.00, 1059.00 
+Infeasible!Makespan/Capacity: 1018.00, 1014.50 
+Infeasible!Makespan/Capacity: 1058.00, 1055.50 
+Infeasible!Makespan/Capacity: 1038.00, 1034.50 
+Infeasible!Makespan/Capacity: 1013.00, 1008.00 
+Infeasible!Makespan/Capacity: 1043.00, 1039.50 
+Infeasible!Makespan/Capacity: 1020.00, 1015.50 
+Infeasible!25.00, 15.00, 0.60, 2.00, 346519.00, 345341.00, 323.71, 319.50  
+
+Makespan/Capacity: 1031.00, 1026.50 
+Infeasible!Makespan/Capacity: 1073.00, 1067.00 
+Infeasible!Makespan/Capacity: 1060.00, 1059.00 
+Infeasible!Makespan/Capacity: 1072.00, 1064.50 
+Infeasible!Makespan/Capacity: 1046.00, 1044.00 
+Infeasible!Makespan/Capacity: 1058.00, 1054.50 
+Infeasible!Makespan/Capacity: 1031.00, 1024.50 
+Infeasible!Makespan/Capacity: 1045.00, 1044.00 
+Infeasible!Makespan/Capacity: 1049.00, 1044.00 
+Infeasible!Makespan/Capacity: 1043.00, 1039.00 
+Infeasible!Makespan/Capacity: 1084.00, 1079.50 
+Infeasible!Makespan/Capacity: 1040.00, 1035.50 
+Infeasible!Makespan/Capacity: 1069.00, 1062.00 
+Infeasible!Makespan/Capacity: 1016.00, 1012.00 
+Infeasible!Makespan/Capacity: 1056.00, 1051.50 
+Infeasible!25.00, 15.00, 0.60, 3.00, 347940.00, 346425.00, 231.32, 226.56  
+
+Makespan/Capacity: 954.00, 951.50 
+Infeasible!Makespan/Capacity: 981.00, 976.50 
+Infeasible!Makespan/Capacity: 1075.00, 1073.00 
+Infeasible!Makespan/Capacity: 971.00, 968.00 
+Infeasible!Makespan/Capacity: 1054.00, 1048.00 
+Infeasible!Makespan/Capacity: 1039.00, 1033.00 
+Infeasible!Makespan/Capacity: 987.00, 981.50 
+Infeasible!Makespan/Capacity: 1062.00, 1059.00 
+Infeasible!Makespan/Capacity: 1018.00, 1014.50 
+Infeasible!Makespan/Capacity: 997.00, 994.50 
+Infeasible!Makespan/Capacity: 1036.00, 1032.00 
+Infeasible!Makespan/Capacity: 1021.00, 1018.00 
+Infeasible!Makespan/Capacity: 1028.00, 1023.00 
+Infeasible!Makespan/Capacity: 1027.00, 1023.00 
+Infeasible!Makespan/Capacity: 995.00, 993.00 
+Infeasible!25.00, 15.00, 0.60, 4.00, 338602.00, 336870.00, 272.41, 268.70  
+
+Makespan/Capacity: 1050.00, 1047.00 
+Infeasible!Makespan/Capacity: 1063.00, 1059.50 
+Infeasible!Makespan/Capacity: 997.00, 995.50 
+Infeasible!Makespan/Capacity: 1018.00, 1014.50 
+Infeasible!Makespan/Capacity: 1029.00, 1024.50 
+Infeasible!Makespan/Capacity: 1056.00, 1052.00 
+Infeasible!Makespan/Capacity: 1080.00, 1074.00 
+Infeasible!Makespan/Capacity: 1035.00, 1030.50 
+Infeasible!Makespan/Capacity: 1026.00, 1019.50 
+Infeasible!Makespan/Capacity: 1038.00, 1034.00 
+Infeasible!Makespan/Capacity: 1081.00, 1074.50 
+Infeasible!Makespan/Capacity: 1010.00, 1006.50 
+Infeasible!Makespan/Capacity: 1033.00, 1031.50 
+Infeasible!Makespan/Capacity: 1016.00, 1010.50 
+Infeasible!Makespan/Capacity: 1038.00, 1034.00 
+Infeasible!25.00, 15.00, 0.60, 5.00, 340819.00, 338978.00, 306.78, 303.11  
+
+Makespan/Capacity: 1022.00, 1020.50 
+Infeasible!Makespan/Capacity: 1042.00, 1040.50 
+Infeasible!Makespan/Capacity: 1048.00, 1044.00 
+Infeasible!Makespan/Capacity: 1039.00, 1033.00 
+Infeasible!Makespan/Capacity: 1026.00, 1022.00 
+Infeasible!Makespan/Capacity: 1027.00, 1025.50 
+Infeasible!Makespan/Capacity: 1037.00, 1034.50 
+Infeasible!Makespan/Capacity: 1068.00, 1064.00 
+Infeasible!Makespan/Capacity: 1031.00, 1027.00 
+Infeasible!Makespan/Capacity: 1022.00, 1020.50 
+Infeasible!Makespan/Capacity: 1064.00, 1059.50 
+Infeasible!Makespan/Capacity: 1037.00, 1032.00 
+Infeasible!Makespan/Capacity: 1036.00, 1031.50 
+Infeasible!Makespan/Capacity: 972.00, 967.00 
+Infeasible!Makespan/Capacity: 1045.00, 1042.00 
+Infeasible!25.00, 15.00, 0.60, 6.00, 344813.00, 343116.00, 309.57, 305.57  
+
+Makespan/Capacity: 1057.00, 1049.50 
+Infeasible!Makespan/Capacity: 1042.00, 1039.00 
+Infeasible!Makespan/Capacity: 1012.00, 1005.50 
+Infeasible!Makespan/Capacity: 1030.00, 1027.00 
+Infeasible!Makespan/Capacity: 1001.00, 996.50 
+Infeasible!Makespan/Capacity: 1016.00, 1010.50 
+Infeasible!Makespan/Capacity: 1035.00, 1031.50 
+Infeasible!Makespan/Capacity: 997.00, 993.00 
+Infeasible!Makespan/Capacity: 996.00, 994.00 
+Infeasible!Makespan/Capacity: 995.00, 989.00 
+Infeasible!Makespan/Capacity: 1003.00, 1000.50 
+Infeasible!Makespan/Capacity: 1062.00, 1060.50 
+Infeasible!Makespan/Capacity: 1041.00, 1034.00 
+Infeasible!Makespan/Capacity: 1049.00, 1048.00 
+Infeasible!Makespan/Capacity: 1029.00, 1022.00 
+Infeasible!25.00, 15.00, 0.60, 7.00, 340130.00, 338945.00, 277.80, 273.68  
+
+Makespan/Capacity: 1032.00, 1029.50 
+Infeasible!Makespan/Capacity: 1028.00, 1024.00 
+Infeasible!Makespan/Capacity: 1027.00, 1026.50 
+Infeasible!Makespan/Capacity: 1016.00, 1013.00 
+Infeasible!Makespan/Capacity: 1049.00, 1044.00 
+Infeasible!Makespan/Capacity: 1049.00, 1046.50 
+Infeasible!Makespan/Capacity: 1009.00, 1005.50 
+Infeasible!Makespan/Capacity: 1037.00, 1033.00 
+Infeasible!Makespan/Capacity: 981.00, 978.00 
+Infeasible!Makespan/Capacity: 1008.00, 1005.50 
+Infeasible!Makespan/Capacity: 1032.00, 1028.00 
+Infeasible!Makespan/Capacity: 1048.00, 1046.50 
+Infeasible!Makespan/Capacity: 1021.00, 1019.50 
+Infeasible!Makespan/Capacity: 998.00, 994.00 
+Infeasible!Makespan/Capacity: 1053.00, 1049.00 
+Infeasible!25.00, 15.00, 0.60, 8.00, 338075.00, 336230.00, 281.30, 278.04  
+
+Makespan/Capacity: 1049.00, 1044.50 
+Infeasible!Makespan/Capacity: 1021.00, 1018.00 
+Infeasible!Makespan/Capacity: 1024.00, 1020.50 
+Infeasible!Makespan/Capacity: 1082.00, 1078.00 
+Infeasible!Makespan/Capacity: 1036.00, 1034.50 
+Infeasible!Makespan/Capacity: 1019.00, 1016.50 
+Infeasible!Makespan/Capacity: 1005.00, 1000.50 
+Infeasible!Makespan/Capacity: 998.00, 995.50 
+Infeasible!Makespan/Capacity: 1000.00, 994.00 
+Infeasible!Makespan/Capacity: 1025.00, 1022.00 
+Infeasible!Makespan/Capacity: 1006.00, 1008.00 
+Makespan/Capacity: 1051.00, 1049.50 
+Infeasible!Makespan/Capacity: 993.00, 989.00 
+Infeasible!Makespan/Capacity: 1061.00, 1057.00 
+Infeasible!Makespan/Capacity: 1011.00, 1005.50 
+Infeasible!25.00, 15.00, 0.60, 9.00, 339668.00, 338596.00, 261.96, 257.82  
+
+Makespan/Capacity: 775.00, 771.00 
+Infeasible!Makespan/Capacity: 803.00, 801.50 
+Infeasible!Makespan/Capacity: 767.00, 768.50 
+Makespan/Capacity: 794.00, 791.00 
+Infeasible!Makespan/Capacity: 775.00, 772.00 
+Infeasible!Makespan/Capacity: 777.00, 781.50 
+Makespan/Capacity: 752.00, 748.00 
+Infeasible!Makespan/Capacity: 784.00, 786.00 
+Makespan/Capacity: 778.00, 775.50 
+Infeasible!Makespan/Capacity: 762.00, 759.00 
+Infeasible!Makespan/Capacity: 791.00, 788.50 
+Infeasible!Makespan/Capacity: 780.00, 776.00 
+Infeasible!Makespan/Capacity: 785.00, 783.50 
+Infeasible!Makespan/Capacity: 759.00, 762.00 
+Makespan/Capacity: 785.00, 788.00 
+25.00, 15.00, 0.80, 0.00, 679179.00, 678327.00, 309.07, 308.00  
+
+Makespan/Capacity: 759.00, 756.00 
+Infeasible!Makespan/Capacity: 766.00, 761.50 
+Infeasible!Makespan/Capacity: 771.00, 769.00 
+Infeasible!Makespan/Capacity: 757.00, 753.00 
+Infeasible!Makespan/Capacity: 778.00, 776.00 
+Infeasible!Makespan/Capacity: 758.00, 752.00 
+Infeasible!Makespan/Capacity: 775.00, 774.00 
+Infeasible!Makespan/Capacity: 764.00, 762.00 
+Infeasible!Makespan/Capacity: 792.00, 786.50 
+Infeasible!Makespan/Capacity: 778.00, 776.00 
+Infeasible!Makespan/Capacity: 778.00, 775.50 
+Infeasible!Makespan/Capacity: 792.00, 790.50 
+Infeasible!Makespan/Capacity: 763.00, 759.00 
+Infeasible!Makespan/Capacity: 804.00, 801.50 
+Infeasible!Makespan/Capacity: 784.00, 782.00 
+Infeasible!25.00, 15.00, 0.80, 1.00, 663948.00, 662964.00, 220.93, 219.57  
+
+Makespan/Capacity: 790.00, 786.00 
+Infeasible!Makespan/Capacity: 781.00, 772.00 
+Infeasible!Makespan/Capacity: 790.00, 786.00 
+Infeasible!Makespan/Capacity: 755.00, 748.00 
+Infeasible!Makespan/Capacity: 771.00, 766.50 
+Infeasible!Makespan/Capacity: 797.00, 792.00 
+Infeasible!Makespan/Capacity: 781.00, 774.00 
+Infeasible!Makespan/Capacity: 765.00, 761.50 
+Infeasible!Makespan/Capacity: 796.00, 794.00 
+Infeasible!Makespan/Capacity: 762.00, 761.00 
+Infeasible!Makespan/Capacity: 790.00, 791.50 
+Makespan/Capacity: 782.00, 776.00 
+Infeasible!Makespan/Capacity: 757.00, 756.00 
+Infeasible!Makespan/Capacity: 783.00, 779.50 
+Infeasible!Makespan/Capacity: 769.00, 761.50 
+Infeasible!25.00, 15.00, 0.80, 2.00, 678211.00, 677501.00, 302.12, 301.06  
+
+Makespan/Capacity: 772.00, 769.50 
+Infeasible!Makespan/Capacity: 805.00, 800.50 
+Infeasible!Makespan/Capacity: 795.00, 794.00 
+Infeasible!Makespan/Capacity: 802.00, 798.50 
+Infeasible!Makespan/Capacity: 783.00, 783.00 
+Makespan/Capacity: 794.00, 791.00 
+Infeasible!Makespan/Capacity: 771.00, 768.50 
+Infeasible!Makespan/Capacity: 785.00, 783.00 
+Infeasible!Makespan/Capacity: 781.00, 783.00 
+Makespan/Capacity: 782.00, 779.00 
+Infeasible!Makespan/Capacity: 812.00, 809.50 
+Infeasible!Makespan/Capacity: 780.00, 776.50 
+Infeasible!Makespan/Capacity: 801.00, 796.50 
+Infeasible!Makespan/Capacity: 763.00, 759.00 
+Infeasible!Makespan/Capacity: 790.00, 788.50 
+Infeasible!25.00, 15.00, 0.80, 3.00, 673488.00, 673038.00, 296.50, 294.73  
+
+Makespan/Capacity: 718.00, 713.50 
+Infeasible!Makespan/Capacity: 736.00, 732.00 
+Infeasible!Makespan/Capacity: 812.00, 804.50 
+Infeasible!Makespan/Capacity: 729.00, 726.00 
+Infeasible!Makespan/Capacity: 790.00, 786.00 
+Infeasible!Makespan/Capacity: 780.00, 774.50 
+Infeasible!Makespan/Capacity: 736.00, 736.00 
+Makespan/Capacity: 798.00, 794.00 
+Infeasible!Makespan/Capacity: 765.00, 761.00 
+Infeasible!Makespan/Capacity: 749.00, 746.00 
+Infeasible!Makespan/Capacity: 779.00, 774.00 
+Infeasible!Makespan/Capacity: 767.00, 763.50 
+Infeasible!Makespan/Capacity: 769.00, 767.00 
+Infeasible!Makespan/Capacity: 769.00, 767.00 
+Infeasible!Makespan/Capacity: 748.00, 744.50 
+Infeasible!25.00, 15.00, 0.80, 4.00, 658568.00, 658118.00, 276.47, 275.44  
+
+Makespan/Capacity: 787.00, 785.50 
+Infeasible!Makespan/Capacity: 801.00, 794.50 
+Infeasible!Makespan/Capacity: 748.00, 746.50 
+Infeasible!Makespan/Capacity: 764.00, 761.00 
+Infeasible!Makespan/Capacity: 771.00, 768.50 
+Infeasible!Makespan/Capacity: 787.00, 789.00 
+Makespan/Capacity: 809.00, 805.50 
+Infeasible!Makespan/Capacity: 777.00, 773.00 
+Infeasible!Makespan/Capacity: 766.00, 764.50 
+Infeasible!Makespan/Capacity: 778.00, 775.50 
+Infeasible!Makespan/Capacity: 807.00, 806.00 
+Infeasible!Makespan/Capacity: 757.00, 754.50 
+Infeasible!Makespan/Capacity: 779.00, 773.50 
+Infeasible!Makespan/Capacity: 763.00, 758.00 
+Infeasible!Makespan/Capacity: 780.00, 775.50 
+Infeasible!25.00, 15.00, 0.80, 5.00, 667048.00, 666168.00, 305.14, 304.06  
+
+Makespan/Capacity: 769.00, 765.50 
+Infeasible!Makespan/Capacity: 787.00, 780.50 
+Infeasible!Makespan/Capacity: 783.00, 783.00 
+Makespan/Capacity: 779.00, 774.50 
+Infeasible!Makespan/Capacity: 773.00, 766.50 
+Infeasible!Makespan/Capacity: 772.00, 769.00 
+Infeasible!Makespan/Capacity: 782.00, 776.00 
+Infeasible!Makespan/Capacity: 804.00, 798.00 
+Infeasible!Makespan/Capacity: 774.00, 770.50 
+Infeasible!Makespan/Capacity: 770.00, 765.50 
+Infeasible!Makespan/Capacity: 801.00, 794.50 
+Infeasible!Makespan/Capacity: 777.00, 774.00 
+Infeasible!Makespan/Capacity: 779.00, 773.50 
+Infeasible!Makespan/Capacity: 729.00, 725.50 
+Infeasible!Makespan/Capacity: 783.00, 781.50 
+Infeasible!25.00, 15.00, 0.80, 6.00, 674857.00, 674140.00, 279.00, 277.97  
+
+Makespan/Capacity: 795.00, 787.00 
+Infeasible!Makespan/Capacity: 783.00, 779.00 
+Infeasible!Makespan/Capacity: 759.00, 754.00 
+Infeasible!Makespan/Capacity: 776.00, 770.50 
+Infeasible!Makespan/Capacity: 753.00, 747.00 
+Infeasible!Makespan/Capacity: 762.00, 758.00 
+Infeasible!Makespan/Capacity: 777.00, 773.50 
+Infeasible!Makespan/Capacity: 748.00, 744.50 
+Infeasible!Makespan/Capacity: 749.00, 745.50 
+Infeasible!Makespan/Capacity: 743.00, 741.50 
+Infeasible!Makespan/Capacity: 755.00, 750.50 
+Infeasible!Makespan/Capacity: 802.00, 795.50 
+Infeasible!Makespan/Capacity: 779.00, 775.50 
+Infeasible!Makespan/Capacity: 793.00, 786.00 
+Infeasible!Makespan/Capacity: 773.00, 766.50 
+Infeasible!25.00, 15.00, 0.80, 7.00, 669566.00, 668538.00, 284.67, 283.57  
+
+Makespan/Capacity: 777.00, 772.00 
+Infeasible!Makespan/Capacity: 771.00, 768.00 
+Infeasible!Makespan/Capacity: 772.00, 769.50 
+Infeasible!Makespan/Capacity: 763.00, 759.50 
+Infeasible!Makespan/Capacity: 786.00, 783.00 
+Infeasible!Makespan/Capacity: 786.00, 784.50 
+Infeasible!Makespan/Capacity: 758.00, 754.00 
+Infeasible!Makespan/Capacity: 777.00, 774.50 
+Infeasible!Makespan/Capacity: 737.00, 733.50 
+Infeasible!Makespan/Capacity: 757.00, 754.00 
+Infeasible!Makespan/Capacity: 773.00, 771.00 
+Infeasible!Makespan/Capacity: 786.00, 784.50 
+Infeasible!Makespan/Capacity: 768.00, 764.50 
+Infeasible!Makespan/Capacity: 747.00, 745.50 
+Infeasible!Makespan/Capacity: 789.00, 786.50 
+Infeasible!25.00, 15.00, 0.80, 8.00, 669220.00, 668441.00, 248.85, 247.65  
+
+Makespan/Capacity: 788.00, 783.50 
+Infeasible!Makespan/Capacity: 769.00, 763.50 
+Infeasible!Makespan/Capacity: 770.00, 765.50 
+Infeasible!Makespan/Capacity: 809.00, 808.50 
+Infeasible!Makespan/Capacity: 781.00, 776.00 
+Infeasible!Makespan/Capacity: 765.00, 762.00 
+Infeasible!Makespan/Capacity: 752.00, 750.50 
+Infeasible!Makespan/Capacity: 751.00, 746.50 
+Infeasible!Makespan/Capacity: 748.00, 745.50 
+Infeasible!Makespan/Capacity: 768.00, 766.50 
+Infeasible!Makespan/Capacity: 763.00, 756.00 
+Infeasible!Makespan/Capacity: 791.00, 787.00 
+Infeasible!Makespan/Capacity: 746.00, 741.50 
+Infeasible!Makespan/Capacity: 798.00, 793.00 
+Infeasible!Makespan/Capacity: 759.00, 754.00 
+Infeasible!25.00, 15.00, 0.80, 9.00, 663494.00, 662841.00, 294.76, 293.59  
+

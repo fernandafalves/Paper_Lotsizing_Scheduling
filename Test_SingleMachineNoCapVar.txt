@@ -1,0 +1,235 @@
+# Hierarchical Strategy I (HSI) - Adapted to the instances of the paper of James and Almada-Lobo (2011)
+# Fernanda de Freitas Alves
+########################################################################################################
+
+option eexit -100000;
+option display_precision 6;
+option auxfiles rca;
+option solver cplex;
+option omit_zero_rows 1;
+option cplex_options 'return_mipgap 3 timelimit=30 clocktype=1 threads 1 integrality 3e-20 seed=1000';
+suffix absmipgap OUT;
+suffix relmipgap OUT;
+option presolve 0;
+option randseed 1000;
+
+param n;
+set J ordered:= 1..n;
+param tf;
+let tf:= 15;
+set T:=0..tf;
+set Conj ordered default {};       
+set Cjs ordered default {};        
+set CjsII ordered default {};      
+set POS ordered default {};        
+
+param cup;
+param val;
+param cap_utilization;
+param Cj {i in 1..2};
+param CUP {i in 1..2};
+param contador;
+param p{i in J};
+param H{i in J};
+param B{i in J};
+param setup{i in J, j in J};
+param Sm{j in J};
+param Makespan;
+param Tempo{j in J};
+param D{i in J, h in T};
+param pos{c in 1..contador};
+param f default 1;
+param makespan;
+param novo_makespan;
+param b;
+param m;
+param tempo{g in 0..100000};
+param variacao;
+let tempo[0]:= 0;
+let variacao:= 0;
+param tt;
+let tt:= 0;
+param sumFO;
+let sumFO:= 0;
+param tempoII{g in 0..100000};
+let tempoII[0]:= 0;
+param sumBackorder;
+let sumBackorder:= 0;
+param delta;
+param p0; let p0:= 0;
+param p1; let p1:= 0;
+param p2; let p2:= 0;
+param quant;
+param Job;
+
+# Parameters for capacity extension
+param makespananterior;
+let makespananterior:= 0;
+param Kanterior{t in 1..tf};
+param KANTERIOR;
+param FO;
+param cont2;
+let cont2:= 0;
+param pi;
+param gamma;
+param alfa:= 0.07; 
+param K{t in 1..(tf+1)};
+param FO1;
+param FO2;
+param capinicial{t in 1..tf};
+param AUX1{j in J, t in T};
+param AUX2{j in J, t in T};
+param AUX3{j in J, t in T};
+param AUX4{j in J, t in T};
+param aux5;
+let novo_makespan:= 0;
+let gamma:= 0;
+
+# Parameters for ILS
+param ITER;
+let ITER:= 0;
+param s_0{i in 1..contador};
+param aux; param posicao;
+param aux2;
+param MKS_0;
+param MKS_BL{i in 1..contador, j in 1..contador};
+param Seq{i in 1..contador};
+param AUX{i in 1..contador};
+param POSICAO{i in 1..contador};
+param CONT; param CONT2;
+param SEQ{i in 1..contador, j in 1..contador, k in 1..contador};
+param aux3; param aux4; param auxiliar;
+param auxiliar2;
+
+let Cj[1]:= 15;
+let Cj[2]:= 25;
+
+let CUP[1]:= 0.6;
+let CUP[2]:= 0.8;
+
+var I{j in J, t in T}, >=0, integer;
+var Ineg{j in J, t in T}, >=0, integer;
+var q{j in J, t in 1..tf}, >=0, integer;
+var w{j in J, t in 1..tf}, binary;
+
+minimize A: sum{j in J, h in T} (H[j]*I[j,h] + B[j]*Ineg[j,h]);
+
+s.t. r1{j in J, h in tt..tf}: I[j,h] = I[j,h-1] + q[j,h] - D[j,h] + Ineg[j,h] - Ineg[j,h-1];
+
+s.t. r2{h in tt..tf}: sum{j in 1..n-1}w[j,h]*Sm[j] + sum{j in J}q[j,h]*p[j] <= K[h];
+
+s.t. r3{h in tt..tf, j in J}: (q[j,h]*p[j])/K[h] <= w[j,h];
+
+s.t. r4{h in tt..tf, j in J}: w[j,h] <= q[j,h];
+
+s.t. Ifix{i in J}: I[i,0] = 0;
+
+s.t. Inegfix{i in J}: Ineg[i,0] = 0;
+
+
+let val:=1;
+	repeat while val <= 2{                                                                                                                              
+	
+	let cap_utilization:= 1;
+	repeat while cap_utilization <= 2{
+	
+		let n:= Cj[val];
+		let cup:= CUP[cap_utilization];
+		
+		for{instance in 0..9}{
+		
+			let variacao:= variacao + 1;
+		
+			for{i in 1..n}{						
+				read H[i] < ("./SingleMachineNoCapVar/Data" & n & "-" & tf & "-" & cup & "-" & 50 & "-" & instance & ".dat");
+			}
+			
+			for{i in 1..n}{
+				read p[i] < ("./SingleMachineNoCapVar/Data" & n & "-" & tf & "-" & cup & "-" & 50 & "-" & instance & ".dat");
+			}
+			
+			for{i in 1..n}{
+				for{j in 1..n}{
+					read setup[i,j] < ("./SingleMachineNoCapVar/Data" & n & "-" & tf & "-" & cup & "-" & 50 & "-" & instance & ".dat");
+					let setup[i,j]:= 1;
+				}
+			}
+			
+			for{i in 1..tf}{
+				read K[i] < ("./SingleMachineNoCapVar/Data" & n & "-" & tf & "-" & cup & "-" & 50 & "-" & instance & ".dat");
+				let K[i]:= K[i]/2;
+			}
+			
+			for{i in 1..n}{
+				for{t in 1..tf}{
+					read D[i,t] < ("./SingleMachineNoCapVar/Data" & n & "-" & tf & "-" & cup & "-" & 50 & "-" & instance & ".dat");
+				}
+			}
+			
+			let {i in J} B[i]:= ceil(10 + 0.3*10*Uniform01()); 	
+			
+			let {j in J}Sm[j]:= min{i in J: i!=j} setup[j,i];
+
+			repeat{
+				let tt:= tt + 1; 
+				let novo_makespan:= 0;
+
+				solve;
+
+				let contador:= 0;
+
+				for{j in J}{
+					if(w[j,tt] == 1)then{
+						let Conj:= Conj union {j};
+						let contador:= contador + 1;
+					}
+				}
+
+				# Scheduling with the Iterated Local Search
+				reset data MKS_BL, s_0, Seq, SEQ, AUX, POSICAO, pos;
+				commands ILS.txt;
+
+
+				let sumFO:= sumFO + sum{j in J, t in tt..tt}(H[j]*I[j,t] + B[j]*Ineg[j,t]); 
+				let sumBackorder:= sumBackorder + sum{j in J, t in tt..tt}(B[j]*Ineg[j,t]);
+
+				# Fix the rolling horizon variables
+				for{j in J}{
+					for{t in 1..tt}{
+						fix I[j,t]:= I[j,t];
+						fix Ineg[j,t]:= Ineg[j,t];
+						fix q[j,t]:= q[j,t];
+						fix w[j,t]:= w[j,t];
+					}
+				}
+
+				printf "Makespan/Capacity: " >> ResultIU.txt;
+				printf "%4.2f, %4.2f ", novo_makespan, K[tt] >> ResultIU.txt;
+				printf "\n" >> ResultIU.txt;
+
+				if (novo_makespan > K[tt] + 0.05) then{
+					printf "Infeasible!" >> ResultIU.txt;
+				}
+				reset data Conj, Cjs, pos, MKS_BL, s_0, Seq, SEQ, AUX, POSICAO;
+			}while (tt < tf);
+			
+			close ("./SingleMachineNoCapVar/Data" & n & "-" & tf & "-" & cup & "-" & 50 & "-" & instance & ".dat");
+			
+			let tempo[variacao]:= _ampl_time + _total_solve_time - sum{i in 0..variacao-1} tempo[i];
+			let tempoII[variacao]:= _total_solve_time - sum{i in 0..variacao-1} tempoII[i];
+
+			printf "%4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f, %4.2f  \n", n, tf, cup, instance, sumFO, sumBackorder, tempo[variacao], tempoII[variacao] >> ResultIU.txt;
+			printf "\n" >> ResultIU.txt;
+
+			unfix I; unfix Ineg; unfix q; unfix w;
+
+			let tt:= 0; let sumFO:= 0; let sumBackorder:= 0; let novo_makespan:= 0; let makespananterior:=0;
+			reset data p, setup, D, Sm, w, pos, b, m, I, Ineg, q, AUX1, AUX2, AUX3, AUX4;
+			
+		}	
+			
+		let cap_utilization:= cap_utilization + 1;
+	}	
+	let val:= val + 1;
+}
+
