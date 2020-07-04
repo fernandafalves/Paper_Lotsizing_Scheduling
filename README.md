@@ -1,12 +1,13 @@
 # Paper_Lotsizing_Scheduling
 
-In this repository, we provide the instances as well as the codes used in the paper "Joint resolution of lot-sizing and scheduling: A literature framework and interactive approaches proposal". All the algorithms were implemented using AMPL programming language.
+In this repository, we provide the instances as well as the codes used in the paper "Analysis of approaches for the joint resolution of lot-sizing and scheduling". All the algorithms were implemented using AMPL programming language.
 
 # Instance Generation
 
 For the instance generation, we consider three different scenarios related to the processing and setup times, named Scenario 1, 2 and 3. Furthermore, three data distributions are used: Uniform, Normal and Poisson distributions. The codes "Generator_XX.txt" present the algorithms for instance generation for each of these cases.
 The generated data are salved in the folders "DataXX". In these cases, "XX" indicates the scenario and distribution.
 "U", "N" and "P" indicate the uniform, normal and poisson distribution, respectively.
+We emphasize that the codes here presented consider 9 product quantities: 4, 6, 8, 10, 12, 15, 20, 50, and 100. In the paper, we only present the results for 4, 12, 20, 50, and 100 products.
 
 # Algorithms
 
