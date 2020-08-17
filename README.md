@@ -15,6 +15,3 @@ The files "IMCPH.txt", "IMTIPH.txt" and "ManneWarmStart.txt" present the integra
 Furthermore, the files "ILS.txt" and "Local_Search.txt" are used in the hierarchical and interactive strategies.
 The file "Infeasibilities.txt" saves the instances in which infeasibility occurs for each instance, which are the instances considered by the presented algorithms.
 For "ManneWarmStart.txt" we need to specify which strategy resulted in better solutions. In this case, such information is provided in the files "beststrategyXX.txt".
-
-Contact information:
-Fernanda de Freitas Alves - fernandafalves@ufmg.br
