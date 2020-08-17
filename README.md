@@ -1,6 +1,6 @@
 # Paper_Lotsizing_Scheduling
 
-In this repository, we provide the instances as well as the codes used in the paper "Analysis of approaches for the joint resolution of lot-sizing and scheduling". All the algorithms were implemented using AMPL programming language.
+In this repository, we provide the instances as well as the codes used in the paper "Approaches for the joint resolution of lot-sizing and scheduling with infeasibilities occurrences". All the algorithms were implemented using AMPL programming language.
 
 # Instance Generation
 
